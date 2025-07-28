@@ -12,7 +12,7 @@ export default function Home() {
           <a href="/services">Services</a>
           <a href="/projects">Projects</a>
           <a href="#">Blogs</a>
-          <a href="#">About Us</a>
+          <a href="/about">About Us</a>
           <a href="#">Contact</a>
           <button className="get-quote-btn">Get a Quote</button>
         </nav>
