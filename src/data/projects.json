@@ -1,0 +1,40 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "E-Commerce Platform",
+      "description": "A modern, responsive e-commerce solution with advanced features including real-time inventory, payment integration, and customer analytics.",
+      "image": "/assets/homepage.png",
+      "technologies": ["React", "Node.js", "MongoDB"],
+      "projectLink": "#",
+      "category": "Web Development"
+    },
+    {
+      "id": 2,
+      "title": "Healthcare Mobile App",
+      "description": "A comprehensive healthcare application providing patient management, appointment scheduling, and telemedicine capabilities.",
+      "image": "/assets/homepage.png",
+      "technologies": ["React Native", "Firebase", "AWS"],
+      "projectLink": "#",
+      "category": "Mobile Development"
+    },
+    {
+      "id": 3,
+      "title": "Analytics Dashboard",
+      "description": "An intuitive data visualization platform with real-time analytics, custom reporting, and interactive charts for business intelligence.",
+      "image": "/assets/homepage.png",
+      "technologies": ["Vue.js", "Python", "PostgreSQL"],
+      "projectLink": "#",
+      "category": "Data Analytics"
+    },
+    {
+      "id": 4,
+      "title": "CRM System",
+      "description": "A complete customer relationship management system with lead tracking, sales pipeline management, and automated workflows.",
+      "image": "/assets/homepage.png",
+      "technologies": ["Angular", "Spring Boot", "MySQL"],
+      "projectLink": "#",
+      "category": "Enterprise Software"
+    }
+  ]
+}

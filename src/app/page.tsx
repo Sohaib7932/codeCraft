@@ -1,103 +1,157 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+    <>
+      <header>
+        <div className="header-logo">
+          <a href="/">
+            <img src="/assets/logo.png" alt="CodeCraft Logo" />
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        <nav className="header-menu">
+          <a href="#">Home</a>
+          <a href="/services">Services</a>
+          <a href="/projects">Projects</a>
+          <a href="#">Blogs</a>
+          <a href="#">About Us</a>
+          <a href="#">Contact</a>
+          <button className="get-quote-btn">Get a Quote</button>
+        </nav>
+      </header>
+
+    <section className="home-container">
+      <section className="hero">
+        <h1>Crafting Digital Solutions for Tomorrow’s Challenges</h1>
+        <p>
+          We are a software development agency specializing in building
+          innovative and scalable applications. Our team of experts is dedicated
+          to delivering high-quality solutions tailored to your business needs.
+        </p>
+      </section>
+    </section>
+
+      <section className="services section">
+        <h2>Our Services</h2>
+        <div className="services-card">
+              <div className="service-icon">{"</>"}</div>
+              <h4>Web Development</h4>
+              <p>Building responsive and dynamic web applications using modern frameworks to create seamless user experiences.</p>
+        </div>
+        <div className="services-card">
+          <div className="service-icon">📱</div>
+          <h3>Mobile App Development</h3>
+          <p>
+            Creating native and cross-platform mobile applications for iOS and
+            Android.
+          </p>
+        </div>
+        <div className="services-card">
+         <div className="service-icon">🗄️</div>
+          <h3>Database Management</h3>
+          <p>
+            Designing and managing robust and scalable database solutions.
+          </p>
+        </div>
+      </section>
+
+      <section className="portfolio section">
+        <h2>Portfolio</h2>
+        <div className="portfolio-card">
+          <h3>Project Alpha</h3>
+          <p>A cutting-edge web application for a leading e-commerce company.</p>
+        </div>
+        <div className="portfolio-card">
+          <h3>Project Beta</h3>
+          <p>A user-friendly mobile app for a healthcare provider.</p>
+        </div>
+        <div className="portfolio-card">
+          <h3>Project Gamma</h3>
+          <p>
+            A comprehensive dashboard for a data analytics platform.
+          </p>
+        </div>
+      </section>
+
+      <section className="testimonials section">
+        <h2>Testimonials</h2>
+        <div className="testimonial-card">
+          <h3>Sophia Clark</h3>
+          <p>
+            CodeCraft delivered an exceptional web application that exceeded our
+            expectations. Their professionalism and attention to detail were
+            truly impressive.
+          </p>
+          <div className="star-rating">★★★★★</div>
+        </div>
+        <div className="testimonial-card">
+          <h3>Ethan Bennett</h3>
+          <p>
+            We are extremely satisfied with the mobile app developed by
+            CodeCraft. It's user-friendly and has significantly improved our
+            customer engagement.
+          </p>
+          <div className="star-rating">★★★★★</div>
+        </div>
+        <div className="testimonial-card">
+          <h3>Olivia Hayes</h3>
+          <p>
+            CodeCraft provided a solid database solution that met our
+            requirements. Their team was responsive and helpful throughout the
+            process.
+          </p>
+          <div className="star-rating">★★★★☆</div>
+        </div>
+      </section>
+
+      <section className="about section">
+        <h2>About Us</h2>
+        <p>
+          CodeCraft is a team of experienced software developers passionate
+          about creating innovative solutions. We are committed to delivering
+          high-quality applications that drive business growth and provide
+          exceptional user experiences. Our expertise spans various technologies
+          and industries, allowing us to tackle complex challenges with
+          confidence.
+        </p>
+      </section>
+
+      <section className="tech section">
+        <h2>Tech Stack</h2>
+        <div className="tech-card">
+          <p>AWS</p>
+        </div>
+        <div className="tech-card">
+          <p>Docker</p>
+        </div>
+        <div className="tech-card">
+          <p>Node.js</p>
+        </div>
+        <div className="tech-card">
+          <p>PostgreSQL</p>
+        </div>
+      </section>
+
+      <section className="blog section">
+        <h2>Latest from Our Blog</h2>
+        <h3>The Future of Web Development: Trends to Watch in 2024</h3>
+        <p>
+          Explore the latest trends shaping the future of web development,
+          including serverless architecture, progressive web apps, and
+          AI-powered tools.
+        </p>
+      </section>
+
+      <section className="cta section">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>
+          Contact us today to discuss your project and discover how CodeCraft
+          can help you achieve your goals.
+        </p>
+        <button>Get Started</button>
+      </section>
+
+      <footer>
+        <p>© 2024 CodeCraft. All rights reserved.</p>
       </footer>
-    </div>
+    </>
   );
 }
