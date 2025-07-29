@@ -1,110 +1,93 @@
 export default function About() {
   return (
     <>
-      <header>
-        <div className="header-logo">
-          <a href="/">
-            <img src="/assets/logo.png" alt="CodeCraft Logo" />
-          </a>
-        </div>
-        <nav className="header-menu">
-          <a href="/">Home</a>
-          <a href="/services">Services</a>
-          <a href="/projects">Projects</a>
-          <a href="#">Blogs</a>
-          <a href="/about">About Us</a>
-          <a href="#">Contact</a>
-          <button className="get-quote-btn">Get a Quote</button>
-        </nav>
-      </header>
-
-      <section className="about-hero">
-        <div className="hero-content">
-          <h1>Crafting Digital Solutions for Tomorrow's Challenges</h1>
-          <p>
+      <section className="flex justify-center items-center h-[350px] px-10 mx-20 gap-16 rounded-lg md:flex-col md:h-auto md:px-5 md:mx-5 md:gap-8" style={{backgroundColor: '#1a1a1a', color: '#f5f5f5'}}>
+        <div className="max-w-[450px] flex-shrink-0 md:max-w-full md:text-center">
+          <h1 className="text-[2.3rem] mb-4 leading-tight md:text-[1.8rem] md:mb-4" style={{textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)', lineHeight: '1.3'}}>Crafting Digital Solutions for Tomorrow's Challenges</h1>
+          <p className="text-[1.1rem] leading-relaxed md:text-[0.9rem]" style={{textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)', color: '#cccccc', lineHeight: '1.5'}}>
             At CodeCraft, we transform innovative ideas into robust, scalable software solutions. Our team of 
             developers, designers, and strategists are dedicated to delivering exceptional results that drive your 
             business forward.
           </p>
         </div>
-        <div className="hero-image">
-          <img src="/assets/homepage.png" alt="Modern office space with city view" />
+        <div className="max-w-[400px] flex-shrink-0 md:max-w-[280px]">
+          <img src="/assets/homepage.png" alt="Modern office space with city view" className="w-full h-auto rounded-lg" style={{boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3)'}} />
         </div>
       </section>
 
-      <section className="mission-section">
-        <h2>Our Mission</h2>
-        <p>
+      <section className="py-16 px-10 text-center md:py-10 md:px-5" style={{backgroundColor: '#1a1a1a', color: '#f5f5f5'}}>
+        <h2 className="text-[2rem] mb-5">Our Mission</h2>
+        <p className="text-base max-w-4xl mx-auto" style={{lineHeight: '1.6'}}>
           Our mission is to empower businesses with cutting-edge technology solutions that enhance efficiency, drive growth, and 
           create lasting value. We are committed to excellence in every project, ensuring our clients achieve their strategic objectives 
           through innovative software development.
         </p>
       </section>
 
-      <section className="team-section">
-        <h2>Meet Our Team</h2>
-        <div className="team-grid">
-          <div className="team-member">
-            <div className="member-photo">
-              <img src="/assets/Sohaib.jpg" alt="Muhammad Sohaib" />
+      <section className="py-16 px-10 text-center md:py-10 md:px-5" style={{backgroundColor: '#1a1a1a', color: '#f5f5f5'}}>
+        <h2 className="text-[2rem] mb-5">Meet Our Team</h2>
+        <div className="flex justify-center gap-16 mt-10 md:flex-col md:items-center md:gap-8">
+          <div className="text-center">
+            <div className="w-[100px] h-[100px] rounded-full overflow-hidden mx-auto mb-3 flex items-center justify-center">
+              <img src="/assets/Sohaib.jpg" alt="Muhammad Sohaib" className="w-full h-full object-cover object-center" />
             </div>
-            <h3>Muhammad Sohaib</h3>
-            <p className="member-role">Lead Developer</p>
+            <h3 className="text-lg font-semibold">Muhammad Sohaib</h3>
+            <p className="text-[0.9rem]" style={{color: '#cccccc'}}>Lead Developer</p>
           </div>
-          <div className="team-member">
-            <div className="member-photo">
-              <img src="/assets/Sohaib.jpg" alt="M Taha" />
+          <div className="text-center">
+            <div className="w-[100px] h-[100px] rounded-full overflow-hidden mx-auto mb-3 flex items-center justify-center">
+              <img src="/assets/Sohaib.jpg" alt="M Taha" className="w-full h-full object-cover object-center" />
             </div>
-            <h3>Syed M Taha</h3>
-            <p className="member-role">Design Director</p>
+            <h3 className="text-lg font-semibold">Syed M Taha</h3>
+            <p className="text-[0.9rem]" style={{color: '#cccccc'}}>Design Director</p>
           </div>
-          <div className="team-member">
-            <div className="member-photo">
-              <img src="/assets/Sohaib.jpg" alt="Hassan Naeem" />
+          <div className="text-center">
+            <div className="w-[100px] h-[100px] rounded-full overflow-hidden mx-auto mb-3 flex items-center justify-center">
+              <img src="/assets/Sohaib.jpg" alt="Hassan Naeem" className="w-full h-full object-cover object-center" />
             </div>
-            <h3>Hassan Naeem</h3>
-            <p className="member-role">Project Manager</p>
+            <h3 className="text-lg font-semibold">Hassan Naeem</h3>
+            <p className="text-[0.9rem]" style={{color: '#cccccc'}}>Project Manager</p>
           </div>
         </div>
       </section>
 
-      <section className="values-section">
-        <h2>Our Values</h2>
-        <div className="values-grid">
-          <div className="value-card">
-            <div className="value-icon">{"</>"}</div>
-            <h3>Innovation</h3>
-            <p>
+      <section className="py-16 px-10 text-center md:py-10 md:px-5" style={{backgroundColor: '#1a1a1a', color: '#f5f5f5'}}>
+        <h2 className="text-[2rem] mb-5">Our Values</h2>
+        <div className="flex justify-center gap-5">
+          <div className="rounded-lg p-5 text-center w-[200px]" style={{backgroundColor: '#2a2a2a'}}>
+            <div className="text-[2rem] mb-3" style={{color: '#007bff'}}>{"</>"}</div>
+            <h3 className="text-[1.2rem] mb-1 font-semibold">Innovation</h3>
+            <p className="text-[0.9rem]" style={{color: '#cccccc', lineHeight: '1.4'}}>
               We embrace creativity and constantly seek new ways to solve complex problems.
             </p>
           </div>
-          <div className="value-card">
-            <div className="value-icon">👥</div>
-            <h3>Collaboration</h3>
-            <p>
+          <div className="rounded-lg p-5 text-center w-[200px]" style={{backgroundColor: '#2a2a2a'}}>
+            <div className="text-[2rem] mb-3" style={{color: '#007bff'}}>👥</div>
+            <h3 className="text-[1.2rem] mb-1 font-semibold">Collaboration</h3>
+            <p className="text-[0.9rem]" style={{color: '#cccccc', lineHeight: '1.4'}}>
               We believe in the power of teamwork and open communication to achieve shared goals.
             </p>
           </div>
-          <div className="value-card">
-            <div className="value-icon">🎯</div>
-            <h3>Results-Driven</h3>
-            <p>
+          <div className="rounded-lg p-5 text-center w-[200px]" style={{backgroundColor: '#2a2a2a'}}>
+            <div className="text-[2rem] mb-3" style={{color: '#007bff'}}>🎯</div>
+            <h3 className="text-[1.2rem] mb-1 font-semibold">Results-Driven</h3>
+            <p className="text-[0.9rem]" style={{color: '#cccccc', lineHeight: '1.4'}}>
               We are committed to delivering measurable outcomes that align with our clients' business objectives.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="founder-section">
-        <h2>A Message from Our Founder</h2>
-        <div className="founder-content">
-          <div className="founder-photo">
-            <img src="/assets/Sohaib.jpg" alt="Maarij Bukhari" />
+      <section className="py-16 px-10 text-center md:py-10 md:px-5" style={{backgroundColor: '#1a1a1a', color: '#f5f5f5'}}>
+        <h2 className="text-[2rem] mb-5">A Message from Our Founder</h2>
+        <div className="flex justify-center items-center gap-10 mt-10 md:flex-col md:text-center md:gap-8">
+          <div className="w-[150px] h-[150px] rounded-full overflow-hidden flex-shrink-0">
+            <img src="/assets/Sohaib.jpg" alt="Maarij Bukhari" className="w-full h-full object-cover" />
           </div>
-          <div className="founder-message">
-            <h3>Maarij Bukhari</h3>
-            <p className="founder-title">Founder & CEO</p>
-            <p className="founder-text">
+          <div className="max-w-[600px] text-left md:text-center">
+            <h3 className="text-xl font-semibold mb-2">Maarij Bukhari</h3>
+            <p className="text-base mb-3" style={{color: '#cccccc'}}>Founder & CEO</p>
+            <p className="text-base" style={{lineHeight: '1.6'}}>
               At CodeCraft, we are driven by a passion for technology and a commitment to excellence. Our journey began with a vision to 
               create a software development agency that not only delivers exceptional solutions but also fosters long-term partnerships 
               with our clients. We believe in transparency, integrity, and a relentless pursuit of innovation. Our team is dedicated to 
@@ -114,16 +97,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      <footer>
-        <div className="footer-content">
-          <div className="social-links">
-            <span>🔗</span>
-            <span>📧</span>
-          </div>
-          <p>© 2024 CodeCraft. All rights reserved.</p>
-        </div>
-      </footer>
     </>
   );
 }
