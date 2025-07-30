@@ -5,7 +5,12 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[400px] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/assets/homepage.png')" }}>
+      <section className="relative h-[400px] overflow-hidden">
+        <img 
+          src="/assets/homepage.png" 
+          alt="Hero Background" 
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         <div className="relative z-10 flex items-center justify-center h-full px-8">
           <motion.div
