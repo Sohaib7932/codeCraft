@@ -1,4 +1,5 @@
 import projectsData from '../../data/projects.json';
+import Image from 'next/image';
 
 interface Project {
   id: number;
@@ -30,7 +31,6 @@ export default function Projects() {
       </section>
 
       <section className="py-20 px-5 max-w-6xl mx-auto" style={{backgroundColor: '#1a1a1a'}}>
-        <h2 className="text-center text-4xl font-semibold mb-15 text-white">Our Projects</h2>
         
         <div className="flex flex-col gap-10 mt-12">
           {projects.map((project) => (
@@ -47,7 +47,7 @@ export default function Projects() {
                 <a href={project.projectLink} className="bg-blue-600 text-white text-base font-semibold px-6 py-3 rounded-lg inline-block transition-all duration-300 self-start border-2 border-blue-600 hover:bg-transparent hover:text-blue-600 hover:transform hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-500/30">View Project</a>
               </div>
               <div className="flex-none w-[45%] bg-gray-700 flex items-center justify-center overflow-hidden relative">
-                <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+                <Image src={project.image} alt={project.title} width={500} height={300} className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
               </div>
             </div>
           ))}

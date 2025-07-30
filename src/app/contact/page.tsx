@@ -9,10 +9,10 @@ export default function Contact() {
         
         <div className="relative z-10">
           <h1 className="text-5xl font-bold mb-5 text-white">
-            Crafting Digital Solutions for Tomorrow's Challenges
+            Crafting Digital Solutions for Tomorrow&apos;s Challenges
           </h1>
           <p className="text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto">
-            Ready to start your next project? Let's discuss how we can help you achieve your goals with our expert team.
+            Ready to start your next project? Let&apos;s discuss how we can help you achieve your goals with our expert team.
           </p>
         </div>
       </section>
@@ -137,7 +137,7 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-4xl font-bold mb-5 text-white">Ready to Get Started?</h2>
           <p className="text-lg leading-relaxed mb-8 text-gray-300">
-            Let's turn your ideas into reality. Contact us today for a free consultation.
+            Let&apos;s turn your ideas into reality. Contact us today for a free consultation.
           </p>
           <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl">
             Schedule a Call

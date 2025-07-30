@@ -1,5 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,18 +35,18 @@ export default function Header() {
       }}
     >
       <div className="text-base font-bold">
-        <a href="/" className="flex items-center" style={{color: '#f5f5f5', textDecoration: 'none', padding: '0', fontSize: '1rem', fontWeight: '700'}}>
-          <img src="/assets/logo.png" alt="CodeCraft Logo" className="h-[30px] w-auto max-w-[150px]" />
-        </a>
+        <Link href="/" className="flex items-center" style={{color: '#f5f5f5', textDecoration: 'none', padding: '0', fontSize: '1rem', fontWeight: '700'}}>
+          <Image src="/assets/logo.png" alt="CodeCraft Logo" width={150} height={30} className="h-[30px] w-auto max-w-[150px]" />
+        </Link>
       </div>
       {/* Desktop Navigation */}
       <nav className="hidden md:flex items-center">
-        <a href="/" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-300" style={{color: '#f5f5f5', textDecoration: 'none', padding: '0 12px'}}>Home</a>
-        <a href="/services" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-300" style={{color: '#f5f5f5', textDecoration: 'none', padding: '0 12px'}}>Services</a>
-        <a href="/projects" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-300" style={{color: '#f5f5f5', textDecoration: 'none', padding: '0 12px'}}>Projects</a>
-        <a href="/blog" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-300" style={{color: '#f5f5f5', textDecoration: 'none', padding: '0 12px'}}>Blog</a>
-        <a href="/about" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-300" style={{color: '#f5f5f5', textDecoration: 'none', padding: '0 12px'}}>About Us</a>
-        <a href="/contact" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-300" style={{color: '#f5f5f5', textDecoration: 'none', padding: '0 12px'}}>Contact</a>
+        <Link href="/" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-300" style={{color: '#f5f5f5', textDecoration: 'none', padding: '0 12px'}}>Home</Link>
+        <Link href="/services" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-300" style={{color: '#f5f5f5', textDecoration: 'none', padding: '0 12px'}}>Services</Link>
+        <Link href="/projects" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-300" style={{color: '#f5f5f5', textDecoration: 'none', padding: '0 12px'}}>Projects</Link>
+        <Link href="/blog" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-300" style={{color: '#f5f5f5', textDecoration: 'none', padding: '0 12px'}}>Blog</Link>
+        <Link href="/about" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-300" style={{color: '#f5f5f5', textDecoration: 'none', padding: '0 12px'}}>About Us</Link>
+        <Link href="/contact" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-300" style={{color: '#f5f5f5', textDecoration: 'none', padding: '0 12px'}}>Contact</Link>
         <button className="bg-blue-600 text-white px-3 py-1 rounded text-xs font-medium hover:bg-blue-800 ml-3">Get a Quote</button>
       </nav>
 
@@ -85,54 +87,54 @@ export default function Header() {
           }}
         >
           <nav className="flex flex-col py-4">
-            <a 
+            <Link 
               href="/" 
               className="text-[0.9rem] font-normal transition-colors duration-300 hover:bg-gray-800 px-6 py-3"
               style={{color: '#f5f5f5', textDecoration: 'none'}}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Home
-            </a>
-            <a 
+            </Link>
+            <Link 
               href="/services" 
               className="text-[0.9rem] font-normal transition-colors duration-300 hover:bg-gray-800 px-6 py-3"
               style={{color: '#f5f5f5', textDecoration: 'none'}}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Services
-            </a>
-            <a 
+            </Link>
+            <Link 
               href="/projects" 
               className="text-[0.9rem] font-normal transition-colors duration-300 hover:bg-gray-800 px-6 py-3"
               style={{color: '#f5f5f5', textDecoration: 'none'}}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Projects
-            </a>
-            <a 
+            </Link>
+            <Link 
               href="/blog" 
               className="text-[0.9rem] font-normal transition-colors duration-300 hover:bg-gray-800 px-6 py-3"
               style={{color: '#f5f5f5', textDecoration: 'none'}}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Blog
-            </a>
-            <a 
+            </Link>
+            <Link 
               href="/about" 
               className="text-[0.9rem] font-normal transition-colors duration-300 hover:bg-gray-800 px-6 py-3"
               style={{color: '#f5f5f5', textDecoration: 'none'}}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               About Us
-            </a>
-            <a 
+            </Link>
+            <Link 
               href="/contact" 
               className="text-[0.9rem] font-normal transition-colors duration-300 hover:bg-gray-800 px-6 py-3"
               style={{color: '#f5f5f5', textDecoration: 'none'}}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contact
-            </a>
+            </Link>
             <div className="px-6 py-3">
               <button 
                 className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-800 w-full"

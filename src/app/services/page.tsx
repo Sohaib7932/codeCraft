@@ -1,14 +1,17 @@
 'use client';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Services() {
   return (
     <>
       {/* Hero Section */}
       <section className="relative h-[400px] overflow-hidden">
-        <img 
+        <Image 
           src="/assets/homepage.png" 
           alt="Hero Background" 
+          width={1920} 
+          height={1080}
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
@@ -34,7 +37,7 @@ export default function Services() {
 
           <div className="mb-20">
             <h3 className="text-2xl font-bold mb-5 text-white">Comprehensive Software Development</h3>
-            <p className="text-lg text-gray-300 leading-relaxed mb-10">We offer a full spectrum of software development services, ensuring your project's success from inception to completion.</p>
+            <p className="text-lg text-gray-300 leading-relaxed mb-10">We offer a full spectrum of software development services, ensuring your project&apos;s success from inception to completion.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="rounded-lg p-6 text-left" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
               <div className="text-2xl mb-4 text-gray-400">&lt;/&gt;</div>

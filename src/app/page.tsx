@@ -1,14 +1,17 @@
 'use client';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Home() {
   return (
     <>
       {/* Hero Section */}
       <section className="relative h-[400px] overflow-hidden">
-        <img 
+        <Image 
           src="/assets/homepage.png" 
           alt="Hero Background" 
+          width={1920}
+          height={1080}
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
@@ -20,7 +23,7 @@ export default function Home() {
             className="text-center max-w-4xl mx-auto"
           >
             <h1 className="text-5xl font-bold text-white mb-4 leading-tight">
-              Crafting Digital Solutions for Tomorrow's Challenges
+              Crafting Digital Solutions for Tomorrow&apos;s Challenges
             </h1>
             <p className="text-lg text-gray-200 leading-relaxed max-w-2xl mx-auto">
               We are a software development agency specializing in building innovative and scalable applications. Our team of experts is dedicated to delivering high-quality solutions tailored to your business needs.
@@ -217,7 +220,7 @@ export default function Home() {
           <div className="space-y-8">
             <div>
               <div className="flex items-start space-x-4 mb-3">
-                <img src="/assets/Sohaib.jpg" alt="Sophia Clark" className="w-12 h-12 rounded-full object-cover flex-shrink-0" />
+                <Image src="/assets/Sohaib.jpg" alt="Sophia Clark" width={48} height={48} className="w-12 h-12 rounded-full object-cover flex-shrink-0" />
                 <div>
                   <h3 className="text-lg font-bold text-white">Sophia Clark</h3>
                   <div className="text-sm text-gray-500">2023-08-15</div>
@@ -233,7 +236,7 @@ export default function Home() {
             
             <div>
               <div className="flex items-start space-x-4 mb-3">
-                <img src="/assets/Sohaib.jpg" alt="Ethan Bennett" className="w-12 h-12 rounded-full object-cover flex-shrink-0" />
+                <Image src="/assets/Sohaib.jpg" alt="Ethan Bennett" width={48} height={48} className="w-12 h-12 rounded-full object-cover flex-shrink-0" />
                 <div>
                   <h3 className="text-lg font-bold text-white">Ethan Bennett</h3>
                   <div className="text-sm text-gray-500">2023-07-22</div>
@@ -243,13 +246,13 @@ export default function Home() {
                 <div className="text-white text-lg">★★★★★</div>
               </div>
               <p className="text-white text-sm leading-relaxed">
-                We are extremely satisfied with the mobile app developed by CodeCraft. It's user-friendly and has significantly improved our customer engagement.
+                We are extremely satisfied with the mobile app developed by CodeCraft. It&apos;s user-friendly and has significantly improved our customer engagement.
               </p>
             </div>
             
             <div>
               <div className="flex items-start space-x-4 mb-3">
-                <img src="/assets/Sohaib.jpg" alt="Olivia Hayes" className="w-12 h-12 rounded-full object-cover flex-shrink-0" />
+                <Image src="/assets/Sohaib.jpg" alt="Olivia Hayes" width={48} height={48} className="w-12 h-12 rounded-full object-cover flex-shrink-0" />
                 <div>
                   <h3 className="text-lg font-bold text-white">Olivia Hayes</h3>
                   <div className="text-sm text-gray-500">2023-06-10</div>

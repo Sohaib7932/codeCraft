@@ -10,7 +10,7 @@ export default function Blog() {
         
         <div className="relative z-10">
           <h1 className="text-5xl font-bold mb-5 text-white">
-            Crafting Digital Solutions for Tomorrow's Challenges
+            Crafting Digital Solutions for Tomorrow&apos;s Challenges
           </h1>
           <p className="text-gray-300 text-lg leading-relaxed max-w-4xl mx-auto">
             Welcome to our Blog. Stay tuned for insights, updates, and thought leadership from our team of experts.
@@ -22,7 +22,7 @@ export default function Blog() {
         <h2 className="text-3xl font-semibold mb-10 text-white">Coming Soon</h2>
         <div className="bg-gray-800 rounded-xl p-8 shadow-xl border border-gray-700">
           <p className="text-gray-300 leading-relaxed text-lg">
-            We're currently working on bringing you valuable content about software development, 
+            We&apos;re currently working on bringing you valuable content about software development,
             technology trends, and industry insights. Check back soon for our latest articles and tutorials.
           </p>
         </div>
