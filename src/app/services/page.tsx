@@ -1,8 +1,12 @@
 'use client';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import Image from 'next/image';
 
 export default function Services() {
+  const processRef = useRef(null);
+  const isInView = useInView(processRef, { once: true, margin: "-100px" });
+
   return (
     <>
       {/* Hero Section */}
@@ -39,7 +43,7 @@ export default function Services() {
             <h3 className="text-2xl font-bold mb-5 text-white">Comprehensive Software Development</h3>
             <p className="text-lg text-gray-300 leading-relaxed mb-10">We offer a full spectrum of software development services, ensuring your project&apos;s success from inception to completion.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-lg p-6 text-left" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
+            <div className="rounded-lg p-6 text-left transform transition-all duration-300 hover:-translate-y-1" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
               <div className="text-2xl mb-4 text-gray-400">&lt;/&gt;</div>
               <h3 className="text-lg text-white mb-2">Web Development</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
@@ -47,7 +51,7 @@ export default function Services() {
               </p>
             </div>
 
-            <div className="rounded-lg p-6 text-left" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
+            <div className="rounded-lg p-6 text-left transform transition-all duration-300 hover:-translate-y-1" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
               <div className="mb-4">
                 <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <ellipse cx="12" cy="5" rx="9" ry="3"/>
@@ -61,7 +65,7 @@ export default function Services() {
               </p>
             </div>
 
-            <div className="rounded-lg p-6 text-left" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
+            <div className="rounded-lg p-6 text-left transform transition-all duration-300 hover:-translate-y-1" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
               <div className="mb-4">
                 <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 9l-5 5-5-5M12 12.8V2.5"/>
@@ -73,7 +77,7 @@ export default function Services() {
               </p>
             </div>
 
-            <div className="rounded-lg p-6 text-left" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
+            <div className="rounded-lg p-6 text-left transform transition-all duration-300 hover:-translate-y-1" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
               <div className="mb-4">
                 <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
@@ -92,7 +96,7 @@ export default function Services() {
           <h3 className="text-2xl font-bold mb-5 text-white">Custom Software Solutions</h3>
           <p className="text-lg text-gray-300 leading-relaxed mb-10">We tailor our software development services to meet your specific business requirements, ensuring a perfect fit for your unique challenges.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-lg p-6 text-left" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
+            <div className="rounded-lg p-6 text-left transform transition-all duration-300 hover:-translate-y-1" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
               <div className="text-2xl mb-4 text-gray-400">&lt;/&gt;</div>
               <h3 className="text-lg text-white mb-2">Enterprise Software</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
@@ -100,7 +104,7 @@ export default function Services() {
               </p>
             </div>
 
-            <div className="rounded-lg p-6 text-left" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
+            <div className="rounded-lg p-6 text-left transform transition-all duration-300 hover:-translate-y-1" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
               <div className="mb-4">
                 <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 9l-5 5-5-5M12 12.8V2.5"/>
@@ -112,7 +116,7 @@ export default function Services() {
               </p>
             </div>
 
-            <div className="rounded-lg p-6 text-left" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
+            <div className="rounded-lg p-6 text-left transform transition-all duration-300 hover:-translate-y-1" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
               <div className="mb-4">
                 <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 7h10M7 11h10M7 15h7"/>
@@ -124,7 +128,7 @@ export default function Services() {
               </p>
             </div>
 
-            <div className="rounded-lg p-6 text-left" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
+            <div className="rounded-lg p-6 text-left transform transition-all duration-300 hover:-translate-y-1" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
               <div className="mb-4">
                 <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
@@ -143,7 +147,7 @@ export default function Services() {
           <h3 className="text-2xl font-bold mb-5 text-white">Technology Consulting</h3>
           <p className="text-lg text-gray-300 leading-relaxed mb-10">Our expert consultants provide strategic guidance to help you make informed decisions about your technology investments.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-lg p-6 text-left" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
+            <div className="rounded-lg p-6 text-left transform transition-all duration-300 hover:-translate-y-1" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
               <div className="text-2xl mb-4 text-gray-400">&lt;/&gt;</div>
               <h3 className="text-lg text-white mb-2">Technology Strategy</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
@@ -151,7 +155,7 @@ export default function Services() {
               </p>
             </div>
 
-            <div className="rounded-lg p-6 text-left" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
+            <div className="rounded-lg p-6 text-left transform transition-all duration-300 hover:-translate-y-1" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
               <div className="mb-4">
                 <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 5h22m-2 0a1 1 0 00-1-1H4a1 1 0 00-1 1m3 0V3a2 2 0 012-2h8a2 2 0 012 2v2"/>
@@ -163,7 +167,7 @@ export default function Services() {
               </p>
             </div>
 
-            <div className="rounded-lg p-6 text-left" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
+            <div className="rounded-lg p-6 text-left transform transition-all duration-300 hover:-translate-y-1" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
               <div className="mb-4">
                 <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
@@ -175,7 +179,7 @@ export default function Services() {
               </p>
             </div>
 
-            <div className="rounded-lg p-6 text-left" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
+            <div className="rounded-lg p-6 text-left transform transition-all duration-300 hover:-translate-y-1" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
               <div className="mb-4">
                 <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
@@ -191,54 +195,79 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Our Development Process Section */}
+      {/* Our Process Section */}
       <section className="py-16 px-8" style={{ backgroundColor: '#121417' }}>
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-white mb-12">Our Process</h2>
-          <div className="relative">
+          <div className="relative" ref={processRef}>
             {/* Vertical connecting line */}
             <div className="absolute left-1 top-2 bottom-2 w-0.5 bg-white"></div>
             
             <div className="space-y-6">
-              <div className="flex items-start relative">
-                <div className="w-2 h-2 rounded-full bg-white mt-2 mr-4 flex-shrink-0 relative z-10"></div>
-                <div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Discovery & Planning</h3>
-                  <p className="text-gray-500 text-sm">Understanding your business goals and requirements.</p>
-                </div>
+            <motion.div 
+              className="flex items-start relative"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="w-2 h-2 rounded-full bg-white mt-2 mr-4 flex-shrink-0 relative z-10"></div>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-2">Discovery & Planning</h3>
+                <p className="text-gray-500 text-sm">Understanding your business goals and requirements.</p>
               </div>
+            </motion.div>
               
-              <div className="flex items-start relative">
-                <div className="w-2 h-2 rounded-full bg-white mt-2 mr-4 flex-shrink-0 relative z-10"></div>
-                <div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Design & Prototyping</h3>
-                  <p className="text-gray-500 text-sm">Creating wireframes and interactive prototypes.</p>
-                </div>
+            <motion.div 
+              className="flex items-start relative"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="w-2 h-2 rounded-full bg-white mt-2 mr-4 flex-shrink-0 relative z-10"></div>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-2">Design & Prototyping</h3>
+                <p className="text-gray-500 text-sm">Creating wireframes and interactive prototypes.</p>
               </div>
+            </motion.div>
               
-              <div className="flex items-start relative">
-                <div className="w-2 h-2 rounded-full bg-white mt-2 mr-4 flex-shrink-0 relative z-10"></div>
-                <div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Development & Testing</h3>
-                  <p className="text-gray-500 text-sm">Developing and rigorously testing the application.</p>
-                </div>
+            <motion.div 
+              className="flex items-start relative"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <div className="w-2 h-2 rounded-full bg-white mt-2 mr-4 flex-shrink-0 relative z-10"></div>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-2">Development & Testing</h3>
+                <p className="text-gray-500 text-sm">Developing and rigorously testing the application.</p>
               </div>
+            </motion.div>
               
-              <div className="flex items-start relative">
-                <div className="w-2 h-2 rounded-full bg-white mt-2 mr-4 flex-shrink-0 relative z-10"></div>
-                <div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Deployment & Launch</h3>
-                  <p className="text-gray-500 text-sm">Deploying the application to production servers.</p>
-                </div>
+            <motion.div 
+              className="flex items-start relative"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
+              <div className="w-2 h-2 rounded-full bg-white mt-2 mr-4 flex-shrink-0 relative z-10"></div>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-2">Deployment & Launch</h3>
+                <p className="text-gray-500 text-sm">Deploying the application to production servers.</p>
               </div>
+            </motion.div>
               
-              <div className="flex items-start relative">
-                <div className="w-2 h-2 rounded-full bg-white mt-2 mr-4 flex-shrink-0 relative z-10"></div>
-                <div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Maintenance & Support</h3>
-                  <p className="text-gray-500 text-sm">Providing ongoing maintenance and support.</p>
-                </div>
+            <motion.div 
+              className="flex items-start relative"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+            >
+              <div className="w-2 h-2 rounded-full bg-white mt-2 mr-4 flex-shrink-0 relative z-10"></div>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-2">Maintenance & Support</h3>
+                <p className="text-gray-500 text-sm">Providing ongoing maintenance and support.</p>
               </div>
+            </motion.div>
             </div>
           </div>
         </div>

@@ -1,10 +1,14 @@
 'use client';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import caseStudiesData from '../data/caseStudies.json';
 
 export default function Home() {
+  const processRef = useRef(null);
+  const isInView = useInView(processRef, { once: true, margin: "-100px" });
+
   return (
     <>
       {/* Hero Section */}
@@ -81,50 +85,75 @@ export default function Home() {
       <section className="py-16 px-8" style={{ backgroundColor: '#121417' }}>
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-white mb-12">Our Development Process</h2>
-          <div className="relative">
+          <div className="relative" ref={processRef}>
             {/* Vertical connecting line */}
             <div className="absolute left-1 top-2 bottom-2 w-0.5 bg-white"></div>
             
             <div className="space-y-6">
-              <div className="flex items-start relative">
+              <motion.div 
+                className="flex items-start relative"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.5 }}
+              >
                 <div className="w-2 h-2 rounded-full bg-white mt-2 mr-4 flex-shrink-0 relative z-10"></div>
                 <div>
                   <h3 className="text-lg font-semibold text-white mb-2">Discovery & Planning</h3>
                   <p className="text-gray-500 text-sm">Understanding your business goals and requirements.</p>
                 </div>
-              </div>
+              </motion.div>
               
-              <div className="flex items-start relative">
+              <motion.div 
+                className="flex items-start relative"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
                 <div className="w-2 h-2 rounded-full bg-white mt-2 mr-4 flex-shrink-0 relative z-10"></div>
                 <div>
                   <h3 className="text-lg font-semibold text-white mb-2">Design & Prototyping</h3>
                   <p className="text-gray-500 text-sm">Creating wireframes and interactive prototypes.</p>
                 </div>
-              </div>
+              </motion.div>
               
-              <div className="flex items-start relative">
+              <motion.div 
+                className="flex items-start relative"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
                 <div className="w-2 h-2 rounded-full bg-white mt-2 mr-4 flex-shrink-0 relative z-10"></div>
                 <div>
                   <h3 className="text-lg font-semibold text-white mb-2">Development & Testing</h3>
                   <p className="text-gray-500 text-sm">Developing and rigorously testing the application.</p>
                 </div>
-              </div>
+              </motion.div>
               
-              <div className="flex items-start relative">
+              <motion.div 
+                className="flex items-start relative"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+              >
                 <div className="w-2 h-2 rounded-full bg-white mt-2 mr-4 flex-shrink-0 relative z-10"></div>
                 <div>
                   <h3 className="text-lg font-semibold text-white mb-2">Deployment & Launch</h3>
                   <p className="text-gray-500 text-sm">Deploying the application to production servers.</p>
                 </div>
-              </div>
+              </motion.div>
               
-              <div className="flex items-start relative">
+              <motion.div 
+                className="flex items-start relative"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.5, delay: 0.8 }}
+              >
                 <div className="w-2 h-2 rounded-full bg-white mt-2 mr-4 flex-shrink-0 relative z-10"></div>
                 <div>
                   <h3 className="text-lg font-semibold text-white mb-2">Maintenance & Support</h3>
                   <p className="text-gray-500 text-sm">Providing ongoing maintenance and support.</p>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
