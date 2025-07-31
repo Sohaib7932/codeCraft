@@ -48,7 +48,7 @@ export default function CaseStudies() {
               Case Studies
             </h1>
             <p className="text-lg text-gray-200 leading-relaxed max-w-2xl mx-auto">
-              Discover how we've helped businesses transform their operations and achieve remarkable results through innovative software solutions.
+              Discover how we&apos;ve helped businesses transform their operations and achieve remarkable results through innovative software solutions.
             </p>
           </motion.div>
         </div>
@@ -149,7 +149,7 @@ export default function CaseStudies() {
                         {study.testimonial.author.charAt(0)}
                       </div>
                       <div className="flex-1">
-                        <p className="text-gray-300 italic mb-4">"{study.testimonial.quote}"</p>
+                        <p className="text-gray-300 italic mb-4">&quot;{study.testimonial.quote}&quot;</p>
                         <div>
                           <p className="text-white font-semibold">{study.testimonial.author}</p>
                           <p className="text-gray-400 text-sm">{study.testimonial.position}</p>
@@ -216,7 +216,7 @@ export default function CaseStudies() {
             Ready to Create Your Success Story?
           </h2>
           <p className="text-lg text-gray-300 leading-relaxed mb-8 max-w-2xl mx-auto">
-            Let's discuss how we can help transform your business with innovative technology solutions.
+            Let&apos;s discuss how we can help transform your business with innovative technology solutions.
           </p>
           <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
             Start Your Project

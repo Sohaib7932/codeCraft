@@ -139,9 +139,9 @@ export default function CaseStudy() {
             </div>
           </div>
           <blockquote className="text-xl text-gray-300 italic text-center mb-6 leading-relaxed relative">
-            <span className="text-blue-400 text-4xl absolute -top-4 -left-4">"</span>
+            <span className="text-blue-400 text-4xl absolute -top-4 -left-4">&quot;</span>
             {caseStudy.testimonial.quote}
-            <span className="text-blue-400 text-4xl absolute -bottom-8 -right-4">"</span>
+            <span className="text-blue-400 text-4xl absolute -bottom-8 -right-4">&quot;</span>
           </blockquote>
           <div className="text-center">
             <p className="text-white font-semibold text-lg">{caseStudy.testimonial.author}</p>
