@@ -1,6 +1,8 @@
 'use client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
+import caseStudiesData from '../data/caseStudies.json';
 
 export default function Home() {
   return (
@@ -314,33 +316,47 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Latest from Our Blog Section */}
+      {/* Latest Case Studies Section */}
       <section className="py-16 px-8" style={{ backgroundColor: '#121417' }}>
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-white mb-12">Latest from Our Blog</h2>
-          <div className="flex items-stretch rounded-2xl overflow-hidden">
-            <div className="flex-1 ">
-              <span className="text-sm text-gray-500 mb-2 block">Tech Insights</span>
-              <h3 className="text-xl font-bold text-white mb-4">
-                The Future of Web Development: Trends to Watch in 2024
-              </h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Explore the latest trends shaping the future of web development, including serverless architecture, progressive web apps, and AI-powered tools.
-              </p>
-            </div>
-            <div className="w-80 bg-teal-400 rounded-r-2xl p-8 flex items-end justify-center relative">
-              <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-black rounded"></div>
-              <div className="flex items-end space-x-4">
-                <div className="w-12 h-16 bg-white rounded-t-lg flex items-end justify-center pb-2">
-                  <div className="w-2 h-8 bg-gray-300 rounded"></div>
+          <h2 className="text-2xl font-bold text-white mb-12">Latest Case Studies</h2>
+          <Link href={`/case-studies/${caseStudiesData.caseStudies[0].id}`} className="block group">
+            <div className="flex items-stretch rounded-2xl overflow-hidden bg-gray-800 hover:bg-gray-700 transition-colors duration-300 cursor-pointer">
+              <div className="flex-1 p-8">
+                <span className="inline-block bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium mb-4">
+                  {caseStudiesData.caseStudies[0].industry}
+                </span>
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-300 transition-colors">
+                  {caseStudiesData.caseStudies[0].title}
+                </h3>
+                <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                  Discover how we helped {caseStudiesData.caseStudies[0].client} achieve remarkable results including {caseStudiesData.caseStudies[0].results[0].toLowerCase()} through our innovative healthcare management platform.
+                </p>
+                <div className="flex items-center text-blue-400 text-sm font-semibold group-hover:text-blue-300 transition-colors">
+                  <span>Read Full Case Study</span>
+                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </div>
-                <div className="w-16 h-12 bg-gray-800 rounded-lg flex items-center justify-center">
-                  <div className="w-8 h-1 bg-white rounded"></div>
+              </div>
+              <div className="w-80 bg-gradient-to-br from-blue-500 to-blue-700 p-8 flex items-center justify-center relative">
+                <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+                <div className="relative z-10 text-center">
+                  <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  <div className="text-white font-semibold">
+                    Success Story
+                  </div>
+                  <div className="text-blue-100 text-sm mt-1">
+                    {caseStudiesData.caseStudies[0].duration} project
+                  </div>
                 </div>
-                <div className="w-8 h-20 bg-orange-400 rounded-t-lg"></div>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
       </section>
 

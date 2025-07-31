@@ -1,19 +1,36 @@
+'use client';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 export default function About() {
   return (
-    <>
-      <section className="flex justify-center items-center h-[350px] px-10 mx-20 gap-16 rounded-lg md:flex-col md:h-auto md:px-5 md:mx-5 md:gap-8" style={{backgroundColor: '#1a1a1a', color: '#f5f5f5'}}>
-        <div className="max-w-[450px] flex-shrink-0 md:max-w-full md:text-center">
-          <h1 className="text-[2.3rem] mb-4 leading-tight md:text-[1.8rem] md:mb-4" style={{textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)', lineHeight: '1.3'}}>Crafting Digital Solutions for Tomorrow&apos;s Challenges</h1>
-          <p className="text-[1.1rem] leading-relaxed md:text-[0.9rem]" style={{textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)', color: '#cccccc', lineHeight: '1.5'}}>
-            At CodeCraft, we transform innovative ideas into robust, scalable software solutions. Our team of 
-            developers, designers, and strategists are dedicated to delivering exceptional results that drive your 
-            business forward.
-          </p>
-        </div>
-        <div className="max-w-[400px] flex-shrink-0 md:max-w-[280px]">
-          <Image src="/assets/homepage.png" alt="Modern office space with city view" width={800} height={600} className="w-full h-auto rounded-lg" style={{boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3)'}} />
+    <div style={{ backgroundColor: '#121417' }} className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative h-[500px] overflow-hidden">
+        <Image 
+          src="/assets/homepage.png" 
+          alt="Hero Background" 
+          width={1920}
+          height={1080}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div className="relative z-10 flex items-center justify-center h-full px-8">
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <h1 className="text-5xl font-bold text-white mb-6 leading-tight">
+              About CodeCraft
+            </h1>
+            <p className="text-xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
+              We transform innovative ideas into robust, scalable software solutions. Our team of 
+              developers, designers, and strategists are dedicated to delivering exceptional results that drive your 
+              business forward.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -26,29 +43,93 @@ export default function About() {
         </p>
       </section>
 
-      <section className="py-16 px-10 text-center md:py-10 md:px-5" style={{backgroundColor: '#1a1a1a', color: '#f5f5f5'}}>
-        <h2 className="text-[2rem] mb-5">Meet Our Team</h2>
-        <div className="flex justify-center gap-16 mt-10 md:flex-col md:items-center md:gap-8">
-          <div className="text-center">
-            <div className="w-[100px] h-[100px] rounded-full overflow-hidden mx-auto mb-3 flex items-center justify-center">
-              <Image src="/assets/Sohaib.jpg" alt="Muhammad Sohaib" width={100} height={100} className="w-full h-full object-cover object-center" />
+      <section className="py-20 px-8" style={{backgroundColor: '#121417'}}>
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold text-white text-center mb-16">Meet Our Team</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Maarij Bukhari */}
+            <div className="group relative bg-gray-800 rounded-2xl overflow-hidden hover:bg-gray-700 transition-all duration-500">
+              <div className="relative overflow-hidden">
+                <Image 
+                  src="/assets/sohaib-removebg.png" 
+                  alt="Maarij Bukhari" 
+                  width={300} 
+                  height={400} 
+                  className="w-full h-80 object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                <h3 className="text-xl font-bold text-white mb-2">Maarij Bukhari</h3>
+                <p className="text-blue-400 font-semibold mb-2">CEO & Founder</p>
+                <p className="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Visionary leader with expertise in business strategy and technology innovation.
+                </p>
+              </div>
             </div>
-            <h3 className="text-lg font-semibold">Muhammad Sohaib</h3>
-            <p className="text-[0.9rem]" style={{color: '#cccccc'}}>Lead Developer</p>
-          </div>
-          <div className="text-center">
-            <div className="w-[100px] h-[100px] rounded-full overflow-hidden mx-auto mb-3 flex items-center justify-center">
-              <Image src="/assets/Sohaib.jpg" alt="M Taha" width={100} height={100} className="w-full h-full object-cover object-center" />
+
+            {/* M. Sohaib */}
+            <div className="group relative bg-gray-800 rounded-2xl overflow-hidden hover:bg-gray-700 transition-all duration-500">
+              <div className="relative overflow-hidden">
+                <Image 
+                  src="/assets/sohaib-removebg.png" 
+                  alt="M. Sohaib" 
+                  width={300} 
+                  height={400} 
+                  className="w-full h-80 object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                <h3 className="text-xl font-bold text-white mb-2">M. Sohaib</h3>
+                <p className="text-blue-400 font-semibold mb-2">Lead Developer</p>
+                <p className="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Full-stack developer specializing in modern web technologies and scalable solutions.
+                </p>
+              </div>
             </div>
-            <h3 className="text-lg font-semibold">Syed M Taha</h3>
-            <p className="text-[0.9rem]" style={{color: '#cccccc'}}>Design Director</p>
-          </div>
-          <div className="text-center">
-            <div className="w-[100px] h-[100px] rounded-full overflow-hidden mx-auto mb-3 flex items-center justify-center">
-              <Image src="/assets/Sohaib.jpg" alt="Hassan Naeem" width={100} height={100} className="w-full h-full object-cover object-center" />
+
+            {/* Syed M. Taha */}
+            <div className="group relative bg-gray-800 rounded-2xl overflow-hidden hover:bg-gray-700 transition-all duration-500">
+              <div className="relative overflow-hidden">
+                <Image 
+                  src="/assets/sohaib-removebg.png" 
+                  alt="Syed M. Taha" 
+                  width={300} 
+                  height={400} 
+                  className="w-full h-80 object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                <h3 className="text-xl font-bold text-white mb-2">Syed M. Taha</h3>
+                <p className="text-blue-400 font-semibold mb-2">Design Director</p>
+                <p className="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Creative designer focused on user experience and modern interface design.
+                </p>
+              </div>
             </div>
-            <h3 className="text-lg font-semibold">Hassan Naeem</h3>
-            <p className="text-[0.9rem]" style={{color: '#cccccc'}}>Project Manager</p>
+
+            {/* Hassan Naeem */}
+            <div className="group relative bg-gray-800 rounded-2xl overflow-hidden hover:bg-gray-700 transition-all duration-500">
+              <div className="relative overflow-hidden">
+                <Image 
+                  src="/assets/sohaib-removebg.png" 
+                  alt="Hassan Naeem" 
+                  width={300} 
+                  height={400} 
+                  className="w-full h-80 object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                <h3 className="text-xl font-bold text-white mb-2">Hassan Naeem</h3>
+                <p className="text-blue-400 font-semibold mb-2">Project Manager</p>
+                <p className="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Strategic project manager ensuring seamless delivery and client satisfaction.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -80,25 +161,6 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-16 px-10 text-center md:py-10 md:px-5" style={{backgroundColor: '#1a1a1a', color: '#f5f5f5'}}>
-        <h2 className="text-[2rem] mb-5">A Message from Our Founder</h2>
-        <div className="flex justify-center items-center gap-10 mt-10 md:flex-col md:text-center md:gap-8">
-          <div className="w-[150px] h-[150px] rounded-full overflow-hidden flex-shrink-0">
-            <Image src="/assets/Sohaib.jpg" alt="Maarij Bukhari" width={150} height={150} className="w-full h-full object-cover" />
-          </div>
-          <div className="max-w-[600px] text-left md:text-center">
-            <h3 className="text-xl font-semibold mb-2">Maarij Bukhari</h3>
-            <p className="text-base mb-3" style={{color: '#cccccc'}}>Founder & CEO</p>
-            <p className="text-base" style={{lineHeight: '1.6'}}>
-              At CodeCraft, we are driven by a passion for technology and a commitment to excellence. Our journey began with a vision to 
-              create a software development agency that not only delivers exceptional solutions but also fosters long-term partnerships 
-              with our clients. We believe in transparency, integrity, and a relentless pursuit of innovation. Our team is dedicated to 
-              understanding your unique needs and crafting tailored solutions that exceed your expectations. Together, we can transform 
-              your ideas into reality and achieve remarkable success.
-            </p>
-          </div>
-        </div>
-      </section>
-    </>
+    </div>
   );
 }

@@ -44,7 +44,7 @@ export default function Header() {
         <Link href="/" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-300" style={{color: '#f5f5f5', textDecoration: 'none', padding: '0 12px'}}>Home</Link>
         <Link href="/services" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-300" style={{color: '#f5f5f5', textDecoration: 'none', padding: '0 12px'}}>Services</Link>
         <Link href="/projects" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-300" style={{color: '#f5f5f5', textDecoration: 'none', padding: '0 12px'}}>Projects</Link>
-        <Link href="/blog" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-300" style={{color: '#f5f5f5', textDecoration: 'none', padding: '0 12px'}}>Blog</Link>
+        <Link href="/case-studies" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-300" style={{color: '#f5f5f5', textDecoration: 'none', padding: '0 12px'}}>Case Studies</Link>
         <Link href="/about" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-300" style={{color: '#f5f5f5', textDecoration: 'none', padding: '0 12px'}}>About Us</Link>
         <Link href="/contact" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-300" style={{color: '#f5f5f5', textDecoration: 'none', padding: '0 12px'}}>Contact</Link>
         <button className="bg-blue-600 text-white px-3 py-1 rounded text-xs font-medium hover:bg-blue-800 ml-3">Get a Quote</button>
@@ -112,12 +112,12 @@ export default function Header() {
               Projects
             </Link>
             <Link 
-              href="/blog" 
+              href="/case-studies" 
               className="text-[0.9rem] font-normal transition-colors duration-300 hover:bg-gray-800 px-6 py-3"
               style={{color: '#f5f5f5', textDecoration: 'none'}}
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Blog
+              Case Studies
             </Link>
             <Link 
               href="/about" 
