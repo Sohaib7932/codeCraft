@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[400px] overflow-hidden">
+      <section className="section-hero">
         <Image 
           src="/assets/homepage.png" 
           alt="Hero Background" 
@@ -20,7 +20,7 @@ export default function Home() {
           height={1080}
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative z-10 flex items-center justify-center h-full px-8">
           <motion.div
             initial={{ y: 100, opacity: 0 }}
@@ -39,11 +39,11 @@ export default function Home() {
       </section>
 
       {/* Our Services Section */}
-      <section className="py-16 px-8" style={{ backgroundColor: '#121417' }}>
+      <section className="section" style={{ backgroundColor: 'var(--background-secondary)' }}>
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-white mb-12">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-lg p-6 text-left" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
+            <div className="card">
               <div className="text-2xl mb-4 text-gray-400">&lt;/&gt;</div>
               <h3 className="text-lg text-white mb-2">Web Development</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
@@ -51,7 +51,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="rounded-lg p-6 text-left" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
+            <div className="card">
               <div className="mb-4">
                 <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
@@ -64,7 +64,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="rounded-lg p-6 text-left" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }}>
+            <div className="card">
               <div className="mb-4">
                 <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <ellipse cx="12" cy="5" rx="9" ry="3"/>
@@ -82,7 +82,7 @@ export default function Home() {
       </section>
 
       {/* Our Development Process Section */}
-      <section className="py-16 px-8" style={{ backgroundColor: '#121417' }}>
+      <section className="section" style={{ backgroundColor: 'var(--background-secondary)' }}>
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-white mb-12">Our Development Process</h2>
           <div className="relative" ref={processRef}>
@@ -160,7 +160,7 @@ export default function Home() {
       </section>
 
       {/* Portfolio Section */}
-      <section className="py-16 px-8" style={{ backgroundColor: '#121417' }}>
+      <section className="section" style={{ backgroundColor: 'var(--background-secondary)' }}>
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-white mb-12">Portfolio</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -245,7 +245,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 px-8" style={{ backgroundColor: '#121417' }}>
+      <section className="section" style={{ backgroundColor: 'var(--background-secondary)' }}>
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-white mb-12">Testimonials</h2>
           <div className="space-y-8">
@@ -301,7 +301,7 @@ export default function Home() {
       </section>
 
       {/* About Us Section */}
-      <section className="py-16 px-8" style={{ backgroundColor: '#121417' }}>
+      <section className="section" style={{ backgroundColor: 'var(--background-secondary)' }}>
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-white mb-12">About Us</h2>
           <div className="bg-gray-800 rounded-lg p-8">
@@ -313,7 +313,7 @@ export default function Home() {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="py-16 px-8" style={{ backgroundColor: '#121417' }}>
+      <section className="section" style={{ backgroundColor: 'var(--background-secondary)' }}>
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-white mb-12">Tech Stack</h2>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -346,7 +346,7 @@ export default function Home() {
       </section>
 
       {/* Latest Case Studies Section */}
-      <section className="py-16 px-8" style={{ backgroundColor: '#121417' }}>
+      <section className="section" style={{ backgroundColor: 'var(--background-secondary)' }}>
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-white mb-12">Latest Case Studies</h2>
           <Link href={`/case-studies/${caseStudiesData.caseStudies[0].id}`} className="block group">
@@ -390,7 +390,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-8 text-center" style={{ backgroundColor: '#121417' }}>
+      <section className="section text-center" style={{ backgroundColor: 'var(--background-secondary)' }}>
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-white mb-6">
             Ready to Transform Your Business?

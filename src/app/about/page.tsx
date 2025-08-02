@@ -4,9 +4,9 @@ import Image from 'next/image';
 
 export default function About() {
   return (
-    <div style={{ backgroundColor: '#121417' }} className="min-h-screen">
+    <div style={{ backgroundColor: 'var(--background-primary)' }} className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[500px] overflow-hidden">
+      <section className="section-hero" style={{ minHeight: '500px' }}>
         <Image 
           src="/assets/homepage.png" 
           alt="Hero Background" 
@@ -34,7 +34,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-16 px-10 text-center md:py-10 md:px-5" style={{backgroundColor: '#1a1a1a', color: '#f5f5f5'}}>
+      <section className="section text-center" style={{backgroundColor: 'var(--background-secondary)'}}>
         <h2 className="text-[2rem] mb-5">Our Mission</h2>
         <p className="text-base max-w-4xl mx-auto" style={{lineHeight: '1.6'}}>
           Our mission is to empower businesses with cutting-edge technology solutions that enhance efficiency, drive growth, and 
@@ -43,7 +43,7 @@ export default function About() {
         </p>
       </section>
 
-      <section className="py-20 px-8" style={{backgroundColor: '#121417'}}>
+      <section className="section" style={{backgroundColor: 'var(--background-secondary)'}}>
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-white text-center mb-16">Meet Our Team</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -134,27 +134,27 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-16 px-10 text-center md:py-10 md:px-5" style={{backgroundColor: '#1a1a1a', color: '#f5f5f5'}}>
-        <h2 className="text-[2rem] mb-5">Our Values</h2>
+      <section className="section text-center" style={{backgroundColor: 'var(--background-secondary)'}}>
+        <h2 className="text-[2rem] mb-5 text-white">Our Values</h2>
         <div className="flex justify-center gap-5">
-          <div className="rounded-lg p-5 text-center w-[200px]" style={{backgroundColor: '#2a2a2a'}}>
-            <div className="text-[2rem] mb-3" style={{color: '#007bff'}}>{"</>"}</div>
-            <h3 className="text-[1.2rem] mb-1 font-semibold">Innovation</h3>
-            <p className="text-[0.9rem]" style={{color: '#cccccc', lineHeight: '1.4'}}>
+          <div className="card rounded-lg p-5 text-center w-[200px]">
+            <div className="text-[2rem] mb-3 text-blue-400">{"</>"}</div>
+            <h3 className="text-[1.2rem] mb-1 font-semibold text-white">Innovation</h3>
+            <p className="text-[0.9rem] text-gray-300 leading-relaxed">
               We embrace creativity and constantly seek new ways to solve complex problems.
             </p>
           </div>
-          <div className="rounded-lg p-5 text-center w-[200px]" style={{backgroundColor: '#2a2a2a'}}>
-            <div className="text-[2rem] mb-3" style={{color: '#007bff'}}>👥</div>
-            <h3 className="text-[1.2rem] mb-1 font-semibold">Collaboration</h3>
-            <p className="text-[0.9rem]" style={{color: '#cccccc', lineHeight: '1.4'}}>
+          <div className="card rounded-lg p-5 text-center w-[200px]">
+            <div className="text-[2rem] mb-3 text-blue-400">👥</div>
+            <h3 className="text-[1.2rem] mb-1 font-semibold text-white">Collaboration</h3>
+            <p className="text-[0.9rem] text-gray-300 leading-relaxed">
               We believe in the power of teamwork and open communication to achieve shared goals.
             </p>
           </div>
-          <div className="rounded-lg p-5 text-center w-[200px]" style={{backgroundColor: '#2a2a2a'}}>
-            <div className="text-[2rem] mb-3" style={{color: '#007bff'}}>🎯</div>
-            <h3 className="text-[1.2rem] mb-1 font-semibold">Results-Driven</h3>
-            <p className="text-[0.9rem]" style={{color: '#cccccc', lineHeight: '1.4'}}>
+          <div className="card rounded-lg p-5 text-center w-[200px]">
+            <div className="text-[2rem] mb-3 text-blue-400">🎯</div>
+            <h3 className="text-[1.2rem] mb-1 font-semibold text-white">Results-Driven</h3>
+            <p className="text-[0.9rem] text-gray-300 leading-relaxed">
               We are committed to delivering measurable outcomes that align with our clients&apos; business objectives.
             </p>
           </div>

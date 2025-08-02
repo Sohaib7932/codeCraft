@@ -1,8 +1,8 @@
 export default function Contact() {
   return (
     <>
-      {/* Hero Section with exact original CSS gradient */}
-      <section className="text-center py-20 px-5 relative overflow-hidden" style={{background: 'linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)'}}>
+      {/* Hero Section */}
+      <section className="section-hero text-center">
         {/* Decorative circles */}
         <div className="absolute top-5 right-5 w-25 h-25 bg-white/10 rounded-full"></div>
         <div className="absolute bottom-5 left-5 w-36 h-36 bg-white/5 rounded-full"></div>
@@ -17,10 +17,10 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="contact-section py-16 max-w-6xl mx-auto px-4">
+      <section className="section max-w-6xl mx-auto">
         <div className="grid gap-12 grid-cols-1 lg:grid-cols-2">
           {/* Contact Form */}
-          <div className="bg-gray-800 rounded-xl p-8 shadow-xl border border-gray-700">
+          <div className="card rounded-xl p-8 shadow-xl">
             <h2 className="text-2xl font-bold text-white mb-6">Send us a Message</h2>
             <form className="space-y-6">
               <div>
@@ -78,7 +78,7 @@ export default function Contact() {
 
           {/* Contact Information */}
           <div className="space-y-8">
-            <div className="bg-gray-800 rounded-xl p-8 shadow-xl border border-gray-700">
+            <div className="card rounded-xl p-8 shadow-xl">
               <h2 className="text-2xl font-bold text-white mb-6">Contact Information</h2>
               <div className="space-y-6">
                 <div className="flex items-center">
@@ -111,7 +111,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="bg-gray-800 rounded-xl p-8 shadow-xl border border-gray-700">
+            <div className="card rounded-xl p-8 shadow-xl">
               <h2 className="text-2xl font-bold text-white mb-6">Business Hours</h2>
               <div className="space-y-3">
                 <div className="flex justify-between">
@@ -133,7 +133,7 @@ export default function Contact() {
       </section>
 
       {/* CTA Section */}
-      <section className="text-center py-20 px-5" style={{backgroundColor: '#1a1a1a'}}>
+      <section className="section text-center" style={{backgroundColor: 'var(--background-secondary)'}}>
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-4xl font-bold mb-5 text-white">Ready to Get Started?</h2>
           <p className="text-lg leading-relaxed mb-8 text-gray-300">

@@ -10,6 +10,7 @@ interface CaseStudy {
   title: string;
   client: string;
   industry: string;
+  description: string;
   results: string[];
   technologies: string[];
   duration: string;
@@ -45,7 +46,7 @@ export default function CaseStudies() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[400px] overflow-hidden">
+      <section className="section-hero">
         <Image 
           src="/assets/homepage.png" 
           alt="Hero Background" 
@@ -53,7 +54,7 @@ export default function CaseStudies() {
           height={1080}
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative z-10 flex items-center justify-center h-full px-8">
           <motion.div
             initial={{ y: 100, opacity: 0 }}
@@ -72,7 +73,7 @@ export default function CaseStudies() {
       </section>
 
       {/* Filters Section */}
-      <section className="py-8 px-8" style={{ backgroundColor: '#121417' }}>
+      <section className="section" style={{ backgroundColor: 'var(--background-secondary)' }}>
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-wrap gap-3 justify-center mb-8">
             {filterLabels.map((filter) => (
@@ -95,28 +96,65 @@ export default function CaseStudies() {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-16 px-8" style={{ backgroundColor: '#121417' }}>
+      <section className="section" style={{ backgroundColor: 'var(--background-secondary)' }}>
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredCaseStudies.map((study, index) => (
-              <div className="rounded-lg p-6 text-left transform transition-all duration-300 hover:-translate-y-1" style={{ backgroundColor: '#1C2126', border: '1px solid #3b4554' }} key={study.id}>
-                <div className="text-2xl mb-4 text-gray-400">&lt;/&gt;</div>
-                <h3 className="text-lg text-white mb-2">{study.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">Client: {study.client}</p>
-                <Link
-                  href={`/case-studies/${study.id}`}
-                  className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors mt-4"
-                >
-                  Read Full Case Study
-                </Link>
-              </div>
+              <motion.div 
+                key={study.id}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="card overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+              >
+                {/* Image Section - 60% of card height */}
+                <div className="relative h-48 overflow-hidden mb-6">
+                  <Image 
+                    src={study.image} 
+                    alt={study.title}
+                    width={400}
+                    height={200}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                </div>
+                
+                {/* Content Section */}
+                <div className="relative pb-12">
+                  <h3 className="text-xl font-bold text-white mb-3 leading-tight">
+                    {study.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+                    {study.description}
+                  </p>
+                  <p className="text-gray-500 text-xs mb-4">
+                    Client: {study.client}
+                  </p>
+                </div>
+                
+                {/* V-Shaped Chevron Arrow Button - Below Content */}
+                <div className="absolute bottom-4 right-4">
+                  <Link
+                    href={`/case-studies/${study.id}`}
+                    className="inline-flex items-center justify-center w-10 h-10 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-all duration-300 transform hover:scale-110"
+                  >
+                    <svg 
+                      className="w-5 h-5" 
+                      fill="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M9 6l6 6-6 6"/>
+                    </svg>
+                  </Link>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Our Approach Section */}
-      <section className="py-16 px-8" style={{ backgroundColor: '#121417' }}>
+      <section className="section" style={{ backgroundColor: 'var(--background-secondary)' }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">Our Proven Approach</h2>
@@ -161,7 +199,7 @@ export default function CaseStudies() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-8 text-center" style={{ backgroundColor: '#121417' }}>
+      <section className="section text-center" style={{ backgroundColor: 'var(--background-secondary)' }}>
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-white mb-6">
             Ready to Create Your Success Story?
@@ -169,7 +207,7 @@ export default function CaseStudies() {
           <p className="text-lg text-gray-300 leading-relaxed mb-8 max-w-2xl mx-auto">
             Let&apos;s discuss how we can help transform your business with innovative technology solutions.
           </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+          <button className="btn-primary">
             Start Your Project
           </button>
         </div>

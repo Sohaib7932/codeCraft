@@ -1,2 +1,133 @@
-{"caseStudies":[{"id":1,"title":"Digital Transformation for Healthcare Provider","client":"MedCare Solutions","industry":"Healthcare","results":["75% reduction in patient wait times","90% improvement in appointment scheduling efficiency","60% increase in patient satisfaction scores","40% reduction in operational costs","100% compliance with healthcare regulations"],"technologies":["React Native","Node.js","MongoDB","AWS","WebRTC"],"duration":"8 months","image":"/assets/homepage.png","testimonial":{"quote":"CodeCraft transformed our entire healthcare operation. The new system has dramatically improved our efficiency and patient satisfaction. Their team understood our complex requirements and delivered beyond expectations.","author":"Dr. Sarah Johnson","position":"Chief Medical Officer, MedCare Solutions"}},{"id":2,"title":"E-Commerce Platform Scaling Success","client":"TechGear Pro","industry":"E-Commerce","results":["99.9% uptime during peak traffic events","150% increase in conversion rates","200% improvement in page load speeds","85% reduction in cart abandonment","$2M additional revenue in first quarter"],"technologies":["Next.js","Docker","Kubernetes","Redis","PostgreSQL"],"duration":"6 months","image":"/assets/homepage.png","testimonial":{"quote":"The new platform exceeded all our expectations. We can now handle 10x more traffic than before, and our sales have skyrocketed. CodeCraft's expertise in scalable architecture was exactly what we needed.","author":"Michael Chen","position":"CEO, TechGear Pro"}},{"id":3,"title":"Financial Analytics Dashboard Revolution","client":"InvestWise Capital","industry":"Financial Services","results":["300% increase in client engagement","50% reduction in time-to-insight","95% client retention rate","40% increase in assets under management","25% improvement in investment performance"],"technologies":["Vue.js","Python","TensorFlow","PostgreSQL","Apache Kafka"],"duration":"10 months","image":"/assets/homepage.png","testimonial":{"quote":"The analytics platform has revolutionized how we serve our clients. The real-time insights and predictive capabilities have given us a significant competitive advantage in the market.","author":"Jennifer Rodriguez","position":"Chief Investment Officer, InvestWise Capital"}},{"id":4,"title":"Mobile Banking App Innovation","client":"SecureMoney Bank","industry":"Banking","results":["110% increase in mobile user engagement","99% customer satisfaction score","35% reduction in branch foot traffic","Secure money transfers with end-to-end encryption","10% increase in digital transactions year-over-year"],"technologies":["Flutter","Dart","Firebase","Stripe","Twilio"],"duration":"7 months","image":"/assets/homepage.png","testimonial":{"quote":"The mobile banking app has transformed the way our customers interact with us. CodeCraft understood our needs and delivered a product that is both secure and easy to use.","author":"Richard Harris","position":"Head of Digital Banking, SecureMoney Bank"}},{"id":5,"title":"Real-Time Supply Chain Monitoring","client":"LogiTrack Logistics","industry":"Logistics","results":["70% reduction in shipment delays","95% tracking accuracy rate","30% improvement in partner communication","Integrated with major freight carriers and stakeholders","20% reduction in operational costs"],"technologies":["IoT","AWS","Node.js","GraphQL","Apache Kafka"],"duration":"9 months","image":"/assets/homepage.png","testimonial":{"quote":"Our logistics operations have never been smoother. The real-time monitoring capability has drastically improved our efficiency. We couldn't have chosen a better partner than CodeCraft.","author":"Elena Martinez","position":"Operations Director, LogiTrack Logistics"}}]}
+{
+  "caseStudies": [
+    {
+      "id": 1,
+      "title": "Digital Transformation for Healthcare Provider",
+      "client": "MedCare Solutions",
+      "industry": "Healthcare",
+      "description": "Revolutionary healthcare management system that streamlines patient care and improves operational efficiency across multiple facilities.",
+      "results": ["75% reduction in patient wait times", "90% improvement in appointment scheduling efficiency", "60% increase in patient satisfaction scores", "40% reduction in operational costs", "100% compliance with healthcare regulations"],
+      "technologies": ["React Native", "Node.js", "MongoDB", "AWS", "WebRTC"],
+      "duration": "8 months",
+      "image": "/assets/homepage.png",
+      "testimonial": {
+        "quote": "CodeCraft transformed our entire healthcare operation. The new system has dramatically improved our efficiency and patient satisfaction. Their team understood our complex requirements and delivered beyond expectations.",
+        "author": "Dr. Sarah Johnson",
+        "position": "Chief Medical Officer, MedCare Solutions"
+      }
+    },
+    {
+      "id": 2,
+      "title": "E-Commerce Platform Scaling Success",
+      "client": "TechGear Pro",
+      "industry": "E-Commerce",
+      "description": "High-performance e-commerce platform designed to handle massive traffic spikes and provide seamless shopping experiences.",
+      "results": ["99.9% uptime during peak traffic events", "150% increase in conversion rates", "200% improvement in page load speeds", "85% reduction in cart abandonment", "$2M additional revenue in first quarter"],
+      "technologies": ["Next.js", "Docker", "Kubernetes", "Redis", "PostgreSQL"],
+      "duration": "6 months",
+      "image": "/assets/homepage.png",
+      "testimonial": {
+        "quote": "The new platform exceeded all our expectations. We can now handle 10x more traffic than before, and our sales have skyrocketed. CodeCraft's expertise in scalable architecture was exactly what we needed.",
+        "author": "Michael Chen",
+        "position": "CEO, TechGear Pro"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Financial Analytics Dashboard Revolution",
+      "client": "InvestWise Capital",
+      "industry": "Financial Services",
+      "description": "Advanced analytics platform providing real-time insights and predictive capabilities for investment decision-making.",
+      "results": ["300% increase in client engagement", "50% reduction in time-to-insight", "95% client retention rate", "40% increase in assets under management", "25% improvement in investment performance"],
+      "technologies": ["Vue.js", "Python", "TensorFlow", "PostgreSQL", "Apache Kafka"],
+      "duration": "10 months",
+      "image": "/assets/homepage.png",
+      "testimonial": {
+        "quote": "The analytics platform has revolutionized how we serve our clients. The real-time insights and predictive capabilities have given us a significant competitive advantage in the market.",
+        "author": "Jennifer Rodriguez",
+        "position": "Chief Investment Officer, InvestWise Capital"
+      }
+    },
+    {
+      "id": 4,
+      "title": "Mobile Banking App Innovation",
+      "client": "SecureMoney Bank",
+      "industry": "Banking",
+      "description": "Secure and user-friendly mobile banking application with advanced security features and seamless user experience.",
+      "results": ["110% increase in mobile user engagement", "99% customer satisfaction score", "35% reduction in branch foot traffic", "Secure money transfers with end-to-end encryption", "10% increase in digital transactions year-over-year"],
+      "technologies": ["Flutter", "Dart", "Firebase", "Stripe", "Twilio"],
+      "duration": "7 months",
+      "image": "/assets/homepage.png",
+      "testimonial": {
+        "quote": "The mobile banking app has transformed the way our customers interact with us. CodeCraft understood our needs and delivered a product that is both secure and easy to use.",
+        "author": "Richard Harris",
+        "position": "Head of Digital Banking, SecureMoney Bank"
+      }
+    },
+    {
+      "id": 5,
+      "title": "Real-Time Supply Chain Monitoring",
+      "client": "LogiTrack Logistics",
+      "industry": "Logistics",
+      "description": "Comprehensive supply chain monitoring system with real-time tracking and predictive analytics for optimal logistics management.",
+      "results": ["70% reduction in shipment delays", "95% tracking accuracy rate", "30% improvement in partner communication", "Integrated with major freight carriers and stakeholders", "20% reduction in operational costs"],
+      "technologies": ["IoT", "AWS", "Node.js", "GraphQL", "Apache Kafka"],
+      "duration": "9 months",
+      "image": "/assets/homepage.png",
+      "testimonial": {
+        "quote": "Our logistics operations have never been smoother. The real-time monitoring capability has drastically improved our efficiency. We couldn't have chosen a better partner than CodeCraft.",
+        "author": "Elena Martinez",
+        "position": "Operations Director, LogiTrack Logistics"
+      }
+    },
+    {
+      "id": 6,
+      "title": "Luxury Real Estate Management Platform",
+      "client": "Elite Properties",
+      "industry": "Real Estate",
+      "description": "Comprehensive real estate management platform for luxury properties with virtual tours and advanced client management.",
+      "results": ["200% increase in property viewings", "85% improvement in client response time", "60% reduction in property listing time", "95% client satisfaction rate", "40% increase in sales conversion"],
+      "technologies": ["React", "Three.js", "Node.js", "PostgreSQL", "AWS"],
+      "duration": "12 months",
+      "image": "/assets/homepage.png",
+      "testimonial": {
+        "quote": "The platform has revolutionized how we showcase luxury properties. Virtual tours and advanced features have significantly increased our sales and client satisfaction.",
+        "author": "David Thompson",
+        "position": "CEO, Elite Properties"
+      }
+    },
+    {
+      "id": 7,
+      "title": "Architectural Design Collaboration Tool",
+      "client": "Modern Architects Co.",
+      "industry": "Architect",
+      "description": "Advanced 3D modeling and collaboration platform for architectural firms with real-time design sharing and client feedback.",
+      "results": ["150% increase in project efficiency", "80% reduction in design revision time", "90% improvement in client communication", "70% faster project completion", "95% team collaboration satisfaction"],
+      "technologies": ["Unity", "C#", "WebGL", "MongoDB", "WebRTC"],
+      "duration": "14 months",
+      "image": "/assets/homepage.png",
+      "testimonial": {
+        "quote": "This collaboration tool has transformed our design process. Real-time 3D modeling and client feedback have made our projects more efficient and successful.",
+        "author": "Maria Rodriguez",
+        "position": "Principal Architect, Modern Architects Co."
+      }
+    },
+    {
+      "id": 8,
+      "title": "Automotive Parts E-Commerce Platform",
+      "client": "AutoParts Direct",
+      "industry": "Automotive",
+      "description": "Specialized e-commerce platform for automotive parts with advanced search, compatibility checking, and fast delivery tracking.",
+      "results": ["180% increase in online sales", "95% accuracy in parts compatibility", "60% reduction in return rates", "85% improvement in delivery speed", "90% customer satisfaction"],
+      "technologies": ["Next.js", "GraphQL", "Elasticsearch", "Redis", "Docker"],
+      "duration": "8 months",
+      "image": "/assets/homepage.png",
+      "testimonial": {
+        "quote": "The platform has made finding and ordering automotive parts incredibly easy. The compatibility checker alone has saved us thousands in returns.",
+        "author": "James Wilson",
+        "position": "Operations Manager, AutoParts Direct"
+      }
+    }
+  ]
+}
 
