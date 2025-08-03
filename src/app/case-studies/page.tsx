@@ -140,8 +140,8 @@ export default function CaseStudies() {
                   >
                     <svg 
                       className="w-5 h-5" 
-                      fill="currentColor" 
-                      viewBox="0 0 24 24"
+                      fill = "currentColor" 
+                      viewBox = "0 0 24 24"
                     >
                       <path d="M9 6l6 6-6 6"/>
                     </svg>
