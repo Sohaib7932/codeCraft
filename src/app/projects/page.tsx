@@ -206,7 +206,7 @@ export default function Projects() {
               Featured Projects
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Discover how we've helped businesses transform their ideas into successful digital solutions
+              Discover how we&apos;ve helped businesses transform their ideas into successful digital solutions
             </p>
           </motion.div>
 
@@ -408,7 +408,7 @@ export default function Projects() {
               Ready to Start Your Next Project?
             </h2>
             <p className="text-xl text-gray-300 leading-relaxed mb-12 max-w-2xl mx-auto">
-              Let's collaborate to bring your vision to life with innovative technology solutions that drive real
+              Let&apos;s collaborate to bring your vision to life with innovative technology solutions that drive real
               business results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -563,7 +563,7 @@ export default function Services() {
               Ready to Transform Your Business?
             </h2>
             <p className="text-xl text-gray-300 leading-relaxed mb-12 max-w-2xl mx-auto">
-              Let's discuss your project and discover how our comprehensive services can help you achieve your
+              Let&apos;s discuss your project and discover how our comprehensive services can help you achieve your
               technology goals and drive business growth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

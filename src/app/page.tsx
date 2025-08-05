@@ -409,7 +409,7 @@ export default function Home() {
                   ))}
                 </div>
 
-                <p className="text-gray-300 mb-6 leading-relaxed italic">"{testimonial.content}"</p>
+                <p className="text-gray-300 mb-6 leading-relaxed italic">&quot;{testimonial.content}&quot;</p>
 
                 <div className="flex items-center">
                   <Image
@@ -500,7 +500,7 @@ export default function Home() {
               Ready to Build Something Amazing?
             </h2>
             <p className="text-xl text-gray-300 leading-relaxed mb-12 max-w-2xl mx-auto">
-              Let's discuss your project and discover how we can help transform your vision into reality.
+              Let&apos;s discuss your project and discover how we can help transform your vision into reality.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
