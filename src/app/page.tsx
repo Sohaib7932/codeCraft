@@ -55,8 +55,8 @@ export default function Home() {
         {/* Background with overlay */}
         <div className="absolute inset-0">
           <Image
-            src="/assets/homepage.png"
-            alt="Hero Background"
+            src= "/assets/homepage.png"
+            alt= "Hero Background"
             width={1920}
             height={1080}
             className="w-full h-full object-cover"
