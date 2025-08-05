@@ -394,7 +394,7 @@ export default function CaseStudy() {
               </div>
 
               <blockquote className="text-xl md:text-2xl text-gray-300 italic text-center mb-8 leading-relaxed max-w-4xl mx-auto">
-                "{caseStudy.testimonial.quote}"
+                &ldquo;{caseStudy.testimonial.quote}&rdquo;
               </blockquote>
 
               <div className="text-center">

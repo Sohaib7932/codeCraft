@@ -531,7 +531,7 @@ export default function About() {
               Ready to Work Together?
             </h2>
             <p className="text-xl text-gray-300 leading-relaxed mb-12 max-w-2xl mx-auto">
-              Let's discuss how our team can help transform your business with innovative technology solutions that
+              Let&apos;s discuss how our team can help transform your business with innovative technology solutions that
               drive real results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

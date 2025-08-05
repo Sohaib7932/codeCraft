@@ -123,7 +123,6 @@ export default function Contact() {
   const faqRef = useRef(null)
 
   const isFormInView = useInView(formRef, { once: true, margin: "-100px" })
-  const isInfoInView = useInView(infoRef, { once: true, margin: "-100px" })
   const isFaqInView = useInView(faqRef, { once: true, margin: "-100px" })
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -194,7 +193,7 @@ export default function Contact() {
               className="inline-flex items-center px-4 py-2 bg-blue-500/20 border border-blue-400/30 rounded-full text-blue-300 text-sm font-medium mb-8 backdrop-blur-sm"
             >
               <span className="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></span>
-              Let's Start Your Digital Journey
+              Let&apos;s Start Your Digital Journey
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent leading-tight">
@@ -204,7 +203,7 @@ export default function Contact() {
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
-              Ready to start your next project? Let's discuss how we can help you achieve your goals with our expert
+              Ready to start your next project? Let&apos;s discuss how we can help you achieve your goals with our expert
               team and innovative solutions.
             </p>
 
@@ -272,7 +271,7 @@ export default function Contact() {
               Send Us a Message
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Tell us about your project and we'll get back to you within 24 hours
+              Tell us about your project and we&apos;ll get back to you within 24 hours
             </p>
           </motion.div>
 
@@ -432,7 +431,7 @@ export default function Contact() {
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-4">Message Sent Successfully!</h3>
                     <p className="text-gray-300 mb-6">
-                      Thank you for reaching out. We'll get back to you within 24 hours.
+                      Thank you for reaching out. We&apos;ll get back to you within 24 hours.
                     </p>
                     <div className="text-blue-400 text-sm">Redirecting to form...</div>
                   </motion.div>
@@ -447,7 +446,7 @@ export default function Contact() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="space-y-6"
             >
-              {officeInfo.map((info, index) => (
+              {officeInfo.map((info) => (
                 <div
                   key={info.title}
                   className="bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-sm border border-gray-700/30 rounded-2xl p-6"
@@ -549,7 +548,7 @@ export default function Contact() {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-gray-300 leading-relaxed mb-12 max-w-2xl mx-auto">
-              Let's turn your ideas into reality. Contact us today for a free consultation and discover how we can help
+              Let&apos;s turn your ideas into reality. Contact us today for a free consultation and discover how we can help
               your business thrive.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { motion, useInView } from "framer-motion"
 import { useRef, useState } from "react"
 import Image from "next/image"
@@ -50,7 +51,7 @@ const caseStudies: CaseStudy[] = caseStudiesData.caseStudies
 
 type FilterType = "all" | "real estate" | "architect" | "ecommerce" | "automotive" | "healthcare"
 
-const filterLabels: { value: FilterType; label: string; icon: any }[] = [
+const filterLabels: { value: FilterType; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
   { value: "all", label: "All Industries", icon: Briefcase },
   { value: "real estate", label: "Real Estate", icon: Home },
   { value: "architect", label: "Architecture", icon: Building2 },
@@ -167,7 +168,7 @@ export default function CaseStudies() {
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
-              Discover how we've helped businesses transform their operations and achieve remarkable results through
+              Discover how we&apos;ve helped businesses transform their operations and achieve remarkable results through
               innovative software solutions and strategic technology implementations.
             </p>
 
@@ -261,7 +262,7 @@ export default function CaseStudies() {
               Success Stories
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Real projects, real results. See how we've helped businesses achieve their goals.
+              Real projects, real results. See how we&apos;ve helped businesses achieve their goals.
             </p>
           </motion.div>
 
@@ -438,7 +439,7 @@ export default function CaseStudies() {
               Ready to Create Your Success Story?
             </h2>
             <p className="text-xl text-gray-300 leading-relaxed mb-12 max-w-2xl mx-auto">
-              Let's discuss how we can help transform your business with innovative technology solutions that deliver
+              Let&apos;s discuss how we can help transform your business with innovative technology solutions that deliver
               measurable results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
