@@ -215,7 +215,7 @@ export default function CaseStudies() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto mb-12 leading-relaxed"
             >
-              Discover how we've helped businesses transform their operations and achieve remarkable results through
+              Discover how we&apos;ve helped businesses transform their operations and achieve remarkable results through
               innovative software solutions and strategic technology implementations.
             </motion.p>
 
@@ -310,7 +310,7 @@ export default function CaseStudies() {
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">Success Stories</h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Real projects, real results. See how we've helped businesses achieve their goals.
+              Real projects, real results. See how we&apos;ve helped businesses achieve their goals.
             </p>
           </motion.div>
 
@@ -488,7 +488,7 @@ export default function CaseStudies() {
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-8 text-white">Ready to Create Your Success Story?</h2>
             <p className="text-xl text-slate-300 leading-relaxed mb-12 max-w-2xl mx-auto">
-              Let's discuss how we can help transform your business with innovative technology solutions that deliver
+              Let&apos;s discuss how we can help transform your business with innovative technology solutions that deliver
               measurable results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
