@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import type React from "react"
 import { motion, useInView } from "framer-motion"
 import { useRef, useState } from "react"
 import Image from "next/image"
@@ -67,7 +67,8 @@ const approachSteps = [
     description:
       "Comprehensive analysis of business challenges, market research, and stakeholder interviews to understand core requirements.",
     icon: Target,
-    color: "from-blue-500 to-cyan-500",
+    color: "from-blue-50 to-blue-100",
+    iconColor: "text-blue-600",
   },
   {
     step: "02",
@@ -75,7 +76,8 @@ const approachSteps = [
     description:
       "Development of detailed project roadmap, technical architecture, and risk assessment with clear milestones.",
     icon: Lightbulb,
-    color: "from-purple-500 to-pink-500",
+    color: "from-green-50 to-green-100",
+    iconColor: "text-green-600",
   },
   {
     step: "03",
@@ -83,7 +85,8 @@ const approachSteps = [
     description:
       "Iterative development process with continuous integration, regular testing, and stakeholder feedback loops.",
     icon: Rocket,
-    color: "from-green-500 to-emerald-500",
+    color: "from-orange-50 to-orange-100",
+    iconColor: "text-orange-600",
   },
   {
     step: "04",
@@ -91,7 +94,8 @@ const approachSteps = [
     description:
       "Seamless deployment, performance monitoring, user training, and continuous optimization based on real-world usage.",
     icon: TrendingUp,
-    color: "from-orange-500 to-red-500",
+    color: "from-purple-50 to-purple-100",
+    iconColor: "text-purple-600",
   },
 ]
 
@@ -120,27 +124,62 @@ export default function CaseStudies() {
       : caseStudies.filter((study) => study.industry.toLowerCase().includes(selectedFilter.toLowerCase()))
 
   return (
-    <div className="min-h-screen bg-gray-950">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background with overlay */}
+        {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/assets/homepage.png"
-            alt="Case Studies Hero Background"
+            src="/placeholder.svg?height=1080&width=1920"
+            alt="Success stories and case studies"
             width={1920}
             height={1080}
             className="w-full h-full object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-blue-900/80 to-purple-900/90"></div>
+          <div className="absolute inset-0 bg-white/90"></div>
         </div>
 
-        {/* Animated background elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-green-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
+        {/* Floating Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <motion.div
+            animate={{
+              y: [0, -30, 0],
+              rotate: [0, 10, 0],
+            }}
+            transition={{
+              duration: 12,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+            }}
+            className="absolute top-20 right-20 w-32 h-32 bg-blue-100 rounded-2xl opacity-60"
+          />
+          <motion.div
+            animate={{
+              y: [0, 25, 0],
+              rotate: [0, -8, 0],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+              delay: 1,
+            }}
+            className="absolute bottom-20 left-20 w-28 h-28 bg-slate-100 rounded-full opacity-50"
+          />
+          <motion.div
+            animate={{
+              y: [0, -20, 0],
+              x: [0, 10, 0],
+            }}
+            transition={{
+              duration: 18,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+              delay: 2,
+            }}
+            className="absolute top-1/2 left-1/4 w-24 h-24 bg-green-100 rounded-xl opacity-40"
+          />
         </div>
 
         <div className="relative z-10 text-center max-w-6xl mx-auto px-6">
@@ -153,49 +192,62 @@ export default function CaseStudies() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center px-4 py-2 bg-blue-500/20 border border-blue-400/30 rounded-full text-blue-300 text-sm font-medium mb-8 backdrop-blur-sm"
+              className="inline-flex items-center px-6 py-3 bg-slate-100 border border-slate-200 rounded-full text-slate-700 text-sm font-medium mb-8 shadow-sm"
             >
-              <span className="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></span>
+              <span className="w-2 h-2 bg-blue-500 rounded-full mr-3 animate-pulse"></span>
               Real Success Stories & Proven Results
             </motion.div>
 
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent leading-tight">
+            <motion.h1
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-5xl md:text-7xl font-bold mb-6 text-slate-900 leading-tight"
+            >
               Case
               <br />
-              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Studies
-              </span>
-            </h1>
+              <span className="text-blue-600">Studies</span>
+            </motion.h1>
 
-            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
-              Discover how we&apos;ve helped businesses transform their operations and achieve remarkable results through
+            <motion.p
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto mb-12 leading-relaxed"
+            >
+              Discover how we've helped businesses transform their operations and achieve remarkable results through
               innovative software solutions and strategic technology implementations.
-            </p>
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center"
+                className="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center"
               >
                 Explore Success Stories
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </motion.button>
 
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="group border-2 border-white/20 hover:border-white/40 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 backdrop-blur-sm hover:bg-white/5"
+                className="group border-2 border-slate-300 hover:border-slate-400 text-slate-700 hover:text-slate-900 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-slate-50"
               >
                 Start Your Project
               </motion.button>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* Success Metrics Section */}
-      <section className="py-16 bg-gray-900" ref={metricsRef}>
+      <section className="py-16 bg-slate-50" ref={metricsRef}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {successMetrics.map((metric, index) => (
@@ -204,14 +256,14 @@ export default function CaseStudies() {
                 initial={{ y: 50, opacity: 0 }}
                 animate={isMetricsInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center"
+                className="text-center group"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <metric.icon className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors duration-300">
+                  <metric.icon className="w-8 h-8 text-blue-600" />
                 </div>
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">{metric.value}</div>
-                <div className="text-gray-300 font-semibold mb-1">{metric.label}</div>
-                <div className="text-gray-500 text-sm">{metric.description}</div>
+                <div className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">{metric.value}</div>
+                <div className="text-slate-700 font-semibold mb-1">{metric.label}</div>
+                <div className="text-slate-500 text-sm">{metric.description}</div>
               </motion.div>
             ))}
           </div>
@@ -219,13 +271,11 @@ export default function CaseStudies() {
       </section>
 
       {/* Filters Section */}
-      <section className="py-16 bg-gray-950">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              Filter by Industry
-            </h2>
-            <p className="text-gray-400 text-lg">Explore our success stories across different industries</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Filter by Industry</h2>
+            <p className="text-slate-600 text-lg">Explore our success stories across different industries</p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-4">
@@ -233,12 +283,12 @@ export default function CaseStudies() {
               <motion.button
                 key={filter.value}
                 onClick={() => setSelectedFilter(filter.value)}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className={`flex items-center px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
                   selectedFilter === filter.value
-                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/25"
-                    : "bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 hover:text-white border border-gray-700/50"
+                    ? "bg-blue-600 text-white shadow-lg"
+                    : "bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200 hover:border-slate-300"
                 }`}
               >
                 <filter.icon className="w-5 h-5 mr-2" />
@@ -250,7 +300,7 @@ export default function CaseStudies() {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-24 bg-gray-900" ref={casesRef}>
+      <section className="py-24 bg-slate-50" ref={casesRef}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -258,11 +308,9 @@ export default function CaseStudies() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              Success Stories
-            </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Real projects, real results. See how we&apos;ve helped businesses achieve their goals.
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">Success Stories</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Real projects, real results. See how we've helped businesses achieve their goals.
             </p>
           </motion.div>
 
@@ -273,22 +321,20 @@ export default function CaseStudies() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={isCasesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10"
+                className="group relative bg-white border border-slate-200 rounded-2xl overflow-hidden hover:border-blue-300 hover:shadow-xl transition-all duration-300"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
                 {/* Image Section */}
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src={study.image || "/placeholder.svg?height=200&width=400&query=business success"}
+                    src={study.image || "/placeholder.svg?height=200&width=400"}
                     alt={study.title}
                     width={400}
                     height={200}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                   <div className="absolute top-4 left-4">
-                    <span className="inline-block bg-blue-500/20 backdrop-blur-sm text-blue-300 px-3 py-1 rounded-full text-sm font-medium border border-blue-400/30">
+                    <span className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
                       {study.industry}
                     </span>
                   </div>
@@ -296,17 +342,16 @@ export default function CaseStudies() {
 
                 {/* Content Section */}
                 <div className="relative p-6">
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors leading-tight">
+                  <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors leading-tight">
                     {study.title}
                   </h3>
-
-                  <p className="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-3">{study.description}</p>
+                  <p className="text-slate-600 text-sm mb-4 leading-relaxed line-clamp-3">{study.description}</p>
 
                   <div className="flex items-center justify-between mb-4">
-                    <div className="text-gray-500 text-xs">
+                    <div className="text-slate-500 text-xs">
                       <span className="font-semibold">Client:</span> {study.client}
                     </div>
-                    <div className="text-gray-500 text-xs">
+                    <div className="text-slate-500 text-xs">
                       <span className="font-semibold">Duration:</span> {study.duration}
                     </div>
                   </div>
@@ -316,13 +361,13 @@ export default function CaseStudies() {
                     {study.technologies.slice(0, 3).map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs font-medium"
+                        className="px-2 py-1 bg-slate-100 text-slate-700 rounded text-xs font-medium"
                       >
                         {tech}
                       </span>
                     ))}
                     {study.technologies.length > 3 && (
-                      <span className="px-2 py-1 bg-gray-700/50 text-gray-400 rounded text-xs">
+                      <span className="px-2 py-1 bg-slate-100 text-slate-600 rounded text-xs">
                         +{study.technologies.length - 3} more
                       </span>
                     )}
@@ -331,18 +376,18 @@ export default function CaseStudies() {
                   {/* Results Preview */}
                   {study.results && study.results.length > 0 && (
                     <div className="mb-6">
-                      <div className="flex items-center text-green-400 text-sm mb-2">
+                      <div className="flex items-center text-green-600 text-sm mb-2">
                         <CheckCircle className="w-4 h-4 mr-2" />
                         Key Result
                       </div>
-                      <p className="text-gray-300 text-sm">{study.results[0]}</p>
+                      <p className="text-slate-700 text-sm">{study.results[0]}</p>
                     </div>
                   )}
 
                   {/* CTA Button */}
                   <Link
                     href={`/case-studies/${study.id}`}
-                    className="group/btn inline-flex items-center justify-center w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+                    className="group/btn inline-flex items-center justify-center w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
                     View Case Study
                     <ExternalLink className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
@@ -354,10 +399,10 @@ export default function CaseStudies() {
 
           {filteredCaseStudies.length === 0 && (
             <div className="text-center py-16">
-              <div className="text-gray-400 text-lg mb-4">No case studies found for this industry.</div>
+              <div className="text-slate-600 text-lg mb-4">No case studies found for this industry.</div>
               <button
                 onClick={() => setSelectedFilter("all")}
-                className="text-blue-400 hover:text-blue-300 font-semibold transition-colors"
+                className="text-blue-600 hover:text-blue-700 font-semibold transition-colors"
               >
                 View All Case Studies
               </button>
@@ -367,7 +412,7 @@ export default function CaseStudies() {
       </section>
 
       {/* Our Approach Section */}
-      <section className="py-24 bg-gray-950" ref={approachRef}>
+      <section className="py-24 bg-white" ref={approachRef}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -375,10 +420,8 @@ export default function CaseStudies() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              Our Proven Approach
-            </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">Our Proven Approach</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               Every successful project follows our time-tested methodology that ensures exceptional results and client
               satisfaction.
             </p>
@@ -391,21 +434,21 @@ export default function CaseStudies() {
                 initial={{ y: 50, opacity: 0 }}
                 animate={isApproachInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group text-center bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-sm border border-gray-700/30 rounded-2xl p-8 hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10"
+                className="group text-center bg-white border border-slate-200 rounded-2xl p-8 hover:border-blue-300 hover:shadow-lg transition-all duration-300"
               >
                 <div
                   className={`w-16 h-16 bg-gradient-to-br ${step.color} rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}
                 >
-                  <step.icon className="w-8 h-8 text-white" />
+                  <step.icon className={`w-8 h-8 ${step.iconColor}`} />
                 </div>
 
-                <div className="text-3xl font-bold text-blue-400 mb-4">{step.step}</div>
+                <div className="text-3xl font-bold text-blue-600 mb-4">{step.step}</div>
 
-                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-blue-300 transition-colors">
+                <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">
                   {step.title}
                 </h3>
 
-                <p className="text-gray-400 leading-relaxed">{step.description}</p>
+                <p className="text-slate-600 leading-relaxed">{step.description}</p>
               </motion.div>
             ))}
           </div>
@@ -413,8 +456,16 @@ export default function CaseStudies() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-blue-900/20 to-purple-900/20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gray-950/80"></div>
+      <section className="py-24 bg-slate-900 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/placeholder.svg?height=600&width=1920"
+            alt="Create your success story"
+            width={1920}
+            height={600}
+            className="w-full h-full object-cover opacity-10"
+          />
+        </div>
 
         {/* Animated background elements */}
         <motion.div
@@ -423,7 +474,7 @@ export default function CaseStudies() {
           transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
         />
         <motion.div
-          className="absolute bottom-10 right-10 w-60 h-60 bg-purple-500/10 rounded-full blur-3xl"
+          className="absolute bottom-10 right-10 w-60 h-60 bg-slate-500/10 rounded-full blur-3xl"
           animate={{ scale: [1.2, 1, 1.2], rotate: [360, 180, 0] }}
           transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
         />
@@ -435,25 +486,23 @@ export default function CaseStudies() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
-              Ready to Create Your Success Story?
-            </h2>
-            <p className="text-xl text-gray-300 leading-relaxed mb-12 max-w-2xl mx-auto">
-              Let&apos;s discuss how we can help transform your business with innovative technology solutions that deliver
+            <h2 className="text-4xl md:text-6xl font-bold mb-8 text-white">Ready to Create Your Success Story?</h2>
+            <p className="text-xl text-slate-300 leading-relaxed mb-12 max-w-2xl mx-auto">
+              Let's discuss how we can help transform your business with innovative technology solutions that deliver
               measurable results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Start Your Project
               </motion.button>
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="border-2 border-white/20 hover:border-white/40 text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 backdrop-blur-sm hover:bg-white/5"
+                className="border-2 border-white/30 hover:border-white/50 text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-white/10"
               >
                 Schedule Consultation
               </motion.button>
