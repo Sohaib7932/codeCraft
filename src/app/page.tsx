@@ -569,7 +569,7 @@ export default function Home() {
           <motion.div initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8 }}>
             <h2 className="text-4xl md:text-6xl font-bold mb-8 text-white">Ready to Build Something Amazing?</h2>
             <p className="text-xl text-slate-300 leading-relaxed mb-12 max-w-2xl mx-auto">
-              Let's discuss your project and discover how we can help transform your vision into reality.
+              Let&apos;s discuss your project and discover how we can help transform your vision into reality.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
