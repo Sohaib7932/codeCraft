@@ -34,7 +34,7 @@ const teamMembers = [
   {
     name: "M. Sohaib",
     role: "Lead Developer",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/assets/Sohaib-removebg.png",
     description: "Full-stack developer specializing in modern web technologies and scalable cloud solutions.",
     expertise: ["React/Next.js", "Node.js", "Cloud Architecture"],
     social: {
@@ -57,7 +57,7 @@ const teamMembers = [
   {
     name: "Hassan Naeem",
     role: "Project Manager",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/assets/Hassan removed.png",
     description: "Strategic project manager ensuring seamless delivery and exceptional client satisfaction.",
     expertise: ["Project Management", "Client Relations", "Agile Methodology"],
     social: {
@@ -401,7 +401,6 @@ export default function AboutPage() {
                     height={400}
                     className="w-full h-80 object-cover group-hover:scale-105 transition-all duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent"></div>
                 </div>
                 {/* Content Section */}
                 <div className="relative p-6">
