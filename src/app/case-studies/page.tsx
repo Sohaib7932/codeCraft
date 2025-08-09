@@ -65,7 +65,7 @@ const approachSteps = [
     step: "01",
     title: "Discovery & Analysis",
     description:
-      "Comprehensive analysis of business challenges, market research, and stakeholder interviews to understand core requirements.",
+    "Comprehensive analysis of business challenges, market research, and stakeholder interviews to understand core requirements.",
     icon: Target,
     color: "from-blue-50 to-blue-100",
     iconColor: "text-blue-600",
