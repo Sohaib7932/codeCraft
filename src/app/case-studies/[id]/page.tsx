@@ -117,7 +117,7 @@ export default function CaseStudyPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src={caseStudy.image || "/placeholder.svg?height=1080&width=1920"}
@@ -127,7 +127,7 @@ export default function CaseStudyPage() {
             className="w-full h-full object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-white/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-slate-50/85"></div>
         </div>
 
         {/* Animated background elements */}
@@ -172,12 +172,12 @@ export default function CaseStudyPage() {
           />
         </div>
 
-        <div className="relative z-10 flex items-center justify-center h-full px-6">
+        <div className="relative z-10 flex items-center justify-center h-full w-full px-6 md:px-10 lg:px-12">
           <motion.div
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center max-w-5xl mx-auto"
+            className="text-center max-w-6xl mx-auto w-full"
           >
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
@@ -228,8 +228,8 @@ export default function CaseStudyPage() {
       </section>
 
       {/* Navigation Breadcrumb */}
-      <section className="py-6 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-6 bg-slate-50 border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-10 flex justify-between items-center">
           <Link
             href="/case-studies"
             className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors font-semibold"
@@ -237,13 +237,19 @@ export default function CaseStudyPage() {
             <ArrowLeft className="w-5 h-5 mr-2" />
             Back to Case Studies
           </Link>
+          <div className="hidden md:flex space-x-4 text-sm font-medium">
+            <a href="#overview" className="text-slate-600 hover:text-blue-600 transition-colors">Overview</a>
+            <a href="#results" className="text-slate-600 hover:text-blue-600 transition-colors">Results</a>
+            <a href="#process" className="text-slate-600 hover:text-blue-600 transition-colors">Process</a>
+            <a href="#testimonial" className="text-slate-600 hover:text-blue-600 transition-colors">Testimonial</a>
+          </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-10 py-16 md:py-20 lg:py-24">
         {/* Project Overview */}
-        <section className="mb-20" ref={overviewRef}>
+        <section id="overview" className="mb-24 scroll-mt-20" ref={overviewRef}>
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-8">
@@ -323,12 +329,13 @@ export default function CaseStudyPage() {
             </div>
 
             {/* Sidebar */}
-            <div className="space-y-6">
+            <div className="space-y-8">
+              {/* Project Details - Aligns with The Challenge */}
               <motion.div
                 initial={{ y: 50, opacity: 0 }}
                 animate={isOverviewInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="bg-white border border-slate-200 rounded-2xl p-6 shadow-md"
+                className="bg-white border border-slate-200 rounded-2xl p-6 shadow-md h-fit"
               >
                 <h3 className="text-xl font-semibold text-slate-900 mb-6">Project Details</h3>
                 <div className="space-y-4">
@@ -362,6 +369,7 @@ export default function CaseStudyPage() {
                 </div>
               </motion.div>
 
+              {/* Technologies Used */}
               <motion.div
                 initial={{ y: 50, opacity: 0 }}
                 animate={isOverviewInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
@@ -381,11 +389,12 @@ export default function CaseStudyPage() {
                 </div>
               </motion.div>
 
+              {/* Quick Stats - Positioned to align bottom with Our Solution */}
               <motion.div
                 initial={{ y: 50, opacity: 0 }}
                 animate={isOverviewInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="bg-white border border-slate-200 rounded-2xl p-6 shadow-md"
+                className="bg-white border border-slate-200 rounded-2xl p-6 shadow-md mt-12"
               >
                 <h3 className="text-xl font-semibold text-slate-900 mb-4">Quick Stats</h3>
                 <div className="space-y-3">
@@ -408,7 +417,7 @@ export default function CaseStudyPage() {
         </section>
 
         {/* Results Section */}
-        <section className="mb-20" ref={resultsRef}>
+        <section id="results" className="mb-24 scroll-mt-20" ref={resultsRef}>
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={isResultsInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
@@ -421,7 +430,7 @@ export default function CaseStudyPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {caseStudy.results.map((result, index) => (
               <motion.div
                 key={index}
@@ -446,7 +455,7 @@ export default function CaseStudyPage() {
         </section>
 
         {/* Process Section */}
-        <section className="mb-20" ref={processRef}>
+        <section id="process" className="mb-24 scroll-mt-20" ref={processRef}>
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={isProcessInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
@@ -459,7 +468,7 @@ export default function CaseStudyPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {processSteps.map((step, index) => (
               <motion.div
                 key={index}
@@ -488,12 +497,12 @@ export default function CaseStudyPage() {
 
         {/* Testimonial Section */}
         {caseStudy.testimonial && (
-          <section className="mb-20" ref={testimonialRef}>
+          <section id="testimonial" className="mb-24 scroll-mt-20" ref={testimonialRef}>
             <motion.div
               initial={{ y: 50, opacity: 0 }}
               animate={isTestimonialInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
               transition={{ duration: 0.6 }}
-              className="bg-slate-50 border border-slate-200 rounded-3xl p-12 relative overflow-hidden shadow-lg"
+              className="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-12 lg:p-16 relative overflow-hidden shadow-lg"
             >
               <div className="relative z-10">
                 <div className="text-center mb-8">
@@ -517,7 +526,7 @@ export default function CaseStudyPage() {
         )}
 
         {/* Navigation & CTA */}
-        <section className="flex flex-col md:flex-row justify-between items-center gap-6 pt-12 border-t border-slate-200">
+        <section className="flex flex-col md:flex-row justify-between items-center gap-6 pt-12 pb-6 border-t border-slate-200 mt-8">
           <Link
             href="/case-studies"
             className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors font-semibold text-lg"
@@ -525,7 +534,7 @@ export default function CaseStudyPage() {
             <ArrowLeft className="w-5 h-5 mr-2" />
             Back to Case Studies
           </Link>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
             <Link
               href="/contact"
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl text-center"

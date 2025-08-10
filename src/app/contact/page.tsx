@@ -123,7 +123,6 @@ export default function ContactPage() {
 
   const heroRef = useRef(null)
   const formRef = useRef(null)
-  const infoRef = useRef(null)
   const faqRef = useRef(null)
 
   const isFormInView = useInView(formRef, { once: true, margin: "-100px" })
@@ -222,26 +221,9 @@ export default function ContactPage() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center px-6 py-3 bg-slate-100 border border-slate-200 rounded-full text-slate-700 text-sm font-medium mb-8 shadow-sm"
-            >
-              <span className="w-2 h-2 bg-blue-500 rounded-full mr-3 animate-pulse"></span>
-              Let&apos;s Start Your Digital Journey
-            </motion.div>
-
-            <motion.h1
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-5xl md:text-7xl font-bold mb-6 text-slate-900 leading-tight"
-            >
-              Get In
-              <br />
-              <span className="text-blue-600">Touch</span>
-            </motion.h1>
+            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
+              Get In Touch
+            </h1>
 
             <motion.p
               initial={{ y: 30, opacity: 0 }}
@@ -484,19 +466,20 @@ export default function ContactPage() {
               initial={{ x: 50, opacity: 0 }}
               animate={isFormInView ? { x: 0, opacity: 1 } : { x: 50, opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="space-y-6"
+              className="flex flex-col h-full justify-between space-y-4"
             >
-              {officeInfo.map((info) => (
-                <div key={info.title} className="bg-white border border-slate-200 rounded-2xl p-6 shadow-md">
+              {/* First info div - aligns with top of form */}
+              {officeInfo.slice(0, 1).map((info) => (
+                <div key={info.title} className="bg-white border border-slate-200 rounded-2xl p-5 shadow-md flex-1">
                   <div className="flex items-start">
-                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
-                      <info.icon className="w-6 h-6 text-blue-600" />
+                    <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center mr-3 flex-shrink-0">
+                      <info.icon className="w-5 h-5 text-blue-600" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-slate-900 mb-3">{info.title}</h3>
+                      <h3 className="text-base font-bold text-slate-900 mb-2">{info.title}</h3>
                       <div className="space-y-1">
                         {info.details.map((detail, detailIndex) => (
-                          <p key={detailIndex} className="text-slate-600 text-sm">
+                          <p key={detailIndex} className="text-slate-600 text-xs leading-relaxed">
                             {detail}
                           </p>
                         ))}
@@ -505,17 +488,60 @@ export default function ContactPage() {
                   </div>
                 </div>
               ))}
-              {/* Social Links */}
-              <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-md">
-                <h3 className="text-lg font-bold text-slate-900 mb-4">Follow Us</h3>
-                <div className="flex gap-4">
+              
+              {/* Second info div */}
+              {officeInfo.slice(1, 2).map((info) => (
+                <div key={info.title} className="bg-white border border-slate-200 rounded-2xl p-5 shadow-md flex-1">
+                  <div className="flex items-start">
+                    <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center mr-3 flex-shrink-0">
+                      <info.icon className="w-5 h-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-bold text-slate-900 mb-2">{info.title}</h3>
+                      <div className="space-y-1">
+                        {info.details.map((detail, detailIndex) => (
+                          <p key={detailIndex} className="text-slate-600 text-xs leading-relaxed">
+                            {detail}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              
+              {/* Third info div */}
+              {officeInfo.slice(2, 3).map((info) => (
+                <div key={info.title} className="bg-white border border-slate-200 rounded-2xl p-5 shadow-md flex-1">
+                  <div className="flex items-start">
+                    <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center mr-3 flex-shrink-0">
+                      <info.icon className="w-5 h-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-bold text-slate-900 mb-2">{info.title}</h3>
+                      <div className="space-y-1">
+                        {info.details.map((detail, detailIndex) => (
+                          <p key={detailIndex} className="text-slate-600 text-xs leading-relaxed">
+                            {detail}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              
+              {/* Social Links - Fourth div */}
+              <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-md flex-1">
+                <h3 className="text-base font-bold text-slate-900 mb-3">Follow Us</h3>
+                <div className="flex gap-3 justify-center">
                   {socialLinks.map((social) => (
                     <a
                       key={social.name}
                       href={social.url}
-                      className={`w-10 h-10 bg-slate-100 hover:bg-blue-100 rounded-lg flex items-center justify-center transition-all duration-300 ${social.color}`}
+                      className={`w-9 h-9 bg-slate-100 hover:bg-blue-100 rounded-lg flex items-center justify-center transition-all duration-300 ${social.color}`}
                     >
-                      <social.icon className={`w-5 h-5 ${social.color.replace("hover:", "")}`} />
+                      <social.icon className={`w-4 h-4 ${social.color.replace("hover:", "")}`} />
                     </a>
                   ))}
                 </div>

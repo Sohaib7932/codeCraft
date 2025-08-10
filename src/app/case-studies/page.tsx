@@ -188,26 +188,9 @@ export default function CaseStudies() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center px-6 py-3 bg-slate-100 border border-slate-200 rounded-full text-slate-700 text-sm font-medium mb-8 shadow-sm"
-            >
-              <span className="w-2 h-2 bg-blue-500 rounded-full mr-3 animate-pulse"></span>
-              Real Success Stories & Proven Results
-            </motion.div>
-
-            <motion.h1
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-5xl md:text-7xl font-bold mb-6 text-slate-900 leading-tight"
-            >
-              Case
-              <br />
-              <span className="text-blue-600">Studies</span>
-            </motion.h1>
+            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
+              Case Studies
+            </h1>
 
             <motion.p
               initial={{ y: 30, opacity: 0 }}
