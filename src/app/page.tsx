@@ -6,6 +6,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, Code, Smartphone, Database, CheckCircle, Star, ExternalLink, Play } from "lucide-react"
 import caseStudiesData from "../data/caseStudies.json"
+import GradientBlobs from "../components/GradientBlobs"
 
 export default function Home() {
   const processRef = useRef(null)
@@ -64,16 +65,19 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <Image
-            src="/placeholder.svg?height=1080&width=1920"
+          {/* <Image
+            src="/assets/devTeam.jpg"
             alt="Software Development Team"
             width={1920}
             height={1080}
             className="w-full h-full object-cover"
             priority
-          />
+          /> */}
           <div className="absolute inset-0 bg-white/90"></div>
         </div>
+
+        {/* Animated Gradient Blobs */}
+        <GradientBlobs variant="default" />
 
         {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">

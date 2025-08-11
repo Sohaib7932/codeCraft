@@ -23,6 +23,7 @@ import {
   ExternalLink,
 } from "lucide-react"
 import caseStudiesData from "../../data/caseStudies.json"
+import GradientBlobs from "../../components/GradientBlobs"
 
 interface CaseStudy {
   id: number
@@ -139,6 +140,9 @@ export default function CaseStudies() {
           />
           <div className="absolute inset-0 bg-white/90"></div>
         </div>
+
+        {/* Animated Gradient Blobs */}
+        <GradientBlobs variant="default" />
 
         {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">

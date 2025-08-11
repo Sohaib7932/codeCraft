@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 :root {
   /* Primary Color Palette */
   --background-primary: #0a0a0a;
@@ -63,8 +64,8 @@ html {
 
 body {
   font-family: var(--font-manrope), 'Manrope', sans-serif;
-  background-color: var(--background-primary);
-  color: var(--text-primary);
+  background-color: white;
+  color: #1f2937;
   margin: 0;
   padding: 0;
   padding-top: 70px; /* Fixed header height spacing */

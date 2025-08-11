@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="text-center p-5 mt-16" style={{backgroundColor: '#1a1a1a'}}>
+    <footer className="text-center p-5 " style={{backgroundColor: '#1a1a1a'}}>
       <div className="flex flex-col items-center gap-5">
         {/* Social Media Icons */}
         <div className="flex gap-6">

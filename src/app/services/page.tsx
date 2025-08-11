@@ -23,6 +23,7 @@ import {
   Award,
   TrendingUp,
 } from "lucide-react"
+import GradientBlobs from "../../components/GradientBlobs"
 
 const services = [
   {
@@ -235,6 +236,9 @@ export default function Services() {
           />
           <div className="absolute inset-0 bg-white/90"></div>
         </motion.div>
+
+        {/* Animated Gradient Blobs */}
+        <GradientBlobs variant="default" />
 
         {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">

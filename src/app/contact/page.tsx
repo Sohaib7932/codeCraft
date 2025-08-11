@@ -22,6 +22,7 @@ import {
   User,
   Building,
 } from "lucide-react"
+import GradientBlobs from "../../components/GradientBlobs"
 
 const contactMethods = [
   {
@@ -172,6 +173,9 @@ export default function ContactPage() {
           />
           <div className="absolute inset-0 bg-white/90"></div>
         </div>
+
+        {/* Animated Gradient Blobs */}
+        <GradientBlobs variant="default" />
 
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">

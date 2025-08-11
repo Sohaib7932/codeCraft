@@ -23,8 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${manrope.variable} antialiased text-white min-h-screen font-sans`}
-        style={{ backgroundColor: '#121417' }}
+        className={`${manrope.variable} antialiased min-h-screen font-sans`}
       >
         <Header />
         <main>

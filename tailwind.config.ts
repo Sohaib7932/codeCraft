@@ -13,8 +13,8 @@ const config: Config = {
         manrope: ['var(--font-manrope)', 'sans-serif'],
       },
       colors: {
-        background: '#121417',
-        foreground: '#ffffff',
+        background: '#ffffff',
+        foreground: '#1f2937',
       },
     },
   },
