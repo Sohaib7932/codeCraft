@@ -91,7 +91,7 @@ const faqs = [
   {
     question: "How long does a typical project take?",
     answer:
-      "Project timelines vary based on complexity and scope. Simple websites typically take 4-6 weeks, while complex applications can take 3-6 months. We'll provide a detailed timeline during our initial consultation.",
+      "Project timelines vary based on complexity and scope. Simple websites typically take 4-6 weeks, while complex applications can take 3-6 months. We&apos;ll provide a detailed timeline during our initial consultation.",
   },
   {
     question: "Do you work with startups?",

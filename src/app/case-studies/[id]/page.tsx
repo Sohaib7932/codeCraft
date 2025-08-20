@@ -264,7 +264,7 @@ export default function CaseStudyPage() {
                   The Challenge
                 </h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  {`${caseStudy.client} faced significant operational challenges that required a comprehensive digital transformation. The existing systems were outdated, inefficient, and couldn't scale with their growing business needs. They needed a modern, scalable solution that would streamline operations, improve user experience, and drive business growth.`}
+                  {`${caseStudy.client} faced significant operational challenges that required a comprehensive digital transformation. The existing systems were outdated, inefficient, and couldn&apos;t scale with their growing business needs. They needed a modern, scalable solution that would streamline operations, improve user experience, and drive business growth.`}
                 </p>
               </motion.div>
 
@@ -279,7 +279,7 @@ export default function CaseStudyPage() {
                   Our Solution
                 </h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  {`We developed a comprehensive, scalable solution tailored to ${caseStudy.client}'s specific needs. Our approach involved modern architecture, user-centric design, and cutting-edge technologies to deliver a platform that not only solved immediate challenges but also positioned them for future growth.`}
+                  {`We developed a comprehensive, scalable solution tailored to ${caseStudy.client}&apos;s specific needs. Our approach involved modern architecture, user-centric design, and cutting-edge technologies to deliver a platform that not only solved immediate challenges but also positioned them for future growth.`}
                 </p>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="bg-slate-50 rounded-lg p-4 border border-slate-200">
