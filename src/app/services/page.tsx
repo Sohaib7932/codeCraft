@@ -50,7 +50,7 @@ const services = [
     icon: Cloud,
     title: "Cloud Infrastructure",
     description:
-      "Comprehensive cloud solutions leveraging AWS, Azure, and GCP for enhanced scalability, reliability, and cost-effectiveness.",
+     "Comprehensive cloud solutions leveraging AWS, Azure, and GCP for enhanced scalability, reliability, and cost-effectiveness.",
     features: ["Auto Scaling", "High Availability", "Cost Optimized", "DevOps Integration"],
     color: "from-green-50 to-green-100",
     iconColor: "text-green-600",
@@ -60,7 +60,7 @@ const services = [
     icon: Smartphone,
     title: "Mobile Development",
     description:
-      "Native and cross-platform mobile applications delivering exceptional user experiences across iOS and Android platforms.",
+     "Native and cross-platform mobile applications delivering exceptional user experiences across iOS and Android platforms.",
     features: ["Cross Platform", "Native Performance", "App Store Ready", "Push Notifications"],
     color: "from-orange-50 to-orange-100",
     iconColor: "text-orange-600",
