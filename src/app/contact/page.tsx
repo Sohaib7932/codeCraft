@@ -15,7 +15,8 @@ import {
   MessageSquare,
   Calendar,
   Linkedin,
-  Twitter,
+  Instagram,
+  Facebook,
   Github,
   Globe,
   ArrowRight,
@@ -49,7 +50,7 @@ const contactMethods = [
     title: "Live Chat",
     description: "Chat with us online",
     contact: "Available 24/7",
-    action: "#",
+    action: "https://wa.me/923180977791?text=Hi%20there!%20I'm%20interested%20in%20your%20services.",
     color: "from-orange-100 to-orange-200",
     iconColor: "text-orange-600",
   },
@@ -83,9 +84,10 @@ const officeInfo = [
 ]
 
 const socialLinks = [
-  { icon: Linkedin, name: "LinkedIn", url: "#", color: "hover:text-blue-600" },
-  { icon: Twitter, name: "Twitter", url: "#", color: "hover:text-blue-600" },
-  { icon: Github, name: "GitHub", url: "#", color: "hover:text-slate-700" },
+  { icon: Instagram, name: "Instagram", url: "https://www.instagram.com/code.kraft1/", color: "hover:text-blue-500" },
+  { icon: Facebook, name: "Facebook", url: "#", color: "hover:text-blue-500" },
+  { icon: Linkedin, name: "LinkedIn", url: "https://www.linkedin.com/in/code-kraft-043904384", color: "hover:text-blue-600" },
+  { icon: Github, name: "GitHub", url: "https://github.com/Sohaib7932/codeCraft", color: "hover:text-blue-500" },
 ]
 
 const faqs = [
@@ -270,27 +272,32 @@ export default function ContactPage() {
       <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {contactMethods.map((method, index) => (
-              <motion.a
-                key={method.title}
-                href={method.action}
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group block bg-white border border-slate-200 rounded-2xl p-6 shadow-md hover:border-blue-300 hover:shadow-lg transition-all duration-300"
-              >
-                <div
-                  className={`w-12 h-12 bg-gradient-to-br ${method.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+            {contactMethods.map((method, index) => {
+              const isScheduleMeeting = method.title === "Schedule Meeting"
+              const Element = isScheduleMeeting ? motion.button : motion.a
+              
+              return (
+                <Element
+                  key={method.title}
+                  {...(isScheduleMeeting ? { onClick: openCalendly } : { href: method.action })}
+                  initial={{ y: 50, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="group block bg-white border border-slate-200 rounded-2xl p-6 shadow-md hover:border-blue-300 hover:shadow-lg transition-all duration-300 cursor-pointer"
                 >
-                  <method.icon className={`w-6 h-6 ${method.iconColor}`} />
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
-                  {method.title}
-                </h3>
-                <p className="text-slate-600 text-sm mb-2">{method.description}</p>
-                <p className="text-blue-600 font-semibold">{method.contact}</p>
-              </motion.a>
-            ))}
+                  <div
+                    className={`w-12 h-12 bg-gradient-to-br ${method.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    <method.icon className={`w-6 h-6 ${method.iconColor}`} />
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    {method.title}
+                  </h3>
+                  <p className="text-slate-600 text-sm mb-2">{method.description}</p>
+                  <p className="text-blue-600 font-semibold">{method.contact}</p>
+                </Element>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -546,6 +553,8 @@ export default function ContactPage() {
                     <a
                       key={social.name}
                       href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={`w-9 h-9 bg-slate-100 hover:bg-blue-100 rounded-lg flex items-center justify-center transition-all duration-300 ${social.color}`}
                     >
                       <social.icon className={`w-4 h-4 ${social.color.replace("hover:", "")}`} />
