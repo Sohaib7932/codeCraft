@@ -23,6 +23,7 @@ import {
   Building,
 } from "lucide-react"
 import GradientBlobs from "../../components/GradientBlobs"
+import { useCalendly } from "../../components/CalendlyWidget"
 
 const contactMethods = [
   {
@@ -111,6 +112,8 @@ const faqs = [
 ]
 
 export default function ContactPage() {
+  const { openCalendly, CalendlyComponent } = useCalendly("https://calendly.com/hr-codekraft/30min")
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -252,12 +255,12 @@ export default function ContactPage() {
                 Start Conversation
                 <MessageSquare className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link
-                href="#form"
-                className="group border-2 border-slate-300 hover:border-slate-400 text-slate-700 hover:text-slate-900 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-slate-50"
+              <button
+                onClick={openCalendly}
+                className="group border-2 border-slate-300 hover:border-slate-400 text-slate-700 hover:text-slate-900 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-slate-50 cursor-pointer"
               >
                 Schedule Call
-              </Link>
+              </button>
             </motion.div>
           </motion.div>
         </div>
@@ -622,13 +625,13 @@ export default function ContactPage() {
               help your business thrive.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="#form"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center"
+              <button
+                onClick={openCalendly}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center cursor-pointer"
               >
                 Schedule a Call
                 <Calendar className="ml-2 w-5 h-5" />
-              </Link>
+              </button>
               <Link
                 href="/projects"
                 className="border-2 border-white/30 hover:border-white/50 text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-white/10 flex items-center justify-center"
@@ -640,6 +643,9 @@ export default function ContactPage() {
           </motion.div>
         </div>
       </section>
+      
+      {/* Calendly Widget */}
+      <CalendlyComponent />
     </div>
   )
 }

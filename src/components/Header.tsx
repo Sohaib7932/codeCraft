@@ -2,8 +2,10 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function Header() {
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -55,7 +57,12 @@ export default function Header() {
         <Link href="/case-studies" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-700" style={{color: '#0a0a0a', textDecoration: 'none', padding: '0 12px'}}>Case Studies</Link>
         <Link href="/about" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-700" style={{color: '#0a0a0a', textDecoration: 'none', padding: '0 12px'}}>About Us</Link>
         <Link href="/contact" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-700" style={{color: '#0a0a0a', textDecoration: 'none', padding: '0 12px'}}>Contact</Link>
-        <button className="bg-blue-600 text-white px-3 py-1 rounded text-xs font-medium hover:bg-blue-800 ml-3">Get a Quote</button>
+        <button 
+          onClick={() => router.push('/contact')}
+          className="bg-blue-600 text-white px-3 py-1 rounded text-xs font-medium hover:bg-blue-800 ml-3 cursor-pointer"
+        >
+          Get a Quote
+        </button>
       </nav>
 
       {/* Mobile Hamburger Button */}
@@ -145,8 +152,11 @@ export default function Header() {
             </Link>
             <div className="px-6 py-3">
               <button 
-                className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-800 w-full"
-                onClick={() => setIsMobileMenuOpen(false)}
+                className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-800 w-full cursor-pointer"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  router.push('/contact');
+                }}
               >
                 Get a Quote
               </button>
