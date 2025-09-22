@@ -148,7 +148,7 @@ export default function CaseStudies() {
               </h1>
 
               <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed mb-12">
-                Discover how we've helped businesses transform their operations and achieve remarkable results through
+                Discover how we&apos;ve helped businesses transform their operations and achieve remarkable results through
                 innovative software solutions and strategic technology implementations.
               </p>
 

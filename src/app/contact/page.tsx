@@ -179,13 +179,13 @@ export default function ContactPage() {
               </div>
 
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-none mb-8">
-                Let's Build Something
+                Let&apos;s Build Something
                 <br />
                 <span className="text-slate-700">Amazing Together</span>
               </h1>
 
               <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed mb-12">
-                Ready to start your next project? Let's discuss how we can help you achieve your goals with our
+                Ready to start your next project? Let&apos;s discuss how we can help you achieve your goals with our
                 expert team and innovative solutions.
               </p>
 
