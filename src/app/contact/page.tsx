@@ -85,7 +85,7 @@ const officeInfo = [
 
 const socialLinks = [
   { icon: Instagram, name: "Instagram", url: "https://www.instagram.com/code.kraft1/", color: "hover:text-blue-500" },
-  { icon: Facebook, name: "Facebook", url: "#", color: "hover:text-blue-500" },
+  { icon: Facebook, name: "Facebook", url: "https://www.facebook.com/profile.php?id=61581019661724", color: "hover:text-blue-500" },
   { icon: Linkedin, name: "LinkedIn", url: "https://www.linkedin.com/in/code-kraft-043904384", color: "hover:text-blue-600" },
   { icon: Github, name: "GitHub", url: "https://github.com/Sohaib7932/codeCraft", color: "hover:text-blue-500" },
 ]

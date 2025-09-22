@@ -372,7 +372,7 @@ export default function Projects() {
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Ready to start your next project?</h2>
           <p className="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
-            Let's collaborate to bring your vision to life with enterprise-grade technology solutions.
+            Let&apos;s collaborate to bring your vision to life with enterprise-grade technology solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

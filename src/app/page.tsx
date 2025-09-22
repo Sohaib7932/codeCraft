@@ -347,7 +347,7 @@ RUN npm ci --only=production` }
           <div className="text-center bg-slate-900 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-white mb-3">Ready to scale your business?</h3>
             <p className="text-slate-300 mb-6 max-w-lg mx-auto">
-              Let's discuss your project and find the right solution for your enterprise needs.
+              Let&apos;s discuss your project and find the right solution for your enterprise needs.
             </p>
             <button
               onClick={openCalendly}
