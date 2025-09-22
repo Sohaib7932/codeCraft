@@ -21,6 +21,7 @@ import {
 } from "lucide-react"
 import projectsData from "../../data/projects.json"
 import GradientBlobs from "../../components/GradientBlobs"
+import AnimatedCounter, { PercentageCounter, TimeCounter, PlusCounter } from "../../components/AnimatedCounter"
 
 interface Project {
   id: number
@@ -131,29 +132,44 @@ export default function Projects() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
                 <a
                   href="#projects"
-                  className="inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg hover:shadow-xl"
+                  className="group inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:shadow-lg hover:scale-105"
                 >
                   View Projects
-                  <ExternalLink className="ml-2 w-5 h-5" />
+                  <ExternalLink className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-0.5" />
                 </a>
                 <a
                   href="/contact"
-                  className="inline-flex items-center justify-center border border-slate-300 hover:border-slate-400 text-slate-700 hover:text-slate-900 px-8 py-4 rounded-lg font-semibold text-lg transition-colors hover:bg-white"
+                  className="group inline-flex items-center justify-center border border-slate-300 hover:border-slate-400 text-slate-700 hover:text-slate-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:bg-white hover:shadow-lg hover:scale-105"
                 >
                   Start Your Project
+                  <ExternalLink className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                 </a>
               </div>
 
               {/* Project Metrics */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
                 {[
-                  { value: "50+", label: "Projects Completed" },
-                  { value: "98%", label: "Client Satisfaction" },
-                  { value: "100%", label: "On-Time Delivery" }
-                ].map((metric) => (
-                  <div key={metric.label} className="text-center p-6 bg-white rounded-lg border border-slate-200 shadow-sm">
-                    <div className="text-3xl font-bold text-slate-900 mb-2">{metric.value}</div>
+                  { value: "50+", label: "Projects Completed", animated: true, type: "plus" },
+                  { value: "98%", label: "Client Satisfaction", animated: true, type: "percentage" },
+                  { value: "100%", label: "On-Time Delivery", animated: true, type: "percentage" }
+                ].map((metric, index) => (
+                  <div key={metric.label} className="group relative overflow-hidden text-center p-6 rounded-xl border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/50 to-white backdrop-blur-sm shadow-lg shadow-slate-200/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/80 hover:bg-gradient-to-br hover:from-white hover:via-blue-50/30 hover:to-white">
+                    <div className="text-2xl font-bold text-slate-900 mb-2">
+                      {metric.animated ? (
+                        metric.type === "plus" ? (
+                          <PlusCounter value={parseInt(metric.value.replace('+', ''))} delay={0} duration={4500} />
+                        ) : metric.type === "percentage" ? (
+                          <PercentageCounter value={parseInt(metric.value.replace('%', ''))} delay={0} duration={4500} />
+                        ) : (
+                          <AnimatedCounter value={parseInt(metric.value)} delay={0} duration={4500} />
+                        )
+                      ) : (
+                        metric.value
+                      )}
+                    </div>
                     <div className="text-sm text-slate-600 font-medium">{metric.label}</div>
+                    <div className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-br from-transparent via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                 ))}
               </div>
@@ -262,7 +278,7 @@ export default function Projects() {
                   initial={{ y: 30, opacity: 0 }}
                   animate={isProjectsInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 + (index * 0.1) }}
-                  className="group bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300"
+                  className="group relative overflow-hidden rounded-2xl border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/30 to-white shadow-lg shadow-slate-200/40 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/70 hover:bg-gradient-to-br hover:from-white hover:via-blue-50/20 hover:to-slate-50/50"
                 >
                   <div className="relative h-48 overflow-hidden">
                     <Image
@@ -305,6 +321,8 @@ export default function Projects() {
                       </button>
                     </div>
                   </div>
+                  <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-transparent via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.div>
               ))}
             </div>
@@ -324,20 +342,28 @@ export default function Projects() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {techStack.map((stack, index) => (
-              <div key={stack.category} className="bg-white border border-slate-200 rounded-xl p-6 text-center">
-                <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <stack.icon className="w-6 h-6 text-white" />
+              <motion.div 
+                key={stack.category} 
+                initial={{ y: 30, opacity: 0 }}
+                animate={isTechInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group relative overflow-hidden text-center p-6 rounded-2xl border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/30 to-white shadow-lg shadow-slate-200/40 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/70 hover:bg-gradient-to-br hover:from-white hover:via-blue-50/20 hover:to-slate-50/50"
+              >
+                <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 text-white flex items-center justify-center shadow-lg shadow-slate-900/30 ring-1 ring-white/20 group-hover:shadow-xl group-hover:shadow-slate-900/40 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-blue-900 group-hover:to-slate-900 transition-all duration-300">
+                  <stack.icon className="w-7 h-7" />
                 </div>
-                <h3 className="font-bold text-slate-900 mb-3">{stack.category}</h3>
+                <h3 className="text-lg font-bold text-slate-900 mb-3">{stack.category}</h3>
                 <div className="space-y-1">
                   {stack.technologies.slice(0, 4).map((tech) => (
                     <div key={tech} className="text-slate-600 text-sm">{tech}</div>
                   ))}
                   {stack.technologies.length > 4 && (
-                    <div className="text-slate-500 text-xs">+{stack.technologies.length - 4} more</div>
+                    <div className="text-slate-500 text-xs font-medium">+{stack.technologies.length - 4} more</div>
                   )}
                 </div>
-              </div>
+                <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-transparent via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
             ))}
           </div>
         </div>
@@ -355,13 +381,21 @@ export default function Projects() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={stat.label} className="text-center bg-slate-50 rounded-xl p-6 border border-slate-200">
-                <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <stat.icon className="w-6 h-6 text-white" />
+              <motion.div 
+                key={stat.label} 
+                initial={{ y: 30, opacity: 0 }}
+                animate={isStatsInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group relative overflow-hidden text-center p-6 rounded-2xl border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/30 to-white shadow-lg shadow-slate-200/40 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/70 hover:bg-gradient-to-br hover:from-white hover:via-blue-50/20 hover:to-slate-50/50"
+              >
+                <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200/80 text-slate-700 flex items-center justify-center ring-1 ring-slate-200/50 shadow-sm group-hover:ring-blue-300/60 group-hover:shadow-md group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-blue-50 group-hover:to-slate-100 transition-all duration-300">
+                  <stat.icon className="w-7 h-7 group-hover:text-blue-600 transition-colors" />
                 </div>
-                <div className="text-3xl font-bold text-slate-900 mb-2">{stat.value}</div>
-                <div className="text-sm font-medium text-slate-600">{stat.label}</div>
-              </div>
+                <div className="text-2xl font-bold text-slate-900 mb-2">{stat.value}</div>
+                <div className="text-sm text-slate-600 font-medium">{stat.label}</div>
+                <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-transparent via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
             ))}
           </div>
         </div>
@@ -377,15 +411,17 @@ export default function Projects() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/contact"
-              className="bg-white text-slate-900 px-8 py-4 rounded-lg font-semibold hover:bg-slate-100 transition-colors"
+              className="group inline-flex items-center justify-center bg-white text-slate-900 px-8 py-4 rounded-lg font-semibold transition-all duration-200 hover:bg-slate-100 hover:shadow-lg hover:scale-105"
             >
               Start Your Project
+              <ExternalLink className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <a
               href="#projects"
-              className="border border-white/30 hover:border-white/50 text-white px-8 py-4 rounded-lg font-semibold transition-all hover:bg-white/10"
+              className="group inline-flex items-center justify-center border border-white/30 hover:border-white/50 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 hover:bg-white/10 hover:shadow-lg hover:scale-105"
             >
               View More Projects
+              <ExternalLink className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-0.5" />
             </a>
           </div>
         </div>

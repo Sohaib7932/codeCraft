@@ -23,7 +23,7 @@ import {
   ExternalLink,
 } from "lucide-react"
 import caseStudiesData from "../../data/caseStudies.json"
-import GradientBlobs from "../../components/GradientBlobs"
+import AnimatedCounter, { PercentageCounter, TimeCounter, PlusCounter } from "../../components/AnimatedCounter"
 
 interface CaseStudy {
   id: number
@@ -127,109 +127,48 @@ export default function CaseStudies() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <Image
-            src="/placeholder.svg?height=1080&width=1920"
-            alt="Success stories and case studies"
-            width={1920}
-            height={1080}
-            className="w-full h-full object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-white/90"></div>
-        </div>
+      <section ref={heroRef} className="relative">
 
-        {/* Animated Gradient Blobs */}
-        <GradientBlobs variant="default" />
-
-        {/* Floating Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div
-            animate={{
-              y: [0, -30, 0],
-              rotate: [0, 10, 0],
-            }}
-            transition={{
-              duration: 12,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
-            className="absolute top-20 right-20 w-32 h-32 bg-blue-100 rounded-2xl opacity-60"
-          />
-          <motion.div
-            animate={{
-              y: [0, 25, 0],
-              rotate: [0, -8, 0],
-            }}
-            transition={{
-              duration: 15,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-              delay: 1,
-            }}
-            className="absolute bottom-20 left-20 w-28 h-28 bg-slate-100 rounded-full opacity-50"
-          />
-          <motion.div
-            animate={{
-              y: [0, -20, 0],
-              x: [0, 10, 0],
-            }}
-            transition={{
-              duration: 18,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-              delay: 2,
-            }}
-            className="absolute top-1/2 left-1/4 w-24 h-24 bg-green-100 rounded-xl opacity-40"
-          />
-        </div>
-
-        <div className="relative z-10 text-center max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
-              Case Studies
-            </h1>
-
-            <motion.p
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto mb-12 leading-relaxed"
-            >
-              Discover how we&apos;ve helped businesses transform their operations and achieve remarkable results through
-              innovative software solutions and strategic technology implementations.
-            </motion.p>
-
+        <div className="relative max-w-7xl mx-auto px-6 py-24 md:py-32">
+          <div className="text-center">
             <motion.div
-              initial={{ y: 30, opacity: 0 }}
+              initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              transition={{ duration: 0.6 }}
             >
-              <motion.button
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center"
-              >
-                Explore Success Stories
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
+              <div className="inline-flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
+                <Award className="w-4 h-4" />
+                Success Stories
+              </div>
 
-              <motion.button
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="group border-2 border-slate-300 hover:border-slate-400 text-slate-700 hover:text-slate-900 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-slate-50"
-              >
-                Start Your Project
-              </motion.button>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-none mb-8">
+                Proven Results
+                <br />
+                <span className="text-slate-700">Real Success Stories</span>
+              </h1>
+
+              <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed mb-12">
+                Discover how we've helped businesses transform their operations and achieve remarkable results through
+                innovative software solutions and strategic technology implementations.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                <Link
+                  href="#cases"
+                  className="group inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:shadow-lg hover:scale-105"
+                >
+                  Explore Success Stories
+                  <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center justify-center border border-slate-300 hover:border-slate-400 text-slate-700 hover:text-slate-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:bg-white hover:shadow-lg hover:scale-105"
+                >
+                  Start Your Project
+                </Link>
+              </div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -243,14 +182,30 @@ export default function CaseStudies() {
                 initial={{ y: 50, opacity: 0 }}
                 animate={isMetricsInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center group"
+                className="group relative overflow-hidden text-center p-6 rounded-xl border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/50 to-white backdrop-blur-sm shadow-lg shadow-slate-200/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/80 hover:bg-gradient-to-br hover:from-white hover:via-blue-50/30 hover:to-white"
               >
-                <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors duration-300">
-                  <metric.icon className="w-8 h-8 text-blue-600" />
+                <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200/80 text-slate-700 flex items-center justify-center ring-1 ring-slate-200/50 shadow-sm group-hover:ring-blue-300/60 group-hover:shadow-md group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-blue-50 group-hover:to-slate-100 transition-all duration-300">
+                  <metric.icon className="w-7 h-7 group-hover:text-blue-600 transition-colors" />
                 </div>
-                <div className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">{metric.value}</div>
-                <div className="text-slate-700 font-semibold mb-1">{metric.label}</div>
-                <div className="text-slate-500 text-sm">{metric.description}</div>
+                <div className="text-2xl font-bold text-slate-900 mb-2">
+                  {metric.value.includes('+') || metric.value.includes('K') ? (
+                    metric.value.includes('K') ? (
+                      <><AnimatedCounter value={parseInt(metric.value.replace('K+', '').replace('K', ''))} delay={0} duration={4500} />K+</>
+                    ) : (
+                      <PlusCounter value={parseInt(metric.value.replace('+', ''))} delay={0} duration={4500} />
+                    )
+                  ) : metric.value.includes('%') ? (
+                    <PercentageCounter value={parseInt(metric.value.replace('%', ''))} delay={0} duration={4500} />
+                  ) : metric.value.includes('/') ? (
+                    metric.value
+                  ) : (
+                    <AnimatedCounter value={parseInt(metric.value)} delay={0} duration={4500} />
+                  )}
+                </div>
+                <div className="text-sm text-slate-600 font-medium mb-1">{metric.label}</div>
+                <div className="text-xs text-slate-500">{metric.description}</div>
+                <div className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-br from-transparent via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
             ))}
           </div>
@@ -274,8 +229,8 @@ export default function CaseStudies() {
                 whileTap={{ scale: 0.95 }}
                 className={`flex items-center px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
                   selectedFilter === filter.value
-                    ? "bg-blue-600 text-white shadow-lg"
-                    : "bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200 hover:border-slate-300"
+                    ? "bg-slate-900 text-white shadow-lg"
+                    : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 hover:border-slate-300"
                 }`}
               >
                 <filter.icon className="w-5 h-5 mr-2" />
@@ -287,7 +242,7 @@ export default function CaseStudies() {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-24 bg-slate-50" ref={casesRef}>
+      <section className="py-24 bg-slate-50" ref={casesRef} id="cases">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -421,21 +376,21 @@ export default function CaseStudies() {
                 initial={{ y: 50, opacity: 0 }}
                 animate={isApproachInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group text-center bg-white border border-slate-200 rounded-2xl p-8 hover:border-blue-300 hover:shadow-lg transition-all duration-300"
+                className="group relative overflow-hidden text-center p-6 rounded-2xl border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/30 to-white shadow-lg shadow-slate-200/40 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/70 hover:bg-gradient-to-br hover:from-white hover:via-blue-50/20 hover:to-slate-50/50"
               >
-                <div
-                  className={`w-16 h-16 bg-gradient-to-br ${step.color} rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}
-                >
-                  <step.icon className={`w-8 h-8 ${step.iconColor}`} />
+                <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 text-white flex items-center justify-center shadow-lg shadow-slate-900/30 ring-1 ring-white/20 group-hover:shadow-xl group-hover:shadow-slate-900/40 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-blue-900 group-hover:to-slate-900 transition-all duration-300">
+                  <step.icon className="w-7 h-7" />
                 </div>
 
-                <div className="text-3xl font-bold text-blue-600 mb-4">{step.step}</div>
+                <div className="text-2xl font-bold text-blue-600 mb-3">{step.step}</div>
 
-                <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
                   {step.title}
                 </h3>
 
-                <p className="text-slate-600 leading-relaxed">{step.description}</p>
+                <p className="text-slate-600 leading-relaxed text-sm">{step.description}</p>
+                <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-transparent via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
             ))}
           </div>
@@ -479,20 +434,20 @@ export default function CaseStudies() {
               measurable results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+              <Link
+                href="/contact"
+                className="group inline-flex items-center justify-center bg-white text-slate-900 px-8 py-4 rounded-lg font-semibold transition-all duration-200 hover:bg-slate-100 hover:shadow-lg hover:scale-105"
               >
                 Start Your Project
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="border-2 border-white/30 hover:border-white/50 text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-white/10"
+                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center justify-center border border-white/30 hover:border-white/50 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 hover:bg-white/10 hover:shadow-lg hover:scale-105"
               >
                 Schedule Consultation
-              </motion.button>
+                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-0.5" />
+              </Link>
             </div>
           </motion.div>
         </div>

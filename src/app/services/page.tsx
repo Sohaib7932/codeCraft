@@ -24,6 +24,7 @@ import {
   TrendingUp,
 } from "lucide-react"
 import GradientBlobs from "../../components/GradientBlobs"
+import AnimatedCounter, { PercentageCounter, TimeCounter, PlusCounter } from "../../components/AnimatedCounter"
 
 const services = [
   {
@@ -223,111 +224,53 @@ export default function Services() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <motion.div style={{ y, opacity }} className="absolute inset-0">
-          <Image
-            src="/placeholder.svg?height=1080&width=1920"
-            alt="Professional software development services"
-            width={1920}
-            height={1080}
-            className="w-full h-full object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-white/90"></div>
-        </motion.div>
-
+      <section ref={heroRef} className="relative overflow-hidden bg-slate-50">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,_transparent_25%,_rgba(15,_23,_42,_0.02)_25%,_rgba(15,_23,_42,_0.02)_50%,_transparent_50%,_transparent_75%,_rgba(15,_23,_42,_0.02)_75%)] bg-[length:32px_32px]" />
+        
         {/* Animated Gradient Blobs */}
         <GradientBlobs variant="default" />
 
-        {/* Floating Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div
-            animate={{
-              y: [0, -20, 0],
-              rotate: [0, 5, 0],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
-            className="absolute top-20 right-20 w-24 h-24 bg-blue-100 rounded-2xl opacity-60"
-          />
-          <motion.div
-            animate={{
-              y: [0, 15, 0],
-              rotate: [0, -3, 0],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-              delay: 1,
-            }}
-            className="absolute bottom-32 left-16 w-20 h-20 bg-slate-100 rounded-full opacity-50"
-          />
-          <motion.div
-            animate={{
-              y: [0, -10, 0],
-              x: [0, 5, 0],
-            }}
-            transition={{
-              duration: 12,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-              delay: 2,
-            }}
-            className="absolute top-1/3 left-1/4 w-16 h-16 bg-green-100 rounded-xl opacity-40"
-          />
-        </div>
-
-        <div className="relative z-10 text-center max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
-              Our Services
-            </h1>
-
-            <motion.p
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto mb-12 leading-relaxed"
-            >
-              From web applications to mobile apps, cloud solutions to consulting - we deliver tailored software
-              solutions that drive business growth and innovation.
-            </motion.p>
-
+        <div className="relative max-w-7xl mx-auto px-6 py-24 md:py-32">
+          <div className="text-center">
             <motion.div
-              initial={{ y: 30, opacity: 0 }}
+              initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              transition={{ duration: 0.6 }}
             >
-              <motion.a
-                href="/contact"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center cursor-pointer"
-              >
-                Get Started Today
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </motion.a>
+              <div className="inline-flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
+                <Code2 className="w-4 h-4" />
+                Our Services
+              </div>
 
-              <motion.a
-                href="/projects"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="group border-2 border-slate-300 hover:border-slate-400 text-slate-700 hover:text-slate-900 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-slate-50 cursor-pointer"
-              >
-                View Portfolio
-              </motion.a>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-none mb-8">
+                Enterprise solutions
+                <br />
+                <span className="text-slate-700">that drive innovation</span>
+              </h1>
+
+              <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed mb-12">
+                From web applications to mobile apps, cloud solutions to consulting - we deliver tailored software
+                solutions that drive business growth and innovation.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                <a
+                  href="/contact"
+                  className="group inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:shadow-lg hover:scale-105"
+                >
+                  Get Started Today
+                  <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-0.5" />
+                </a>
+                <a
+                  href="/projects"
+                  className="group inline-flex items-center justify-center border border-slate-300 hover:border-slate-400 text-slate-700 hover:text-slate-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:bg-white hover:shadow-lg hover:scale-105"
+                >
+                  View Portfolio
+                </a>
+              </div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -341,13 +284,25 @@ export default function Services() {
                 initial={{ y: 50, opacity: 0 }}
                 animate={isStatsInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center group"
+                className="group relative overflow-hidden text-center p-6 rounded-xl border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/50 to-white backdrop-blur-sm shadow-lg shadow-slate-200/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/80 hover:bg-gradient-to-br hover:from-white hover:via-blue-50/30 hover:to-white"
               >
-                <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors duration-300">
-                  <stat.icon className="w-8 h-8 text-blue-600" />
+                <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200/80 text-slate-700 flex items-center justify-center ring-1 ring-slate-200/50 shadow-sm group-hover:ring-blue-300/60 group-hover:shadow-md group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-blue-50 group-hover:to-slate-100 transition-all duration-300">
+                  <stat.icon className="w-7 h-7 group-hover:text-blue-600 transition-colors" />
                 </div>
-                <div className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">{stat.value}</div>
-                <div className="text-slate-600 text-sm font-medium">{stat.label}</div>
+                <div className="text-2xl font-bold text-slate-900 mb-2">
+                  {stat.value.includes('+') ? (
+                    <PlusCounter value={parseInt(stat.value.replace('+', ''))} delay={0} duration={4500} />
+                  ) : stat.value.includes('%') ? (
+                    <PercentageCounter value={parseInt(stat.value.replace('%', ''))} delay={0} duration={4500} />
+                  ) : stat.value.includes('/') ? (
+                    stat.value
+                  ) : (
+                    <AnimatedCounter value={parseInt(stat.value)} delay={0} duration={4500} />
+                  )}
+                </div>
+                <div className="text-sm text-slate-600 font-medium">{stat.label}</div>
+                <div className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-br from-transparent via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
             ))}
           </div>
@@ -373,37 +328,44 @@ export default function Services() {
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
-                initial={{ y: 50, opacity: 0 }}
-                animate={isServicesInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="group relative bg-white border border-slate-200 rounded-2xl p-8 hover:border-blue-300 hover:shadow-xl transition-all duration-300"
+                initial={{ y: 30, opacity: 0 }}
+                animate={isServicesInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group relative overflow-hidden rounded-2xl p-8 border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/30 to-white shadow-lg shadow-slate-200/40 transition-all duration-500 hover:shadow-2xl hover:shadow-slate-300/30 hover:-translate-y-2 hover:border-slate-300/70 hover:bg-gradient-to-br hover:from-white hover:via-blue-50/20 hover:to-slate-50/50"
               >
-                <div
-                  className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
-                >
-                  <service.icon className={`w-8 h-8 ${service.iconColor}`} />
+                {/* Service Header */}
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-14 h-14 bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-slate-900/30 ring-1 ring-white/20 group-hover:shadow-xl group-hover:shadow-slate-900/40 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-blue-900 group-hover:to-slate-900 transition-all duration-300">
+                    <service.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-xl font-bold text-slate-900 mb-1">{service.title}</h3>
+                    <p className="text-slate-600 text-sm font-medium">Advanced Technology Solutions</p>
+                  </div>
                 </div>
 
-                <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">
-                  {service.title}
-                </h3>
+                <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-transparent via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                <p className="text-slate-600 mb-6 leading-relaxed">{service.description}</p>
+                <p className="text-slate-600 leading-relaxed mb-6">{service.description}</p>
 
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  {service.features.map((feature) => (
-                    <div key={feature} className="flex items-center text-sm text-slate-700">
-                      <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
-                      {feature}
+                {/* Key Features - Simplified */}
+                <div className="space-y-2 mb-6">
+                  {service.features.slice(0, 3).map((feature, featureIndex) => (
+                    <div key={feature} className="flex items-center gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-slate-600 rounded-full flex-shrink-0" />
+                      <span className="text-slate-700">{feature}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="flex flex-wrap gap-2">
-                  {service.technologies.map((tech) => (
-                    <span key={tech} className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm font-medium">
-                      {tech}
-                    </span>
+                {/* Technology Stack - Inline */}
+                <div className="flex gap-6 pt-4 border-t border-slate-200">
+                  {service.technologies.slice(0, 3).map((tech) => (
+                    <div key={tech} className="text-center">
+                      <div className="text-sm font-bold text-slate-900">{tech}</div>
+                      <div className="text-xs text-slate-500">Technology</div>
+                    </div>
                   ))}
                 </div>
               </motion.div>
@@ -436,10 +398,8 @@ export default function Services() {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 className="group relative bg-white border border-slate-200 rounded-2xl p-8 hover:border-blue-300 hover:shadow-xl transition-all duration-300"
               >
-                <div
-                  className={`w-16 h-16 bg-gradient-to-br ${solution.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
-                >
-                  <solution.icon className={`w-8 h-8 ${solution.iconColor}`} />
+                <div className="w-16 h-16 bg-gradient-to-br from-slate-900 to-slate-800 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-slate-900/30 ring-1 ring-white/20 group-hover:shadow-xl group-hover:shadow-slate-900/40 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-blue-900 group-hover:to-slate-900 transition-all duration-300">
+                  <solution.icon className="w-8 h-8 text-white" />
                 </div>
 
                 <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">
@@ -491,10 +451,8 @@ export default function Services() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group bg-white border border-slate-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-300"
               >
-                <div
-                  className={`w-12 h-12 bg-gradient-to-br ${item.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
-                >
-                  <item.icon className={`w-6 h-6 ${item.iconColor}`} />
+                <div className="w-12 h-12 bg-gradient-to-br from-slate-900 to-slate-800 rounded-lg flex items-center justify-center mb-4 shadow-lg shadow-slate-900/30 ring-1 ring-white/20 group-hover:shadow-xl group-hover:shadow-slate-900/40 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-blue-900 group-hover:to-slate-900 transition-all duration-300">
+                  <item.icon className="w-6 h-6 text-white" />
                 </div>
 
                 <h3 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">

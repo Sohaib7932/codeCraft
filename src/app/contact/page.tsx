@@ -23,7 +23,6 @@ import {
   User,
   Building,
 } from "lucide-react"
-import GradientBlobs from "../../components/GradientBlobs"
 import { useCalendly } from "../../components/CalendlyWidget"
 
 const contactMethods = [
@@ -165,106 +164,48 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-        {/* Background with overlay */}
-        <div className="absolute inset-0">
-          <Image
-            src="/placeholder.svg?height=1080&width=1920"
-            alt="Contact Hero Background"
-            width={1920}
-            height={1080}
-            className="w-full h-full object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-white/90"></div>
-        </div>
+      <section ref={heroRef} className="relative">
 
-        {/* Animated Gradient Blobs */}
-        <GradientBlobs variant="default" />
-
-        {/* Animated background elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div
-            animate={{
-              y: [0, -20, 0],
-              rotate: [0, 5, 0],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
-            className="absolute top-20 right-20 w-24 h-24 bg-blue-100 rounded-2xl opacity-60"
-          />
-          <motion.div
-            animate={{
-              y: [0, 15, 0],
-              rotate: [0, -3, 0],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-              delay: 1,
-            }}
-            className="absolute bottom-32 left-16 w-20 h-20 bg-slate-100 rounded-full opacity-50"
-          />
-          <motion.div
-            animate={{
-              y: [0, -10, 0],
-              x: [0, 5, 0],
-            }}
-            transition={{
-              duration: 12,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-              delay: 2,
-            }}
-            className="absolute top-1/3 left-1/4 w-16 h-16 bg-green-100 rounded-xl opacity-40"
-          />
-        </div>
-
-        <div className="relative z-10 text-center max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
-              Get In Touch
-            </h1>
-
-            <motion.p
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto mb-12 leading-relaxed"
-            >
-              Ready to start your next project? Let&apos;s discuss how we can help you achieve your goals with our
-              expert team and innovative solutions.
-            </motion.p>
-
+        <div className="relative max-w-7xl mx-auto px-6 py-24 md:py-32">
+          <div className="text-center">
             <motion.div
-              initial={{ y: 30, opacity: 0 }}
+              initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              transition={{ duration: 0.6 }}
             >
-              <Link
-                href="#form"
-                className="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center"
-              >
-                Start Conversation
-                <MessageSquare className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <button
-                onClick={openCalendly}
-                className="group border-2 border-slate-300 hover:border-slate-400 text-slate-700 hover:text-slate-900 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-slate-50 cursor-pointer"
-              >
-                Schedule Call
-              </button>
+              <div className="inline-flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
+                <MessageSquare className="w-4 h-4" />
+                Get In Touch
+              </div>
+
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-none mb-8">
+                Let's Build Something
+                <br />
+                <span className="text-slate-700">Amazing Together</span>
+              </h1>
+
+              <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed mb-12">
+                Ready to start your next project? Let's discuss how we can help you achieve your goals with our
+                expert team and innovative solutions.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                <Link
+                  href="#form"
+                  className="group inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:shadow-lg hover:scale-105"
+                >
+                  Start Conversation
+                  <MessageSquare className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+                <button
+                  onClick={openCalendly}
+                  className="group inline-flex items-center justify-center border border-slate-300 hover:border-slate-400 text-slate-700 hover:text-slate-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:bg-white hover:shadow-lg hover:scale-105"
+                >
+                  Schedule Call
+                </button>
+              </div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -283,18 +224,18 @@ export default function ContactPage() {
                   initial={{ y: 50, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="group block bg-white border border-slate-200 rounded-2xl p-6 shadow-md hover:border-blue-300 hover:shadow-lg transition-all duration-300 cursor-pointer"
+                  className="group relative overflow-hidden bg-gradient-to-br from-white via-slate-50/30 to-white rounded-2xl p-6 border border-slate-200/60 shadow-lg shadow-slate-200/40 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/70 hover:bg-gradient-to-br hover:from-white hover:via-blue-50/20 hover:to-slate-50/50 cursor-pointer"
                 >
-                  <div
-                    className={`w-12 h-12 bg-gradient-to-br ${method.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <method.icon className={`w-6 h-6 ${method.iconColor}`} />
+                  <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200/80 text-slate-700 flex items-center justify-center ring-1 ring-slate-200/50 shadow-sm group-hover:ring-blue-300/60 group-hover:shadow-md group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-blue-50 group-hover:to-slate-100 transition-all duration-300">
+                    <method.icon className={`w-6 h-6 group-hover:text-blue-600 transition-colors`} />
                   </div>
                   <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
                     {method.title}
                   </h3>
                   <p className="text-slate-600 text-sm mb-2">{method.description}</p>
                   <p className="text-blue-600 font-semibold">{method.contact}</p>
+                  <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-transparent via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </Element>
               )
             })}
@@ -636,17 +577,17 @@ export default function ContactPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={openCalendly}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center cursor-pointer"
+                className="group inline-flex items-center justify-center bg-white text-slate-900 px-8 py-4 rounded-lg font-semibold transition-all duration-200 hover:bg-slate-100 hover:shadow-lg hover:scale-105 cursor-pointer"
               >
                 Schedule a Call
-                <Calendar className="ml-2 w-5 h-5" />
+                <Calendar className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-0.5" />
               </button>
               <Link
                 href="/projects"
-                className="border-2 border-white/30 hover:border-white/50 text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-white/10 flex items-center justify-center"
+                className="group inline-flex items-center justify-center border border-white/30 hover:border-white/50 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 hover:bg-white/10 hover:shadow-lg hover:scale-105"
               >
                 View Our Work
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>
           </motion.div>

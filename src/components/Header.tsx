@@ -112,14 +112,8 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <Link 
-              href="/contact"
-              className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors px-3 py-2"
-            >
-              Contact
-            </Link>
+          {/* CTA Button */}
+          <div className="hidden lg:flex items-center">
             <button
               onClick={() => router.push('/contact')}
               className="group inline-flex items-center bg-slate-900 hover:bg-slate-800 text-white px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 hover:shadow-lg hover:scale-105"
@@ -181,19 +175,12 @@ export default function Header() {
               
               {/* Mobile CTA */}
               <div className="pt-4 mt-4 border-t border-slate-200">
-                <Link
-                  href="/contact"
-                  className="block px-3 py-3 text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Contact
-                </Link>
                 <button
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     router.push('/contact');
                   }}
-                  className="mt-2 w-full flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-lg text-base font-medium transition-colors"
+                  className="w-full flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-lg text-base font-medium transition-all duration-200 hover:shadow-lg hover:scale-105"
                 >
                   Start Project
                   <ArrowRight className="ml-2 w-4 h-4" />
