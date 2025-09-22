@@ -30,7 +30,7 @@ export default function RootLayout({
       </head>
       <body
         className={`${manrope.variable} antialiased min-h-screen font-sans`}
-        style={{ paddingTop: isAdminRoute ? '0' : '70px' }}
+        style={{ paddingTop: isAdminRoute ? '0' : '80px' }}
       >
         {!isAdminRoute && <Header />}
         <main>

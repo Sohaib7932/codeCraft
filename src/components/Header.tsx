@@ -2,166 +2,205 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
+import { ChevronDown, ArrowRight, Menu, X } from 'lucide-react';
 
 export default function Header() {
   const router = useRouter();
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Define navigation structure
+  const navigationItems = [
+    { label: 'Solutions', href: '/services', hasDropdown: true },
+    { label: 'Work', href: '/projects' },
+    { label: 'Case Studies', href: '/case-studies' },
+    { label: 'Company', href: '/about' },
+  ];
+
+  const servicesDropdown = [
+    { label: 'Web Development', href: '/services#web' },
+    { label: 'Mobile Apps', href: '/services#mobile' },
+    { label: 'AI & Python', href: '/services#ai' },
+    { label: 'DevOps', href: '/services#devops' },
+  ];
+
+  const isActivePath = (href: string) => {
+    if (href === '/' && pathname === '/') return true;
+    if (href !== '/' && pathname.startsWith(href)) return true;
+    return false;
+  };
   
   return (
-    <header 
-      className="fixed z-50 flex justify-between items-center h-[50px] box-border transition-all duration-500"
-      style={{
-        top: isScrolled ? '20px' : '0px',
-        left: isScrolled ? '20px' : '0px',
-        right: isScrolled ? '20px' : '0px',
-        width: isScrolled ? 'auto' : '100%',
-        backgroundColor: '#ffffff',
-        backdropFilter: 'none',
-        WebkitBackdropFilter: 'none',
-        border: isScrolled ? '1px solid rgba(0,0,0,0.06)' : 'none',
-        borderBottom: isScrolled ? 'none' : '1px solid rgba(0,0,0,0.06)',
-        boxShadow: isScrolled ? '0 8px 20px rgba(0,0,0,0.08)' : '0 2px 8px rgba(0,0,0,0.06)',
-        borderRadius: isScrolled ? '20px' : '0px',
-        padding: '12px 40px',
-        transform: isScrolled ? 'scale(0.98)' : 'scale(1)'
-      }}
-    >
-      <div className="text-base font-bold">
-        <Link href="/" className="flex items-center" style={{color: '#0a0a0a', textDecoration: 'none', padding: '0', fontSize: '1rem', fontWeight: '700'}}>
-          <Image
-            src="/assets/logoo.png"
-            alt="CodeCraft Logo"
-            width={180}
-            height={40}
-            priority
-            sizes="(max-width: 640px) 120px, (max-width: 768px) 150px, 180px"
-            className="h-[26px] sm:h-[30px] md:h-[34px] w-auto"
-          />
-        </Link>
-      </div>
-      {/* Desktop Navigation */}
-      <nav className="hidden md:flex items-center">
-        <Link href="/" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-700" style={{color: '#0a0a0a', textDecoration: 'none', padding: '0 12px'}}>Home</Link>
-        <Link href="/services" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-700" style={{color: '#0a0a0a', textDecoration: 'none', padding: '0 12px'}}>Services</Link>
-        <Link href="/projects" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-700" style={{color: '#0a0a0a', textDecoration: 'none', padding: '0 12px'}}>Projects</Link>
-        <Link href="/case-studies" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-700" style={{color: '#0a0a0a', textDecoration: 'none', padding: '0 12px'}}>Case Studies</Link>
-        <Link href="/about" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-700" style={{color: '#0a0a0a', textDecoration: 'none', padding: '0 12px'}}>About Us</Link>
-        <Link href="/contact" className="text-[0.9rem] font-normal transition-colors duration-300 hover:text-gray-700" style={{color: '#0a0a0a', textDecoration: 'none', padding: '0 12px'}}>Contact</Link>
-        <button 
-          onClick={() => router.push('/contact')}
-          className="bg-blue-600 text-white px-3 py-1 rounded text-xs font-medium hover:bg-blue-800 ml-3 cursor-pointer"
-        >
-          Get a Quote
-        </button>
-      </nav>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-slate-200/50' 
+        : 'bg-white/80 backdrop-blur-sm'
+    }`}>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <Link href="/" className="flex items-center group">
+            <Image
+              src="/assets/logoo.png"
+              alt="CodeCraft"
+              width={160}
+              height={32}
+              priority
+              className="h-8 w-auto transition-opacity group-hover:opacity-80"
+            />
+          </Link>
 
-      {/* Mobile Hamburger Button */}
-      <button 
-        className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1"
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        aria-label="Toggle menu"
-      >
-        <span 
-          className={`block w-6 h-0.5 transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}
-          style={{backgroundColor: '#0a0a0a'}}
-        ></span>
-        <span 
-          className={`block w-6 h-0.5 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}
-          style={{backgroundColor: '#0a0a0a'}}
-        ></span>
-        <span 
-          className={`block w-6 h-0.5 transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}
-          style={{backgroundColor: '#0a0a0a'}}
-        ></span>
-      </button>
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-8">
+            {navigationItems.map((item) => (
+              <div key={item.label} className="relative group">
+                {item.hasDropdown ? (
+                  <>
+                    <button
+                      className={`flex items-center space-x-1 px-3 py-2 text-sm font-medium transition-colors ${
+                        isActivePath(item.href)
+                          ? 'text-slate-900'
+                          : 'text-slate-600 hover:text-slate-900'
+                      }`}
+                      onMouseEnter={() => setActiveDropdown(item.label)}
+                    >
+                      <span>{item.label}</span>
+                      <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
+                    </button>
+                    {/* Dropdown Menu */}
+                    <div 
+                      className="absolute top-full left-0 mt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0"
+                      onMouseLeave={() => setActiveDropdown(null)}
+                    >
+                      <div className="bg-white rounded-lg shadow-xl border border-slate-200/60 overflow-hidden">
+                        {servicesDropdown.map((subItem) => (
+                          <Link
+                            key={subItem.label}
+                            href={subItem.href}
+                            className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition-colors"
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className={`px-3 py-2 text-sm font-medium transition-colors ${
+                      isActivePath(item.href)
+                        ? 'text-slate-900'
+                        : 'text-slate-600 hover:text-slate-900'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </nav>
 
-      {/* Mobile Menu Dropdown */}
-      {isMobileMenuOpen && (
-        <div 
-          className="fixed md:hidden z-40 w-full transition-all duration-300"
-          style={{
-            top: isScrolled ? '90px' : '70px',
-            left: isScrolled ? '20px' : '0px',
-            right: isScrolled ? '20px' : '0px',
-            backgroundColor: 'rgba(10, 10, 10, 0.95)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            border: '1px solid var(--border-primary)',
-            borderRadius: isScrolled ? '16px' : '0px',
-            boxShadow: '0 10px 40px rgba(0, 0, 0, 0.3)'
-          }}
-        >
-          <nav className="flex flex-col py-4">
+          {/* CTA Buttons */}
+          <div className="hidden lg:flex items-center space-x-4">
             <Link 
-              href="/" 
-              className="text-[0.9rem] font-normal transition-colors duration-300 hover:bg-gray-800 px-6 py-3"
-              style={{color: 'var(--text-primary)', textDecoration: 'none'}}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link 
-              href="/services" 
-              className="text-[0.9rem] font-normal transition-colors duration-300 hover:bg-gray-800 px-6 py-3"
-              style={{color: 'var(--text-primary)', textDecoration: 'none'}}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Services
-            </Link>
-            <Link 
-              href="/projects" 
-              className="text-[0.9rem] font-normal transition-colors duration-300 hover:bg-gray-800 px-6 py-3"
-              style={{color: 'var(--text-primary)', textDecoration: 'none'}}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Projects
-            </Link>
-            <Link 
-              href="/case-studies" 
-              className="text-[0.9rem] font-normal transition-colors duration-300 hover:bg-gray-800 px-6 py-3"
-              style={{color: 'var(--text-primary)', textDecoration: 'none'}}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Case Studies
-            </Link>
-            <Link 
-              href="/about" 
-              className="text-[0.9rem] font-normal transition-colors duration-300 hover:bg-gray-800 px-6 py-3"
-              style={{color: 'var(--text-primary)', textDecoration: 'none'}}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              About Us
-            </Link>
-            <Link 
-              href="/contact" 
-              className="text-[0.9rem] font-normal transition-colors duration-300 hover:bg-gray-800 px-6 py-3"
-              style={{color: 'var(--text-primary)', textDecoration: 'none'}}
-              onClick={() => setIsMobileMenuOpen(false)}
+              href="/contact"
+              className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors px-3 py-2"
             >
               Contact
             </Link>
-            <div className="px-6 py-3">
-              <button 
-                className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-800 w-full cursor-pointer"
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  router.push('/contact');
-                }}
-              >
-                Get a Quote
-              </button>
-            </div>
-          </nav>
+            <button
+              onClick={() => router.push('/contact')}
+              className="group inline-flex items-center bg-slate-900 hover:bg-slate-800 text-white px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 hover:shadow-lg hover:scale-105"
+            >
+              Start Project
+              <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden bg-white border-t border-slate-200/60">
+          <div className="max-w-7xl mx-auto px-6 py-4">
+            <nav className="space-y-1">
+              {navigationItems.map((item) => (
+                <div key={item.label}>
+                  <Link
+                    href={item.href}
+                    className={`block px-3 py-3 text-base font-medium transition-colors ${
+                      isActivePath(item.href)
+                        ? 'text-slate-900 bg-slate-50'
+                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                    } rounded-lg`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                  {item.hasDropdown && (
+                    <div className="ml-6 mt-2 space-y-1">
+                      {servicesDropdown.map((subItem) => (
+                        <Link
+                          key={subItem.label}
+                          href={subItem.href}
+                          className="block px-3 py-2 text-sm text-slate-500 hover:text-slate-700 rounded-lg"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {subItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+              
+              {/* Mobile CTA */}
+              <div className="pt-4 mt-4 border-t border-slate-200">
+                <Link
+                  href="/contact"
+                  className="block px-3 py-3 text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Contact
+                </Link>
+                <button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    router.push('/contact');
+                  }}
+                  className="mt-2 w-full flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-lg text-base font-medium transition-colors"
+                >
+                  Start Project
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </button>
+              </div>
+            </nav>
+          </div>
         </div>
       )}
     </header>

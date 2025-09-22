@@ -101,111 +101,64 @@ export default function Projects() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <Image
-            src="/placeholder.svg?height=1080&width=1920"
-            alt="Portfolio showcase of innovative projects"
-            width={1920}
-            height={1080}
-            className="w-full h-full object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-white/90"></div>
-        </div>
-
-        {/* Animated Gradient Blobs */}
-        <GradientBlobs variant="default" />
-
-        {/* Floating Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div
-            animate={{
-              y: [0, -25, 0],
-              rotate: [0, 8, 0],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
-            className="absolute top-20 right-20 w-28 h-28 bg-blue-100 rounded-2xl opacity-60"
-          />
-          <motion.div
-            animate={{
-              y: [0, 20, 0],
-              rotate: [0, -5, 0],
-            }}
-            transition={{
-              duration: 12,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-              delay: 1,
-            }}
-            className="absolute bottom-20 left-20 w-32 h-32 bg-slate-100 rounded-full opacity-50"
-          />
-          <motion.div
-            animate={{
-              y: [0, -15, 0],
-              x: [0, 8, 0],
-            }}
-            transition={{
-              duration: 14,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-              delay: 2,
-            }}
-            className="absolute top-1/2 left-1/4 w-20 h-20 bg-green-100 rounded-xl opacity-40"
-          />
-        </div>
-
-        <div className="relative z-10 text-center max-w-6xl mx-auto px-6">
-                    <motion.div
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
-              Our Projects
-            </h1>
-
-            <motion.p
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto mb-12 leading-relaxed"
-            >
-              Explore our latest projects showcasing innovative solutions, cutting-edge technologies, and exceptional
-              results across diverse industries.
-            </motion.p>
-
+      <section ref={heroRef} className="relative bg-slate-50 overflow-hidden">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,_transparent_25%,_rgba(15,_23,_42,_0.02)_25%,_rgba(15,_23,_42,_0.02)_50%,_transparent_50%,_transparent_75%,_rgba(15,_23,_42,_0.02)_75%)] bg-[length:32px_32px]" />
+        
+        <div className="relative max-w-7xl mx-auto px-6 py-24 md:py-32">
+          <div className="text-center">
             <motion.div
-              initial={{ y: 30, opacity: 0 }}
+              initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              transition={{ duration: 0.6 }}
             >
-              <motion.a
-                href="#projects"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center cursor-pointer"
-              >
-                View All Projects
-                <ExternalLink className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </motion.a>
+              <div className="inline-flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
+                <Award className="w-4 h-4" />
+                Project Portfolio
+              </div>
 
-              <motion.a
-                href="/contact"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="group border-2 border-slate-300 hover:border-slate-400 text-slate-700 hover:text-slate-900 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-slate-50 cursor-pointer"
-              >
-                Start Your Project
-              </motion.a>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-none mb-8">
+                Enterprise solutions
+                <br />
+                <span className="text-slate-700">that deliver results</span>
+              </h1>
+
+              <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed mb-12">
+                Explore our portfolio of production-ready applications, enterprise platforms, 
+                and innovative solutions built for scale.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                <a
+                  href="#projects"
+                  className="inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg hover:shadow-xl"
+                >
+                  View Projects
+                  <ExternalLink className="ml-2 w-5 h-5" />
+                </a>
+                <a
+                  href="/contact"
+                  className="inline-flex items-center justify-center border border-slate-300 hover:border-slate-400 text-slate-700 hover:text-slate-900 px-8 py-4 rounded-lg font-semibold text-lg transition-colors hover:bg-white"
+                >
+                  Start Your Project
+                </a>
+              </div>
+
+              {/* Project Metrics */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+                {[
+                  { value: "50+", label: "Projects Completed" },
+                  { value: "98%", label: "Client Satisfaction" },
+                  { value: "100%", label: "On-Time Delivery" }
+                ].map((metric) => (
+                  <div key={metric.label} className="text-center p-6 bg-white rounded-lg border border-slate-200 shadow-sm">
+                    <div className="text-3xl font-bold text-slate-900 mb-2">{metric.value}</div>
+                    <div className="text-sm text-slate-600 font-medium">{metric.label}</div>
+                  </div>
+                ))}
+              </div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -221,7 +174,7 @@ export default function Projects() {
                 onClick={() => setActiveCategory(category.value)}
                 className={`flex items-center px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
                   activeCategory === category.value
-                    ? "bg-blue-600 text-white shadow-lg"
+                    ? "bg-slate-900 text-white shadow-lg"
                     : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 hover:border-slate-300"
                 }`}
               >
@@ -234,240 +187,207 @@ export default function Projects() {
       </section>
 
       {/* Projects Showcase */}
-      <section className="py-24 bg-white" ref={projectsRef}>
+      <section className="py-24 bg-white" id="projects" ref={projectsRef}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={isProjectsInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+            initial={{ y: 20, opacity: 0 }}
+            animate={isProjectsInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">Featured Projects</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Discover how we&apos;ve helped businesses transform their ideas into successful digital solutions
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Our Work</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Explore our portfolio of successful projects built for enterprises and growing businesses.
             </p>
           </motion.div>
 
-          <div className="space-y-12">
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ y: 50, opacity: 0 }}
-                animate={isProjectsInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className={`group relative bg-white border border-slate-200 rounded-3xl overflow-hidden hover:border-blue-300 hover:shadow-xl transition-all duration-500 ${
-                  index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                } flex flex-col lg:flex`}
-              >
-                {/* Project Content */}
-                <div className="flex-1 p-8 lg:p-12 flex flex-col justify-center">
-                  <div className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4 w-fit">
-                    <Filter className="w-4 h-4 mr-2" />
-                    {project.category}
+          {/* Featured Project */}
+          {filteredProjects.length > 0 && (
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              animate={isProjectsInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="mb-16 bg-slate-50 rounded-2xl overflow-hidden border border-slate-200"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                <div className="p-8 lg:p-12 flex flex-col justify-center">
+                  <div className="inline-flex items-center px-3 py-1 bg-slate-900 text-white rounded-full text-sm font-semibold mb-4 w-fit">
+                    Featured
                   </div>
-
-                  <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">
-                    {project.title}
+                  
+                  <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4">
+                    {filteredProjects[0].title}
                   </h3>
-
-                  <p className="text-slate-600 text-lg leading-relaxed mb-6">{project.description}</p>
-
-                  {/* Technologies */}
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm font-medium hover:bg-blue-100 hover:text-blue-700 transition-all duration-300"
-                      >
+                  
+                  <p className="text-slate-600 leading-relaxed mb-6">
+                    {filteredProjects[0].description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {filteredProjects[0].technologies.map((tech, index) => (
+                      <span key={index} className="px-3 py-1 bg-white border border-slate-200 text-slate-700 rounded-full text-sm font-medium">
                         {tech}
                       </span>
                     ))}
                   </div>
-
-                  {/* Project Links */}
-                  <div className="flex gap-4">
-                    <motion.a
-                      href={project.projectLink}
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="group/btn bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center"
-                    >
-                      View Project
-                      <ExternalLink className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </motion.a>
-
-                    <motion.button
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="group/btn border-2 border-slate-300 text-slate-700 hover:border-blue-300 hover:text-blue-600 px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-blue-50 flex items-center"
-                    >
-                      <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </motion.button>
+                  
+                  <div className="flex gap-3">
+                    <a href={filteredProjects[0].projectLink} className="inline-flex items-center bg-slate-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-800 transition-colors">
+                      View Project <ExternalLink className="ml-2 w-4 h-4" />
+                    </a>
+                    <button className="inline-flex items-center border border-slate-300 text-slate-700 px-6 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">
+                      <Github className="w-4 h-4 mr-2" /> Code
+                    </button>
                   </div>
                 </div>
-
-                {/* Project Image */}
-                <div className="flex-1 lg:max-w-lg relative overflow-hidden">
+                
+                <div className="relative h-64 lg:h-auto">
                   <Image
-                    src={project.image || "/placeholder.svg?height=400&width=600"}
-                    alt={project.title}
-                    width={600}
-                    height={400}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    src={filteredProjects[0].image || "/placeholder.svg?height=400&width=600"}
+                    alt={filteredProjects[0].title}
+                    fill
+                    className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.div>
+          )}
+
+          {/* Other Projects Grid */}
+          {filteredProjects.length > 1 && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredProjects.slice(1).map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ y: 30, opacity: 0 }}
+                  animate={isProjectsInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 + (index * 0.1) }}
+                  className="group bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={project.image || "/placeholder.svg?height=300&width=400"}
+                      alt={project.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  
+                  <div className="p-6">
+                    <div className="text-sm text-slate-600 mb-2">{project.category}</div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-slate-700 transition-colors">
+                      {project.title}
+                    </h3>
+                    
+                    <p className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                      {project.description}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                        <span key={techIndex} className="px-2 py-1 bg-slate-100 text-slate-700 rounded text-xs font-medium">
+                          {tech}
+                        </span>
+                      ))}
+                      {project.technologies.length > 3 && (
+                        <span className="px-2 py-1 bg-slate-100 text-slate-700 rounded text-xs font-medium">
+                          +{project.technologies.length - 3}
+                        </span>
+                      )}
+                    </div>
+                    
+                    <div className="flex justify-between items-center">
+                      <a href={project.projectLink} className="text-slate-900 font-semibold hover:text-slate-700 transition-colors flex items-center text-sm">
+                        View Project <ExternalLink className="ml-1 w-3 h-3" />
+                      </a>
+                      <button className="text-slate-600 hover:text-slate-900 transition-colors">
+                        <Github className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
       {/* Tech Stack Section */}
-      <section className="py-24 bg-slate-50" ref={techRef}>
+      <section className="py-20 bg-slate-50" ref={techRef}>
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={isTechInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">Technology Stack</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              We leverage cutting-edge technologies to build scalable, performant, and maintainable solutions
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Our Technology Stack</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              We use enterprise-grade technologies to build scalable and maintainable solutions.
             </p>
-          </motion.div>
+          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {techStack.map((stack, index) => (
-              <motion.div
-                key={stack.category}
-                initial={{ y: 50, opacity: 0 }}
-                animate={isTechInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group bg-white border border-slate-200 rounded-2xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-300"
-              >
-                <div
-                  className={`w-16 h-16 bg-gradient-to-br ${stack.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
-                >
-                  <stack.icon className={`w-8 h-8 ${stack.iconColor}`} />
+              <div key={stack.category} className="bg-white border border-slate-200 rounded-xl p-6 text-center">
+                <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <stack.icon className="w-6 h-6 text-white" />
                 </div>
-
-                <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">
-                  {stack.category}
-                </h3>
-
-                <div className="space-y-2">
-                  {stack.technologies.map((tech) => (
-                    <div key={tech} className="text-slate-600 text-sm flex items-center">
-                      <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
-                      {tech}
-                    </div>
+                <h3 className="font-bold text-slate-900 mb-3">{stack.category}</h3>
+                <div className="space-y-1">
+                  {stack.technologies.slice(0, 4).map((tech) => (
+                    <div key={tech} className="text-slate-600 text-sm">{tech}</div>
                   ))}
+                  {stack.technologies.length > 4 && (
+                    <div className="text-slate-500 text-xs">+{stack.technologies.length - 4} more</div>
+                  )}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Results & Stats Section */}
-      <section className="py-24 bg-white" ref={statsRef}>
+      <section className="py-20 bg-white" ref={statsRef}>
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={isStatsInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">Proven Results</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Our commitment to excellence is reflected in the success metrics and client satisfaction we consistently
-              achieve
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Project Results</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Our commitment to quality and excellence is reflected in our project outcomes.
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ y: 50, opacity: 0 }}
-                animate={isStatsInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group text-center bg-white border border-slate-200 rounded-2xl p-8 hover:border-blue-300 hover:shadow-lg transition-all duration-300"
-              >
-                <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
-                  <stat.icon className="w-8 h-8 text-blue-600" />
+              <div key={stat.label} className="text-center bg-slate-50 rounded-xl p-6 border border-slate-200">
+                <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <stat.icon className="w-6 h-6 text-white" />
                 </div>
-
-                <div className="text-4xl md:text-5xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
-                  {stat.value}
-                </div>
-
-                <div className="text-lg font-semibold text-slate-700 mb-2">{stat.label}</div>
-                <div className="text-sm text-slate-500">{stat.description}</div>
-              </motion.div>
+                <div className="text-3xl font-bold text-slate-900 mb-2">{stat.value}</div>
+                <div className="text-sm font-medium text-slate-600">{stat.label}</div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-slate-900 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/placeholder.svg?height=600&width=1920"
-            alt="Start your next project"
-            width={1920}
-            height={600}
-            className="w-full h-full object-cover opacity-10"
-          />
-        </div>
-
-        {/* Animated background elements */}
-        <motion.div
-          className="absolute top-10 left-10 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl"
-          animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
-          transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-        />
-        <motion.div
-          className="absolute bottom-10 right-10 w-60 h-60 bg-slate-500/10 rounded-full blur-3xl"
-          animate={{ scale: [1.2, 1, 1.2], rotate: [360, 180, 0] }}
-          transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-        />
-
-        <div className="relative z-10 max-w-4xl mx-auto text-center px-6">
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-6xl font-bold mb-8 text-white">Ready to Start Your Next Project?</h2>
-            <p className="text-xl text-slate-300 leading-relaxed mb-12 max-w-2xl mx-auto">
-              Let&apos;s collaborate to bring your vision to life with innovative technology solutions that drive real
-              business results.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.a
-                href="/contact"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer"
-              >
-                Start Your Project
-              </motion.a>
-              <motion.a
-                href="#projects"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="border-2 border-white/30 hover:border-white/50 text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-white/10 cursor-pointer"
-              >
-                View More Projects
-              </motion.a>
-            </div>
-          </motion.div>
+      <section className="py-20 bg-slate-900">
+        <div className="max-w-4xl mx-auto text-center px-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Ready to start your next project?</h2>
+          <p className="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+            Let's collaborate to bring your vision to life with enterprise-grade technology solutions.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/contact"
+              className="bg-white text-slate-900 px-8 py-4 rounded-lg font-semibold hover:bg-slate-100 transition-colors"
+            >
+              Start Your Project
+            </a>
+            <a
+              href="#projects"
+              className="border border-white/30 hover:border-white/50 text-white px-8 py-4 rounded-lg font-semibold transition-all hover:bg-white/10"
+            >
+              View More Projects
+            </a>
+          </div>
         </div>
       </section>
     </div>
