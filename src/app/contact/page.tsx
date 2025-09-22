@@ -22,6 +22,7 @@ import {
   ArrowRight,
   User,
   Building,
+  ChevronDown,
 } from "lucide-react"
 import { useCalendly } from "../../components/CalendlyWidget"
 
@@ -30,8 +31,8 @@ const contactMethods = [
     icon: Mail,
     title: "Email Us",
     description: "Get in touch via email",
-    contact: "hello@codecraft.dev",
-    action: "mailto:hello@codecraft.dev",
+    contact: "hr.codekraft@gmail.com",
+    action: "mailto:hr.codekraft@gmail.com",
     color: "from-blue-100 to-blue-200",
     iconColor: "text-blue-600",
   },
@@ -39,8 +40,8 @@ const contactMethods = [
     icon: Phone,
     title: "Call Us",
     description: "Speak with our team",
-    contact: "+1 (555) 123-4567",
-    action: "tel:+15551234567",
+    contact: "+923300078486",
+    action: "tel:+923300078486",
     color: "from-green-100 to-green-200",
     iconColor: "text-green-600",
   },
@@ -49,7 +50,7 @@ const contactMethods = [
     title: "Live Chat",
     description: "Chat with us online",
     contact: "Available 24/7",
-    action: "https://wa.me/923180977791?text=Hi%20there!%20I'm%20interested%20in%20your%20services.",
+    action: "https://wa.me/923300078486?text=Hi%20there!%20I'm%20interested%20in%20your%20services.",
     color: "from-orange-100 to-orange-200",
     iconColor: "text-orange-600",
   },
@@ -125,6 +126,7 @@ export default function ContactPage() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
 
   const heroRef = useRef(null)
   const formRef = useRef(null)
@@ -159,6 +161,10 @@ export default function ContactPage() {
         projectType: "",
       })
     }, 3000)
+  }
+
+  const toggleFaq = (index: number) => {
+    setOpenFaqIndex(openFaqIndex === index ? null : index)
   }
 
   return (
@@ -224,9 +230,9 @@ export default function ContactPage() {
                   initial={{ y: 50, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="group relative overflow-hidden bg-gradient-to-br from-white via-slate-50/30 to-white rounded-2xl p-6 border border-slate-200/60 shadow-lg shadow-slate-200/40 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/70 hover:bg-gradient-to-br hover:from-white hover:via-blue-50/20 hover:to-slate-50/50 cursor-pointer"
+                  className="group relative overflow-hidden bg-gradient-to-br from-white via-slate-50/30 to-white rounded-2xl p-6 border border-slate-200/60 shadow-lg shadow-slate-200/40 backdrop-blur-sm text-left transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/70 hover:bg-gradient-to-br hover:from-white hover:via-blue-50/20 hover:to-slate-50/50 cursor-pointer"
                 >
-                  <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200/80 text-slate-700 flex items-center justify-center ring-1 ring-slate-200/50 shadow-sm group-hover:ring-blue-300/60 group-hover:shadow-md group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-blue-50 group-hover:to-slate-100 transition-all duration-300">
+                  <div className="w-12 h-12 mb-4 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200/80 text-slate-700 flex items-center justify-center ring-1 ring-slate-200/50 shadow-sm group-hover:ring-blue-300/60 group-hover:shadow-md group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-blue-50 group-hover:to-slate-100 transition-all duration-300">
                     <method.icon className={`w-6 h-6 group-hover:text-blue-600 transition-colors`} />
                   </div>
                   <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
@@ -266,7 +272,7 @@ export default function ContactPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="lg:col-span-2"
             >
-              <div className="bg-white border border-slate-200 rounded-2xl p-8 shadow-md">
+              <div className="group relative overflow-hidden rounded-2xl p-8 border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/30 to-white shadow-lg shadow-slate-200/40 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/70">
                 {!isSubmitted ? (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
@@ -275,7 +281,9 @@ export default function ContactPage() {
                           Full Name *
                         </label>
                         <div className="relative">
-                          <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400" />
+                          <div className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-xl bg-gradient-to-br from-slate-100 to-slate-200/80 ring-1 ring-slate-200/50 text-slate-700 flex items-center justify-center">
+                            <User className="w-5 h-5" />
+                          </div>
                           <input
                             type="text"
                             id="name"
@@ -283,7 +291,7 @@ export default function ContactPage() {
                             value={formData.name}
                             onChange={handleInputChange}
                             required
-                            className="w-full pl-12 pr-4 py-3 bg-slate-100 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                            className="w-full pl-16 pr-4 py-3 bg-slate-100 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                             placeholder="Your full name"
                           />
                         </div>
@@ -293,7 +301,9 @@ export default function ContactPage() {
                           Email Address *
                         </label>
                         <div className="relative">
-                          <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400" />
+                          <div className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-xl bg-gradient-to-br from-slate-100 to-slate-200/80 ring-1 ring-slate-200/50 text-slate-700 flex items-center justify-center">
+                            <Mail className="w-5 h-5" />
+                          </div>
                           <input
                             type="email"
                             id="email"
@@ -301,7 +311,7 @@ export default function ContactPage() {
                             value={formData.email}
                             onChange={handleInputChange}
                             required
-                            className="w-full pl-12 pr-4 py-3 bg-slate-100 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                            className="w-full pl-16 pr-4 py-3 bg-slate-100 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                             placeholder="your@email.com"
                           />
                         </div>
@@ -313,14 +323,16 @@ export default function ContactPage() {
                           Company
                         </label>
                         <div className="relative">
-                          <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400" />
+                          <div className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-xl bg-gradient-to-br from-slate-100 to-slate-200/80 ring-1 ring-slate-200/50 text-slate-700 flex items-center justify-center">
+                            <Building className="w-5 h-5" />
+                          </div>
                           <input
                             type="text"
                             id="company"
                             name="company"
                             value={formData.company}
                             onChange={handleInputChange}
-                            className="w-full pl-12 pr-4 py-3 bg-slate-100 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                            className="w-full pl-16 pr-4 py-3 bg-slate-100 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                             placeholder="Your company name"
                           />
                         </div>
@@ -365,23 +377,28 @@ export default function ContactPage() {
                       <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
                         Message *
                       </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        required
-                        rows={6}
-                        className="w-full px-4 py-3 bg-slate-100 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-all duration-300"
-                        placeholder="Tell us more about your project requirements, timeline, and goals..."
-                      ></textarea>
+                        <div className="relative">
+                          <div className="absolute left-3 top-3 w-9 h-9 rounded-xl bg-gradient-to-br from-slate-100 to-slate-200/80 ring-1 ring-slate-200/50 text-slate-700 flex items-center justify-center">
+                            <MessageSquare className="w-5 h-5" />
+                          </div>
+                          <textarea
+                            id="message"
+                            name="message"
+                            value={formData.message}
+                            onChange={handleInputChange}
+                            required
+                            rows={6}
+                            className="w-full pl-16 pr-4 py-3 bg-slate-100 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-all duration-300"
+                            placeholder="Tell us more about your project requirements, timeline, and goals..."
+                          ></textarea>
+                        </div>
                     </div>
                     <motion.button
                       type="submit"
                       disabled={isSubmitting}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-slate-400 text-white px-6 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center"
+                      className="w-full bg-slate-900 hover:bg-slate-800 disabled:bg-slate-400 text-white px-6 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center"
                     >
                       {isSubmitting ? (
                         <>
@@ -425,13 +442,13 @@ export default function ContactPage() {
             >
               {/* First info div - aligns with top of form */}
               {officeInfo.slice(0, 1).map((info) => (
-                <div key={info.title} className="bg-white border border-slate-200 rounded-2xl p-5 shadow-md flex-1">
+                <div key={info.title} className="group relative overflow-hidden rounded-2xl p-5 border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/30 to-white shadow-lg shadow-slate-200/40 flex-1 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/70">
                   <div className="flex items-start">
-                    <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center mr-3 flex-shrink-0">
-                      <info.icon className="w-5 h-5 text-blue-600" />
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200/80 text-slate-700 flex items-center justify-center mr-3 flex-shrink-0 ring-1 ring-slate-200/50 shadow-sm group-hover:ring-blue-300/60 group-hover:shadow-md group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-blue-50 group-hover:to-slate-100 transition-all duration-300">
+                      <info.icon className="w-6 h-6 group-hover:text-blue-600 transition-colors" />
                     </div>
                     <div>
-                      <h3 className="text-base font-bold text-slate-900 mb-2">{info.title}</h3>
+                      <h3 className="text-base font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">{info.title}</h3>
                       <div className="space-y-1">
                         {info.details.map((detail, detailIndex) => (
                           <p key={detailIndex} className="text-slate-600 text-xs leading-relaxed">
@@ -441,18 +458,20 @@ export default function ContactPage() {
                       </div>
                     </div>
                   </div>
+                  <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-transparent via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
               ))}
               
               {/* Second info div */}
               {officeInfo.slice(1, 2).map((info) => (
-                <div key={info.title} className="bg-white border border-slate-200 rounded-2xl p-5 shadow-md flex-1">
+                <div key={info.title} className="group relative overflow-hidden rounded-2xl p-5 border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/30 to-white shadow-lg shadow-slate-200/40 flex-1 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/70">
                   <div className="flex items-start">
-                    <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center mr-3 flex-shrink-0">
-                      <info.icon className="w-5 h-5 text-blue-600" />
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200/80 text-slate-700 flex items-center justify-center mr-3 flex-shrink-0 ring-1 ring-slate-200/50 shadow-sm group-hover:ring-blue-300/60 group-hover:shadow-md group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-blue-50 group-hover:to-slate-100 transition-all duration-300">
+                      <info.icon className="w-6 h-6 group-hover:text-blue-600 transition-colors" />
                     </div>
                     <div>
-                      <h3 className="text-base font-bold text-slate-900 mb-2">{info.title}</h3>
+                      <h3 className="text-base font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">{info.title}</h3>
                       <div className="space-y-1">
                         {info.details.map((detail, detailIndex) => (
                           <p key={detailIndex} className="text-slate-600 text-xs leading-relaxed">
@@ -462,18 +481,20 @@ export default function ContactPage() {
                       </div>
                     </div>
                   </div>
+                  <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-transparent via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
               ))}
               
               {/* Third info div */}
               {officeInfo.slice(2, 3).map((info) => (
-                <div key={info.title} className="bg-white border border-slate-200 rounded-2xl p-5 shadow-md flex-1">
+                <div key={info.title} className="group relative overflow-hidden rounded-2xl p-5 border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/30 to-white shadow-lg shadow-slate-200/40 flex-1 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/70">
                   <div className="flex items-start">
-                    <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center mr-3 flex-shrink-0">
-                      <info.icon className="w-5 h-5 text-blue-600" />
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200/80 text-slate-700 flex items-center justify-center mr-3 flex-shrink-0 ring-1 ring-slate-200/50 shadow-sm group-hover:ring-blue-300/60 group-hover:shadow-md group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-blue-50 group-hover:to-slate-100 transition-all duration-300">
+                      <info.icon className="w-6 h-6 group-hover:text-blue-600 transition-colors" />
                     </div>
                     <div>
-                      <h3 className="text-base font-bold text-slate-900 mb-2">{info.title}</h3>
+                      <h3 className="text-base font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">{info.title}</h3>
                       <div className="space-y-1">
                         {info.details.map((detail, detailIndex) => (
                           <p key={detailIndex} className="text-slate-600 text-xs leading-relaxed">
@@ -483,11 +504,13 @@ export default function ContactPage() {
                       </div>
                     </div>
                   </div>
+                  <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-transparent via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
               ))}
               
               {/* Social Links - Fourth div */}
-              <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-md flex-1">
+              <div className="group relative overflow-hidden rounded-2xl p-5 border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/30 to-white shadow-lg shadow-slate-200/40 flex-1 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/70">
                 <h3 className="text-base font-bold text-slate-900 mb-3">Follow Us</h3>
                 <div className="flex gap-3 justify-center">
                   {socialLinks.map((social) => (
@@ -496,12 +519,14 @@ export default function ContactPage() {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`w-9 h-9 bg-slate-100 hover:bg-blue-100 rounded-lg flex items-center justify-center transition-all duration-300 ${social.color}`}
+                      className="w-10 h-10 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200/80 text-slate-700 flex items-center justify-center ring-1 ring-slate-200/50 shadow-sm transition-all duration-300 hover:ring-blue-300/60 hover:shadow-md hover:scale-110 hover:bg-gradient-to-br hover:from-blue-50 hover:to-slate-100"
                     >
-                      <social.icon className={`w-4 h-4 ${social.color.replace("hover:", "")}`} />
+                      <social.icon className="w-4 h-4 transition-colors" />
                     </a>
                   ))}
                 </div>
+                <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-transparent via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </motion.div>
           </div>
@@ -521,19 +546,59 @@ export default function ContactPage() {
             <p className="text-xl text-slate-600">Quick answers to common questions about our services and process</p>
           </motion.div>
 
-          <div className="space-y-6">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ y: 50, opacity: 0 }}
-                animate={isFaqInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white border border-slate-200 rounded-2xl p-6 shadow-md hover:border-blue-300 transition-all duration-300"
-              >
-                <h3 className="text-lg font-bold text-slate-900 mb-3">{faq.question}</h3>
-                <p className="text-slate-700 leading-relaxed">{faq.answer}</p>
-              </motion.div>
-            ))}
+          <div className="space-y-4">
+            {faqs.map((faq, index) => {
+              const isOpen = openFaqIndex === index
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ y: 50, opacity: 0 }}
+                  animate={isFaqInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="group relative overflow-hidden rounded-2xl border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/30 to-white shadow-lg shadow-slate-200/40 backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:shadow-slate-200/50 hover:border-slate-300/70"
+                >
+                  {/* Question Header - Clickable */}
+                  <button
+                    onClick={() => toggleFaq(index)}
+                    className="w-full text-left p-6 flex items-center justify-between transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-white rounded-2xl"
+                  >
+                    <h3 className="text-lg font-bold text-slate-900 transition-colors pr-4">
+                      {faq.question}
+                    </h3>
+                    <div className="flex-shrink-0">
+                      <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center transition-all duration-300">
+                        <ChevronDown 
+                          className={`w-4 h-4 text-slate-600 transition-all duration-300 ${
+                            isOpen ? 'transform rotate-180' : ''
+                          }`}
+                        />
+                      </div>
+                    </div>
+                  </button>
+
+                  {/* Answer Content - Expandable */}
+                  <motion.div
+                    initial={false}
+                    animate={{
+                      height: isOpen ? 'auto' : 0,
+                      opacity: isOpen ? 1 : 0,
+                    }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-6 pb-6">
+                      <div className="border-t border-slate-200/60 pt-4">
+                        <p className="text-slate-700 leading-relaxed">{faq.answer}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Decorative elements */}
+                  <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-transparent via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </motion.div>
+              )
+            })}
           </div>
         </div>
       </section>
