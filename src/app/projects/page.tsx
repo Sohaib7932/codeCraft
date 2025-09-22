@@ -102,9 +102,8 @@ export default function Projects() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section ref={heroRef} className="relative bg-slate-50 overflow-hidden">
-        {/* Subtle background pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,_transparent_25%,_rgba(15,_23,_42,_0.02)_25%,_rgba(15,_23,_42,_0.02)_50%,_transparent_50%,_transparent_75%,_rgba(15,_23,_42,_0.02)_75%)] bg-[length:32px_32px]" />
+      <section ref={heroRef} className="relative">
+        
         
         <div className="relative max-w-7xl mx-auto px-6 py-24 md:py-32">
           <div className="text-center">
@@ -113,10 +112,6 @@ export default function Projects() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
-                <Award className="w-4 h-4" />
-                Project Portfolio
-              </div>
 
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-none mb-8">
                 Enterprise solutions
@@ -290,7 +285,13 @@ export default function Projects() {
                   </div>
                   
                   <div className="p-6">
-                    <div className="text-sm text-slate-600 mb-2">{project.category}</div>
+                    <div className="text-sm text-slate-600 mb-2">
+                      {project.category === 'web' ? 'Web Apps' :
+                       project.category === 'mobile' ? 'Mobile' :
+                       project.category === 'ecommerce' ? 'E-commerce' :
+                       project.category === 'enterprise' ? 'Enterprise' :
+                       project.category}
+                    </div>
                     <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-slate-700 transition-colors">
                       {project.title}
                     </h3>

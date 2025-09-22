@@ -7,6 +7,7 @@ import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import {
   ArrowLeft,
+  ArrowRight,
   Calendar,
   Users,
   Target,
@@ -72,7 +73,7 @@ export default function CaseStudyPage() {
             <p className="text-xl text-slate-600 mb-8">The case study you are looking for does not exist.</p>
             <Link
               href="/case-studies"
-              className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="inline-flex items-center bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               <ArrowLeft className="w-5 h-5 mr-2" />
               Back to Case Studies
@@ -179,15 +180,6 @@ export default function CaseStudyPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center max-w-6xl mx-auto w-full"
           >
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center px-6 py-3 bg-slate-100 border border-slate-200 rounded-full text-slate-700 text-sm font-medium mb-8 shadow-sm"
-            >
-              <Award className="w-4 h-4 mr-2 text-blue-500" />
-              {caseStudy.industry} Success Story
-            </motion.div>
 
             <motion.h1
               initial={{ y: 50, opacity: 0 }}
@@ -257,10 +249,12 @@ export default function CaseStudyPage() {
                 initial={{ y: 50, opacity: 0 }}
                 animate={isOverviewInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
                 transition={{ duration: 0.6 }}
-                className="bg-white border border-slate-200 rounded-2xl p-8 shadow-md"
+                className="group relative overflow-hidden rounded-2xl p-8 border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/30 to-white shadow-lg shadow-slate-200/40 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/70"
               >
                 <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center">
-                  <Target className="w-8 h-8 mr-3 text-blue-600" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-slate-900 to-slate-800 rounded-xl flex items-center justify-center mr-3 shadow-lg shadow-slate-900/30 ring-1 ring-white/20">
+                    <Target className="w-6 h-6 text-white" />
+                  </div>
                   The Challenge
                 </h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -272,10 +266,12 @@ export default function CaseStudyPage() {
                 initial={{ y: 50, opacity: 0 }}
                 animate={isOverviewInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-white border border-slate-200 rounded-2xl p-8 shadow-md"
+                className="group relative overflow-hidden rounded-2xl p-8 border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/30 to-white shadow-lg shadow-slate-200/40 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/70"
               >
                 <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center">
-                  <Code className="w-8 h-8 mr-3 text-blue-600" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-slate-900 to-slate-800 rounded-xl flex items-center justify-center mr-3 shadow-lg shadow-slate-900/30 ring-1 ring-white/20">
+                    <Code className="w-6 h-6 text-white" />
+                  </div>
                   Our Solution
                 </h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -335,32 +331,32 @@ export default function CaseStudyPage() {
                 initial={{ y: 50, opacity: 0 }}
                 animate={isOverviewInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="bg-white border border-slate-200 rounded-2xl p-6 shadow-md h-fit"
+                className="group relative overflow-hidden rounded-2xl p-6 border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/30 to-white shadow-lg shadow-slate-200/40 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/70 h-fit"
               >
                 <h3 className="text-xl font-semibold text-slate-900 mb-6">Project Details</h3>
                 <div className="space-y-4">
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4">
-                      <Calendar className="w-6 h-6 text-blue-600" />
-                    </div>
+                <div className="flex items-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-slate-900 to-slate-800 rounded-xl flex items-center justify-center mr-4 shadow-lg shadow-slate-900/30 ring-1 ring-white/20">
+                    <Calendar className="w-6 h-6 text-white" />
+                  </div>
                     <div>
                       <p className="text-slate-600 text-sm">Duration</p>
                       <p className="text-slate-900 font-semibold">{caseStudy.duration}</p>
                     </div>
                   </div>
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mr-4">
-                      <Users className="w-6 h-6 text-green-600" />
-                    </div>
+                <div className="flex items-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-slate-900 to-slate-800 rounded-xl flex items-center justify-center mr-4 shadow-lg shadow-slate-900/30 ring-1 ring-white/20">
+                    <Users className="w-6 h-6 text-white" />
+                  </div>
                     <div>
                       <p className="text-slate-600 text-sm">Team Size</p>
                       <p className="text-slate-900 font-semibold">8 Specialists</p>
                     </div>
                   </div>
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mr-4">
-                      <Award className="w-6 h-6 text-orange-600" />
-                    </div>
+                <div className="flex items-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-slate-900 to-slate-800 rounded-xl flex items-center justify-center mr-4 shadow-lg shadow-slate-900/30 ring-1 ring-white/20">
+                    <Award className="w-6 h-6 text-white" />
+                  </div>
                     <div>
                       <p className="text-slate-600 text-sm">Industry</p>
                       <p className="text-slate-900 font-semibold">{caseStudy.industry}</p>
@@ -374,7 +370,7 @@ export default function CaseStudyPage() {
                 initial={{ y: 50, opacity: 0 }}
                 animate={isOverviewInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-white border border-slate-200 rounded-2xl p-6 shadow-md"
+                className="group relative overflow-hidden rounded-2xl p-6 border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/30 to-white shadow-lg shadow-slate-200/40 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/70"
               >
                 <h3 className="text-xl font-semibold text-slate-900 mb-6">Technologies Used</h3>
                 <div className="flex flex-wrap gap-2">
@@ -394,7 +390,7 @@ export default function CaseStudyPage() {
                 initial={{ y: 50, opacity: 0 }}
                 animate={isOverviewInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="bg-white border border-slate-200 rounded-2xl p-6 shadow-md mt-12"
+                className="group relative overflow-hidden rounded-2xl p-6 border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/30 to-white shadow-lg shadow-slate-200/40 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/70 mt-12"
               >
                 <h3 className="text-xl font-semibold text-slate-900 mb-4">Quick Stats</h3>
                 <div className="space-y-3">
@@ -440,8 +436,8 @@ export default function CaseStudyPage() {
                 className="group bg-white border border-slate-200 rounded-2xl p-6 shadow-md hover:border-green-300 hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mr-4 group-hover:bg-green-200 transition-colors duration-300">
-                    <CheckCircle className="w-6 h-6 text-green-600" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-slate-900 to-slate-800 rounded-xl flex items-center justify-center mr-4 shadow-lg shadow-slate-900/30 ring-1 ring-white/20 group-hover:shadow-xl group-hover:shadow-slate-900/40 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-blue-900 group-hover:to-slate-900 transition-all duration-300">
+                    <CheckCircle className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
                     <p className="text-slate-900 font-semibold text-lg leading-tight group-hover:text-green-700 transition-colors">
@@ -478,9 +474,9 @@ export default function CaseStudyPage() {
                 className="group text-center bg-white border border-slate-200 rounded-2xl p-6 shadow-md hover:border-blue-300 hover:shadow-lg transition-all duration-300"
               >
                 <div
-                  className={`w-16 h-16 bg-gradient-to-br ${step.color} rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
+                  className="w-16 h-16 bg-gradient-to-br from-slate-900 to-slate-800 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-slate-900/30 ring-1 ring-white/20 group-hover:shadow-xl group-hover:shadow-slate-900/40 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-blue-900 group-hover:to-slate-900 transition-all duration-300"
                 >
-                  <step.icon className={`w-8 h-8 ${step.iconColor}`} />
+                  <step.icon className="w-8 h-8 text-white" />
                 </div>
 
                 <div className="text-2xl font-bold text-blue-600 mb-3">{String(index + 1).padStart(2, "0")}</div>
@@ -513,7 +509,7 @@ export default function CaseStudyPage() {
                   &ldquo;{caseStudy.testimonial.quote}&rdquo;
                 </blockquote>
                 <div className="text-center">
-                  <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-2xl font-bold mx-auto mb-4 shadow-md">
+                  <div className="w-20 h-20 bg-gradient-to-br from-slate-900 to-slate-800 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 shadow-lg shadow-slate-900/30 ring-1 ring-white/20">
                     {caseStudy.testimonial.author.charAt(0)}
                   </div>
                   <p className="text-slate-900 font-bold text-xl mb-2">{caseStudy.testimonial.author}</p>
@@ -537,15 +533,17 @@ export default function CaseStudyPage() {
           <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
             <Link
               href="/contact"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl text-center"
+              className="group inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:shadow-lg hover:scale-105"
             >
               Start Your Project
+              <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-0.5" />
             </Link>
             <Link
               href="/projects"
-              className="border-2 border-slate-300 hover:border-blue-300 text-slate-700 hover:text-blue-600 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-blue-50 text-center"
+              className="group inline-flex items-center justify-center border border-slate-300 hover:border-slate-400 text-slate-700 hover:text-slate-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:bg-white hover:shadow-lg hover:scale-105"
             >
               View More Projects
+              <ExternalLink className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
         </section>

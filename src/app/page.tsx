@@ -143,9 +143,8 @@ RUN npm ci --only=production` }
   return (
     <div className="min-h-screen bg-white">
       {/* Enterprise Hero */}
-      <section ref={heroRef} className="relative overflow-hidden bg-slate-50">
-        {/* Subtle background pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,_transparent_25%,_rgba(15,_23,_42,_0.02)_25%,_rgba(15,_23,_42,_0.02)_50%,_transparent_50%,_transparent_75%,_rgba(15,_23,_42,_0.02)_75%)] bg-[length:32px_32px]" />
+      <section ref={heroRef} className="relative">
+        
         
         <div className="relative max-w-7xl mx-auto px-6 py-24 md:py-32">
           <div className="text-center">
@@ -154,10 +153,6 @@ RUN npm ci --only=production` }
               animate={isHeroInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
-                <Shield className="w-4 h-4" />
-                Enterprise Software Development
-              </div>
 
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-none mb-8">
                 Build software that

@@ -25,7 +25,7 @@ const teamMembers = [
   {
     name: "Maarij Bukhari",
     role: "CEO & Founder",
-    image: "/assets/maarij.jpg",
+    image: "/assets/maarij.png",
     description: "Visionary leader with 8+ years of experience in business strategy and technology innovation.",
     expertise: ["Business Strategy", "Product Vision", "Team Leadership"],
     social: {
@@ -170,10 +170,6 @@ export default function AboutPage() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
-                <Users className="w-4 h-4" />
-                About CodeCraft
-              </div>
 
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-none mb-8">
                 Transforming ideas
@@ -340,9 +336,8 @@ export default function AboutPage() {
                 initial={{ y: 50, opacity: 0 }}
                 animate={isTeamInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-md hover:border-blue-300 hover:shadow-lg transition-all duration-300"
+                className="group relative overflow-hidden rounded-2xl border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/30 to-white shadow-lg shadow-slate-200/40 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/70 hover:bg-gradient-to-br hover:from-white hover:via-blue-50/20 hover:to-slate-50/50"
               >
-                <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 {/* Image Section */}
                 <div className="relative overflow-hidden">
                   <Image
@@ -354,50 +349,56 @@ export default function AboutPage() {
                   />
                 </div>
                 {/* Content Section */}
-                <div className="relative p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
-                    {member.name}
-                  </h3>
-                  <p className="text-blue-600 font-semibold mb-3">{member.role}</p>
-                  <p className="text-slate-700 text-sm leading-relaxed mb-4">{member.description}</p>
-                  {/* Expertise Tags */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {member.expertise.map((skill, skillIndex) => (
-                      <span
-                        key={skillIndex}
-                        className="px-2 py-1 bg-slate-100 text-slate-700 rounded text-xs font-medium"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+                <div className="relative p-6 flex flex-col h-[360px]">
+                  <div className="flex-grow">
+                    <h3 className="text-xl font-bold text-slate-900 mb-2 h-[28px] leading-tight">
+                      {member.name}
+                    </h3>
+                    <p className="text-blue-600 font-semibold mb-3 h-[24px]">{member.role}</p>
+                    <p className="text-slate-700 text-sm leading-relaxed mb-4 h-[80px] overflow-hidden">{member.description}</p>
+                    {/* Expertise Tags */}
+                    <div className="flex flex-wrap gap-2 mb-4 h-[84px]">
+                      {member.expertise.map((skill, skillIndex) => (
+                        <span
+                          key={skillIndex}
+                          className="px-2 py-1 bg-slate-100 text-slate-700 rounded text-xs font-medium h-fit"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  {/* Social Links */}
-                  <div className="flex gap-3">
+                  {/* Social Links - Fixed at bottom */}
+                  <div className="flex gap-3 mt-auto">
                     {member.social.linkedin && (
                       <a
                         href={member.social.linkedin}
-                        className="w-8 h-8 bg-blue-100 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors"
+                        className="w-8 h-8 bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-lg flex items-center justify-center shadow-sm ring-1 ring-white/20 transition-all duration-300 hover:shadow-md hover:scale-110 hover:bg-gradient-to-br hover:from-blue-900 hover:to-slate-900"
                       >
-                        <Linkedin className="w-4 h-4 text-blue-600 group-hover:text-white" />
+                        <Linkedin className="w-4 h-4" />
                       </a>
                     )}
                     {member.social.github && (
                       <a
                         href={member.social.github}
-                        className="w-8 h-8 bg-slate-100 hover:bg-slate-600 rounded-lg flex items-center justify-center transition-colors"
+                        className="w-8 h-8 bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-lg flex items-center justify-center shadow-sm ring-1 ring-white/20 transition-all duration-300 hover:shadow-md hover:scale-110 hover:bg-gradient-to-br hover:from-blue-900 hover:to-slate-900"
                       >
-                        <Github className="w-4 h-4 text-slate-600 group-hover:text-white" />
+                        <Github className="w-4 h-4" />
                       </a>
                     )}
                     {member.social.email && (
                       <a
                         href={`mailto:${member.social.email}`}
-                        className="w-8 h-8 bg-slate-100 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors"
+                        className="w-8 h-8 bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-lg flex items-center justify-center shadow-sm ring-1 ring-white/20 transition-all duration-300 hover:shadow-md hover:scale-110 hover:bg-gradient-to-br hover:from-blue-900 hover:to-slate-900"
                       >
-                        <Mail className="w-4 h-4 text-slate-600 group-hover:text-white" />
+                        <Mail className="w-4 h-4" />
                       </a>
                     )}
                   </div>
+                
+                  {/* Glassmorphism decorative elements */}
+                  <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-transparent via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
               </motion.div>
             ))}

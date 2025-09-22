@@ -136,10 +136,6 @@ export default function CaseStudies() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
-                <Award className="w-4 h-4" />
-                Success Stories
-              </div>
 
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-none mb-8">
                 Proven Results
@@ -263,7 +259,7 @@ export default function CaseStudies() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={isCasesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative bg-white border border-slate-200 rounded-2xl overflow-hidden hover:border-blue-300 hover:shadow-xl transition-all duration-300"
+                className="group relative overflow-hidden rounded-2xl border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/30 to-white shadow-lg shadow-slate-200/40 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-slate-300/70 hover:bg-gradient-to-br hover:from-white hover:via-blue-50/20 hover:to-slate-50/50"
               >
                 {/* Image Section */}
                 <div className="relative h-48 overflow-hidden">
@@ -284,7 +280,7 @@ export default function CaseStudies() {
 
                 {/* Content Section */}
                 <div className="relative p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors leading-tight">
+                  <h3 className="text-xl font-bold text-slate-900 mb-3 transition-colors leading-tight">
                     {study.title}
                   </h3>
                   <p className="text-slate-600 text-sm mb-4 leading-relaxed line-clamp-3">{study.description}</p>
@@ -329,12 +325,16 @@ export default function CaseStudies() {
                   {/* CTA Button */}
                   <Link
                     href={`/case-studies/${study.id}`}
-                    className="group/btn inline-flex items-center justify-center w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+                    className="group/btn inline-flex items-center justify-center w-full bg-slate-900 hover:bg-slate-800 text-white py-3 rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
                   >
                     View Case Study
-                    <ExternalLink className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                    <ExternalLink className="ml-2 w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" />
                   </Link>
                 </div>
+                
+                {/* Glassmorphism decorative elements */}
+                <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-transparent via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
             ))}
           </div>

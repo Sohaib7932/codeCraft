@@ -7,7 +7,7 @@
       "image": "/assets/homepage.png",
       "technologies": ["React", "Node.js", "MongoDB"],
       "projectLink": "#",
-      "category": "Web Development"
+      "category": "web"
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "image": "/assets/homepage.png",
       "technologies": ["React Native", "Firebase", "AWS"],
       "projectLink": "#",
-      "category": "Mobile Development"
+      "category": "mobile"
     },
     {
       "id": 3,
@@ -25,7 +25,7 @@
       "image": "/assets/homepage.png",
       "technologies": ["Vue.js", "Python", "PostgreSQL"],
       "projectLink": "#",
-      "category": "Data Analytics"
+      "category": "web"
     },
     {
       "id": 4,
@@ -34,7 +34,52 @@
       "image": "/assets/homepage.png",
       "technologies": ["Angular", "Spring Boot", "MySQL"],
       "projectLink": "#",
-      "category": "Enterprise Software"
+      "category": "enterprise"
+    },
+    {
+      "id": 5,
+      "title": "Online Marketplace",
+      "description": "Multi-vendor e-commerce marketplace with advanced search, seller dashboard, commission tracking, and secure payment processing.",
+      "image": "/assets/homepage.png",
+      "technologies": ["React", "Node.js", "Stripe", "Redis"],
+      "projectLink": "#",
+      "category": "ecommerce"
+    },
+    {
+      "id": 6,
+      "title": "Food Delivery App",
+      "description": "Complete food delivery solution with real-time tracking, payment integration, and restaurant management system.",
+      "image": "/assets/homepage.png",
+      "technologies": ["React Native", "Express", "MongoDB", "Socket.io"],
+      "projectLink": "#",
+      "category": "mobile"
+    },
+    {
+      "id": 7,
+      "title": "Digital Banking Platform",
+      "description": "Secure online banking platform with account management, transaction history, loan processing, and fraud detection.",
+      "image": "/assets/homepage.png",
+      "technologies": ["Next.js", "Java", "PostgreSQL", "AWS"],
+      "projectLink": "#",
+      "category": "enterprise"
+    },
+    {
+      "id": 8,
+      "title": "Fashion E-Store",
+      "description": "Modern fashion retail platform with AR try-on features, wishlist, size recommendations, and social shopping.",
+      "image": "/assets/homepage.png",
+      "technologies": ["Vue.js", "Python", "TensorFlow", "Shopify API"],
+      "projectLink": "#",
+      "category": "ecommerce"
+    },
+    {
+      "id": 9,
+      "title": "Project Management Suite",
+      "description": "Comprehensive project management platform with task tracking, team collaboration, time logging, and reporting.",
+      "image": "/assets/homepage.png",
+      "technologies": ["React", "GraphQL", "PostgreSQL", "Docker"],
+      "projectLink": "#",
+      "category": "web"
     }
   ]
 }

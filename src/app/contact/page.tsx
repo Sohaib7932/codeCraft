@@ -179,10 +179,6 @@ export default function ContactPage() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
-                <MessageSquare className="w-4 h-4" />
-                Get In Touch
-              </div>
 
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-none mb-8">
                 Let&apos;s Build Something
@@ -588,7 +584,7 @@ export default function ContactPage() {
                   >
                     <div className="px-6 pb-6">
                       <div className="border-t border-slate-200/60 pt-4">
-                        <p className="text-slate-700 leading-relaxed">{faq.answer}</p>
+                        <p className="text-slate-700 leading-relaxed text-base">{faq.answer}</p>
                       </div>
                     </div>
                   </motion.div>
